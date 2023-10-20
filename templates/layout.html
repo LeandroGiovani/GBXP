@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="static/img/logoG1.png" type="image/x-icon">
+    <link rel="stylesheet" href="static/css/style.css">
+    <link rel="stylesheet" href="static/css/adap.css">
+    <link rel="stylesheet" href="static/css/star.css">
+    <title>GB XP</title>
+</head>
+<body>
+    <div class="preloader" id="loading">
+        <div class="loader" id="loader"></div>
+    </div>
+    {% block content %}{% endblock %}
+
+    <script src="static/js/script.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js"></script>
+    <script>
+        $('.tel').mask("(99) 99999-9999");
+        $('.tel').mouseover(function(){$(this).attr('placeholder','(__)_____-____')});
+        $('.tel').mouseout(function(){$(this).attr('placeholder','Telefone')});
+    </script>
+    <script>
+        var loading = document.getElementById("loading")
+        var loader = document.getElementById("loader")
+        var body = document.getElementById("body")
+        window.addEventListener("load", function(){
+            loader.style.opacity = "0"
+            vinheta()
+            vinhetaOut()
+        })
+        
+        function vinheta(){
+            setTimeout(()=>{
+                scroll(0, 0)
+            loading.style.height = "0vh"
+            }, 350)
+        }
+        
+        
+        function vinhetaOut(){
+            setTimeout(()=>{
+                loader.style.display = "none";
+            }, 350)
+        }
+    </script>
+    {% block page_js %}{% endblock %}
+</body>
+</html>

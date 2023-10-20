@@ -1,0 +1,43 @@
+{% extends 'layout.html' %}
+{% block content %}
+<body>
+    <div class="radial">
+        <div id="stars"></div>
+        <div id="stars2"></div>
+        <div id="stars3"></div>
+        {% include 'navbar2.html' %}
+        <section class="form">
+            <form action="/form" method="POST" class="box">
+                <div class="text-form">
+                    <h1>Junte-se a nós!</h1>
+                    <p>Cadastre-se agora e faça parte da experiência GBXP.</p>
+                </div>
+                <div class="input-group">
+                    <label for="nome">Nome</label>
+                    <input required type="text" class="input-form" id="nome_completo" name="nome_completo" maxlength="45" minlength="2" placeholder="Nome" tabindex="1" autofocus>
+                </div>
+                <div class="input-group">
+                    <label for="email">Email</label>
+                    <input required type="email" class="input-form" id="input-form" name="email" maxlength="100" placeholder="Email" tabindex="2">
+                </div>
+                <div class="input-group">
+                    <label class="tel" for="tel">Telefone</label>
+                    <input required type="tel" class="input-form tel" id="input-form tel" name="telefone" maxlength="45" placeholder="Telefone" tabindex="3">
+                </div>
+                <div class="div-btn-submit">
+                    <button class="btn-submit btn-star" type="submit" tabindex="4">
+                        <strong>ENVIAR</strong>
+                        <div id="container-stars">
+                            <div id="stars"></div>
+                            <div id="stars2"></div>
+                            <div id="stars3"></div>
+                            <div id="starsBtn"></div>
+                        </div>
+                    </button>
+                </div>
+            </form>
+        </section>
+    </div>
+    <iframe style="display: none;" width="560" height="315" src="https://www.youtube.com/embed/U5iUc8U3coI?si=D3Obg9jxU9_tlKFZ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</body>
+{% endblock %}

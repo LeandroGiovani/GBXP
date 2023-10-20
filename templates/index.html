@@ -1,0 +1,127 @@
+{% extends'layout.html' %}
+{% block content %}
+
+<body id="body">
+    <main class="home-stars">
+        <div class="radial">
+            <div id="stars"></div>
+            <div id="stars2"></div>
+            <div id="stars3"></div>
+            {% include 'navbar.html' %}
+            <section id="sec-index">
+                <section class="sec-inicio" id="inicio">
+                    <div class="div-inicio" id="div-inicio">
+                        <h1 class="tx-titulo">GAME BARRETOS EXPERIENCE</h1>
+                        <div class="btns-inicio">
+                            <a href="/"><button class="btn-saiba">Saiba mais</button></a>
+                            <a href="/"><button class="btn-cadastro2">Quero participar</button></a>
+                        </div>
+                    </div>
+                </section>
+                <section class="imgs">
+                    <div class="slide1">
+                        <div class="logo-slide1">
+                            <div class="img-slide"><img class="imgs-img" src="static/img/imagemTeste.svg"></div>
+                            <div class="img-slide"><img class="imgs-img" src="static/img/imagemTeste.svg"></div>
+                            <div class="img-slide"><img class="imgs-img" src="static/img/imagemTeste.svg"></div>
+                            <div class="img-slide"><img class="imgs-img" src="static/img/imagemTeste.svg"></div>
+                            <div class="img-slide"><img class="imgs-img" src="static/img/imagemTeste.svg"></div>
+                            <div class="img-slide"><img class="imgs-img" src="static/img/imagemTeste.svg"></div>
+                            <div class="img-slide"><img class="imgs-img" src="static/img/imagemTeste.svg"></div>
+                            <div class="img-slide"><img class="imgs-img" src="static/img/imagemTeste.svg"></div>
+                        </div>
+                        <div class="logo-slide1">
+                            <div class="img-slide"><img class="imgs-img" src="static/img/imagemTeste.svg"></div>
+                            <div class="img-slide"><img class="imgs-img" src="static/img/imagemTeste.svg"></div>
+                            <div class="img-slide"><img class="imgs-img" src="static/img/imagemTeste.svg"></div>
+                            <div class="img-slide"><img class="imgs-img" src="static/img/imagemTeste.svg"></div>
+                            <div class="img-slide"><img class="imgs-img" src="static/img/imagemTeste.svg"></div>
+                            <div class="img-slide"><img class="imgs-img" src="static/img/imagemTeste.svg"></div>
+                            <div class="img-slide"><img class="imgs-img" src="static/img/imagemTeste.svg"></div>
+                            <div class="img-slide"><img class="imgs-img" src="static/img/imagemTeste.svg"></div>
+                        </div>
+                    </div>
+                    <div class="slide2">
+                        <div class="logo-slide2">
+                            <div class="img-slide"><img class="imgs-img" src="static/img/imagemTeste.svg"></div>
+                            <div class="img-slide"><img class="imgs-img" src="static/img/imagemTeste.svg"></div>
+                            <div class="img-slide"><img class="imgs-img" src="static/img/imagemTeste.svg"></div>
+                            <div class="img-slide"><img class="imgs-img" src="static/img/imagemTeste.svg"></div>
+                            <div class="img-slide"><img class="imgs-img" src="static/img/imagemTeste.svg"></div>
+                            <div class="img-slide"><img class="imgs-img" src="static/img/imagemTeste.svg"></div>
+                            <div class="img-slide"><img class="imgs-img" src="static/img/imagemTeste.svg"></div>
+                            <div class="img-slide"><img class="imgs-img" src="static/img/imagemTeste.svg"></div>
+                        </div>
+                        <div class="logo-slide2">
+                            <div class="img-slide"><img class="imgs-img" src="static/img/imagemTeste.svg"></div>
+                            <div class="img-slide"><img class="imgs-img" src="static/img/imagemTeste.svg"></div>
+                            <div class="img-slide"><img class="imgs-img" src="static/img/imagemTeste.svg"></div>
+                            <div class="img-slide"><img class="imgs-img" src="static/img/imagemTeste.svg"></div>
+                            <div class="img-slide"><img class="imgs-img" src="static/img/imagemTeste.svg"></div>
+                            <div class="img-slide"><img class="imgs-img" src="static/img/imagemTeste.svg"></div>
+                            <div class="img-slide"><img class="imgs-img" src="static/img/imagemTeste.svg"></div>
+                            <div class="img-slide"><img class="imgs-img" src="static/img/imagemTeste.svg"></div>
+                        </div>
+                    </div>
+                </section>
+            </section>
+            <section id="sec-inscrever" class="escondido">
+                <div>
+                    <div class="tx-form">
+                        <h1>Inscreva-se já!</h1>
+                        <p>Junte-se à comunidade gamer mais empolgante do mundo! Cadastre-se agora e faça parte da experiência GBXP.</p>
+                    </div>
+                    <form action="#" method="post">
+                        <div class="input-form">
+                            <label for="nome">Nome:</label>
+                            <input required type="text" name="nome" maxlength="45">
+                        </div>
+                        <div class="input-form">
+                            <label for="email">Email:</label>
+                            <input required type="email" name="email" maxlength="45">
+                        </div>
+                        <div class="input-form">
+                            <label for="tel">Telefone:</label>
+                            <input required type="text" name="tel">
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </div>
+    </main>
+    <!-- ATRASO DE LOADER -->
+    <iframe style="display: none;" width="560" height="315" src="https://www.youtube.com/embed/U5iUc8U3coI?si=D3Obg9jxU9_tlKFZ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    <!---------------------->
+    <!-- TERMOS DE USO -->
+    <div class="msg-termos" id="msg-termos" style="display: none;">
+        <div class="div-termos">
+            <h1>Termos de Política e termos de uso </h1>
+            <p>Antes de continuar, pedimos que você leia e aceite nossos Termos de Uso e Política de Privacidade. Esses documentos são importantes para garantir que você compreenda nossas diretrizes e práticas em relação ao uso deste site.</p>
+        </div>
+        <button class="btn-termos">Aceitar todos os termos</button>
+    </div>
+    <section>
+        <div>
+            <h1>Atividades:</h1>
+            <h5>A GBXP esse ano contará com diversas atividades para todo os tipos de públicos e contará com a presença ilustre de diversas franquias de jogos e muito mais.</h5>
+        </div>
+        <div>
+            <div>
+                <img src="" alt="">
+                <h2></h2>
+                <p></p>
+            </div>
+            <div>
+                <img src="" alt="">
+                <h2></h2>
+                <p></p>
+            </div>
+            <div>
+                <img src="" alt="">
+                <h2></h2>
+                <p></p>
+            </div>
+        </div>
+    </section>
+</body>
+{% endblock %}

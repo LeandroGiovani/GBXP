@@ -1,0 +1,60 @@
+@media screen and (max-width: 920px){
+    .menu{
+        display: block;
+    }
+
+    .nav-list{
+        position: absolute;
+        right: 0;
+        top: 10vh;
+        gap: 30px;
+        height: 30vh;
+        width: 0;
+        background-color: rgba(8, 8, 8, .8);
+        text-align: center;
+        flex-direction: column;
+        margin: 0 auto;
+        transition: .3s all ease-in-out;
+        overflow: hidden;
+    }
+
+    .div-cadastro{
+        position: absolute;
+        right: 0;
+        top: 40vh;
+        gap: 0;
+        height: 10vh;
+        width: 0;
+        background-color: rgba(8, 8, 8, .8);
+        text-align: center;
+        flex-direction: column;
+        margin: 0 auto;
+        transition: .3s all ease-in-out;
+        overflow: hidden;
+        z-index: 5;
+    }
+
+    .div-cadastro.active{
+        width: 100%;
+        z-index: 4;
+    }
+
+    .nav-list.active{
+        top: 10vh;
+        width: 100%;
+        z-index: 4;
+    }
+
+    /* #nav-item1, #nav-item2, #nav-item3, #nav-item4, #nav-item5{
+        opacity: 0;
+        transition: .2s all linear;
+    }
+
+    .li-nav.op1{
+        opacity: 1 !important;
+    } */
+
+    .sec-navbar.active{
+        background-color: rgba(8, 8, 8, .8);
+    }
+}
