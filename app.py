@@ -38,11 +38,12 @@ def create_app():
     @app.route('/form', methods=['GET', 'POST'])
     def form():
         if request.method == 'POST':
+            pessoa = 0
             nome_completo = request.form['nome_completo']
 
             # Verificar se o nome já existe no banco de dados
             pessoa_existente = Pessoa.query.filter_by(nome_completo=nome_completo).first()
-
+            
             if pessoa_existente:
             # Se o nome já existe, preencha os outros campos do formulário
                 email = pessoa_existente.email
@@ -50,6 +51,7 @@ def create_app():
             else:
                 email = request.form['email']
                 telefone = request.form['telefone']
+                db.session.add(pessoa)
 
             pessoa = Pessoa(
             nome_completo=nome_completo,
@@ -57,7 +59,7 @@ def create_app():
             telefone=telefone
             )
 
-            db.session.add(pessoa)
+           
             db.session.commit()
             return redirect('/form')
         return render_template('form.html')

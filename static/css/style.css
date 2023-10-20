@@ -344,15 +344,8 @@ nav ul:hover li a:not(:hover){
     display: grid;
 }
 
-#sec-inscrever{
-    display: none;
-    opacity: 0;
-    transition: all .3s ease;
-}
-
-#sec-index{
-    opacity: 1;
-    transition: .3s all ease;
+.marginb{
+    margin-bottom: 16px;
 }
 
 .msg-termos{
