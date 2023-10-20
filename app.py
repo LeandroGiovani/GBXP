@@ -27,13 +27,13 @@ def create_app():
     # ROTAS
     @app.route('/')
     def index():
-        q = request.args.get('q')
+        # q = request.args.get('q')
     
-        if q:
-            pessoas = Pessoa.query.filter((Pessoa.nome_completo.like(f"%{q}%")) | (Pessoa.cpf.like(f"%{q}%"))).all()
-        else:
-            pessoas = Pessoa.query.all()
-        return render_template('index.html', pessoas=pessoas)
+        # if q:
+        #     pessoas = Pessoa.query.filter((Pessoa.nome_completo.like(f"%{q}%")) | (Pessoa.cpf.like(f"%{q}%"))).all()
+        # else:
+        #     pessoas = Pessoa.query.all()
+        return render_template('index.html')
 
     @app.route('/form', methods=['GET', 'POST'])
     def form():
