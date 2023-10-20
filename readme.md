@@ -3,12 +3,7 @@
 
 <br>
 
-### Equipe:
-#### Arthur
-#### Leandro
-#### Isabela
-#### Loise 
-#### Kauan
+### Equipe: Arthur - Leandro - Isabela - Loise  - Kauan
 
 ##### @LeandroGiovani
 ##### @arthurMalveste
