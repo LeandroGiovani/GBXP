@@ -19,7 +19,7 @@ menu.addEventListener('change', () => {
 })
 
 // JQUERY
-$('.tel').mask("(00) 00000-0000");
+$('.tel').mask("(99) 99999-9999");
 $('.tel').mouseover(function(){$(this).attr('placeholder','(__)_____-____')});
 $('.tel').mouseout(function(){$(this).attr('placeholder','Telefone')});
 
