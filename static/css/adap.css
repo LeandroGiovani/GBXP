@@ -8,7 +8,7 @@
         right: 0;
         top: 10vh;
         gap: 30px;
-        height: 30vh;
+        height: 270px;
         width: 0;
         background-color: rgba(8, 8, 8, .8);
         text-align: center;
@@ -21,7 +21,7 @@
     .div-cadastro{
         position: absolute;
         right: 0;
-        top: 40vh;
+        top: calc(10vh + 270px);
         gap: 0;
         height: 10vh;
         width: 0;

@@ -7,6 +7,7 @@ const nav2 = document.getElementById("nav-item2")
 const nav3 = document.getElementById("nav-item3")
 const nav4 = document.getElementById("nav-item4")
 const nav5 = document.getElementById("nav-item5")
+const hamb = document.getElementById("check")
 const divinicio = document.getElementById("div-inicio")
 const secform = document.getElementById("sec-inscrever")
 const secindex = document.getElementById("sec-index")
@@ -50,6 +51,45 @@ const myObserver = new IntersectionObserver((entries) => {
 const elements = document.querySelectorAll(".anim")
 elements.forEach((element) => myObserver.observe(element))
 
+nav1.addEventListener('click', () => {
+    navlist.classList.remove("active");
+    navsec.classList.remove("active");
+    btncadastro.classList.remove("active");
+    divinicio.classList.remove("active");
+    hamb.checked = false;
+})
+
+nav2.addEventListener('click', () => {
+    navlist.classList.remove("active");
+    navsec.classList.remove("active");
+    btncadastro.classList.remove("active");
+    divinicio.classList.remove("active");
+    hamb.checked = false;
+})
+
+nav3.addEventListener('click', () => {
+    navlist.classList.remove("active");
+    navsec.classList.remove("active");
+    btncadastro.classList.remove("active");
+    divinicio.classList.remove("active");
+    hamb.checked = false;
+})
+
+nav4.addEventListener('click', () => {
+    navlist.classList.remove("active");
+    navsec.classList.remove("active");
+    btncadastro.classList.remove("active");
+    divinicio.classList.remove("active");
+    hamb.checked = false;
+})
+
+nav5.addEventListener('click', () => {
+    navlist.classList.remove("active");
+    navsec.classList.remove("active");
+    btncadastro.classList.remove("active");
+    divinicio.classList.remove("active");
+    hamb.checked = false;
+})
 // Função para salvar cokkies 
 
 // function setCookie(nome,valor,dias) {
