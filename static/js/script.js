@@ -39,6 +39,16 @@ function varnome() {
       });
 }
 
+const myObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+        if (entry.isIntersecting){
+            entry.target.classList.add("animate__fadeInUp")
+        } 
+    })
+})
+
+const elements = document.querySelectorAll(".anim")
+elements.forEach((element) => myObserver.observe(element))
 
 // Função para salvar cokkies 
 

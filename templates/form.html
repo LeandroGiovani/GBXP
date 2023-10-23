@@ -1,30 +1,30 @@
 {% extends 'layout.html' %}
 {% block content %}
 <body>
-    <div class="radial">
+    <div class="radial animate__animated animate__fadeIn animate__delay-1s animate__faster">
         <div id="stars"></div>
         <div id="stars2"></div>
         <div id="stars3"></div>
         {% include 'navbar2.html' %}
         <section class="form">
             <form action="/form" method="POST" class="box">
-                <div class="text-form animate__animated animate__fadeInUp animate__delay-1_4s">
+                <div class="text-form animate__animated animate__fadeInUp animate__delay-1_2s">
                     <h1>Junte-se a nós!</h1>
                     <p>Cadastre-se agora e faça parte da experiência GBXP.</p>
                 </div>
-                <div class="input-group animate__animated animate__fadeInUp animate__delay-1_5s">
+                <div class="input-group animate__animated animate__fadeInUp animate__delay-1_3s">
                     <label for="nome">Nome</label>
                     <input required type="text" class="input-form" id="nome_completo" name="nome_completo" maxlength="45" minlength="2" placeholder="Nome" tabindex="1" autofocus>
                 </div>
-                <div class="input-group animate__animated animate__fadeInUp animate__delay-1_6s">
+                <div class="input-group animate__animated animate__fadeInUp animate__delay-1_4s">
                     <label for="email">Email</label>
                     <input required type="email" class="input-form" id="input-form" name="email" maxlength="100" placeholder="Email" tabindex="2">
                 </div>
-                <div class="input-group animate__animated animate__fadeInUp animate__delay-1_7s">
+                <div class="input-group animate__animated animate__fadeInUp animate__delay-1_5s">
                     <label class="tel" for="tel">Telefone</label>
                     <input required type="tel" class="input-form tel" id="input-form tel" name="telefone" maxlength="45" placeholder="Telefone" tabindex="3">
                 </div>
-                <div class="div-btn-submit animate__animated animate__fadeInUp animate__delay-1_8s">
+                <div class="div-btn-submit animate__animated animate__fadeInUp animate__delay-1_6s">
                     <button class="btn-submit btn-star" type="submit" tabindex="4">
                         <strong>ENVIAR</strong>
                         <div id="container-stars">
