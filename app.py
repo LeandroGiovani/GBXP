@@ -2,6 +2,8 @@ from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 import mysql.connector
 
+
+
 def create_app():
 
     app = Flask(__name__) # instancia o Flask
@@ -10,6 +12,8 @@ def create_app():
     app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:5e5i_123@localhost/gbxp'
     # app.config['SQLALCHEMY_DATABASE_URI'] = 'mssql+pyodbc://root:5e5i_123@localhost/gbxp'
     db = SQLAlchemy(app)
+
+
 
     # VARIÁVEIS DO BANCO
     class Pessoa(db.Model):
@@ -34,35 +38,34 @@ def create_app():
         # else:
         #     pessoas = Pessoa.query.all()
         return render_template('index.html')
-
     @app.route('/form', methods=['GET', 'POST'])
     def form():
+        inc_msg = "" 
+        msg = inc_msg
         if request.method == 'POST':
-            pessoa = 0
             nome_completo = request.form['nome_completo']
 
             # Verificar se o nome já existe no banco de dados
             pessoa_existente = Pessoa.query.filter_by(nome_completo=nome_completo).first()
-            
+
             if pessoa_existente:
-            # Se o nome já existe, preencha os outros campos do formulário
+                # Se o nome já existe, preencha os outros campos do formulário
                 email = pessoa_existente.email
                 telefone = pessoa_existente.telefone
+                msg = "Nome já cadastrado, seus dados foram atualizados"
             else:
                 email = request.form['email']
                 telefone = request.form['telefone']
+                pessoa = Pessoa(
+                    nome_completo=nome_completo,
+                    email=email,
+                    telefone=telefone
+                )
                 db.session.add(pessoa)
+                msg = inc_msg   
 
-            pessoa = Pessoa(
-            nome_completo=nome_completo,
-            email=email,
-            telefone=telefone
-            )
-
-           
             db.session.commit()
-            return redirect('/form')
-        return render_template('form.html')
+        return render_template('form.html', msg=msg, inc_msg=inc_msg)  # Passar msg para o template
 
     @app.route('/loja')
     def a():

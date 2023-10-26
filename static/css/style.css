@@ -5,6 +5,31 @@
     padding: 0;
 }
 
+*::selection{
+    background-color: #f2f2f2;
+    color: #000;
+}
+  
+*::-webkit-scrollbar{
+    width: 12px;
+    height: 12px; 
+    padding: 10px;
+    background-color: transparent;
+}
+  
+*::-webkit-scrollbar-track{
+    background: transparent;
+}
+  
+*::-webkit-scrollbar-thumb{
+    background-color: #ccc;
+    border-radius: 10px;
+}
+
+*::-webkit-scrollbar-thumb:hover{
+    background-color: #bbb;
+}
+
 html{
     scroll-behavior: smooth;
 }
@@ -331,7 +356,6 @@ nav ul li a:active{
 }
 
 .imgs-img:hover{
-    transform: scaleX(1.075);
     filter: saturate(1);
     transition-delay: .5s;
 }
@@ -359,6 +383,99 @@ nav ul li a:active{
     grid-auto-columns: 1fr;
     margin-left: -67.7%;
     display: grid;
+}
+
+.flip-card {
+    background-color: transparent;
+    width: 425px;
+    height: 275px;
+    perspective: 1000px;
+    font-family: sans-serif;
+  }
+  
+.title {
+  font-size: 1.5em;
+  font-weight: 900;
+  text-align: center;
+  margin: 0;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateX(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border: none;
+  border-radius: 1rem;
+}
+
+.img-card-flip{
+    height: 275px;
+    object-fit: fill;
+    border-radius: 10px;
+    border: 2px solid #1f2123;
+    box-shadow: 0 0 5px #1f2123;
+    transition: all .5s;
+    filter: saturate(0);
+}
+
+.backC{
+    filter: blur(3px) saturate(1);
+}
+
+.flip-card-front {
+  color: #fff;
+}
+
+.flip-card-back {
+    /* background: url(/static/img/sw/1.jpg);
+    background-repeat: no-repeat;
+    background-size: cover; */
+    transform: rotateX(180deg);
+    color: #fff;
+    align-items: center;
+}
+
+.desc-group{
+    width: 80%;
+}
+
+.desc-card{
+    text-align: left;
+}
+
+.desc-card span{
+    font-weight: 800;
+}
+
+.title, .desc-card{
+    z-index: 9999;
+    position: relative;
+}
+
+.back-text{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .marginb{
@@ -692,13 +809,7 @@ strong {
     color: #a6a6a6;
 }
 
-.banner{
-    background-image: url(../img/back2.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    width: 100vw;
-    height: 400px;
-    text-align: center;
+.banner2{
+    width: 100%;
     position: relative;
 }
