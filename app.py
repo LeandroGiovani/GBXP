@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, session
 from flask_sqlalchemy import SQLAlchemy
 import mysql.connector
 
@@ -13,7 +13,7 @@ def create_app():
     # app.config['SQLALCHEMY_DATABASE_URI'] = 'mssql+pyodbc://root:5e5i_123@localhost/gbxp'
     db = SQLAlchemy(app)
 
-
+    # class flask_session.sessions.ServerSideSession(initial=None, sid=None, permanent=None)
 
     # VARIÁVEIS DO BANCO
     class Pessoa(db.Model):
@@ -69,8 +69,31 @@ def create_app():
 
     @app.route('/loja')
     def a():
+        
         return render_template('loja.html')
-    
+
+    @app.route('/produtos')
+    def produtos():
+        produtos = {
+    1: {'name': 'Produto 1', 'price': 10.00, 'description': 'Descrição do Produto 1', 'image_url': 'produto1.jpg'},
+    2: {'name': 'Produto 2', 'price': 15.00, 'description': 'Descrição do Produto 2', 'image_url': 'produto2.jpg'},
+    3: {'name': 'Produto 3', 'price': 151.00, 'description': 'Descrição do Produto 3', 'image_url': 'produto3.jpg'},
+    4: {'name': 'Produto 4', 'price': 152.00, 'description': 'Descrição do Produto 4', 'image_url': 'produto4.jpg'},
+    }    
+        return render_template('produtos.html', produtos=produtos)
+    @app.route('/add_to_cart/<item_id>')
+    def add_to_cart(item_id):
+        if 'cart' not in session:
+            session['cart'] = []
+        session['cart'].append(item_id)
+        return redirect('/loja')
+
+    @app.route('/view_cart')
+    def view_cart():
+        cart = session.get('cart', [])
+        # Você pode renderizar um template HTML para exibir o carrinho aqui
+        return render_template('loja.html', cart=cart)
+        
     # tentar privar isso depois
     @app.route('/verificar_nome', methods=['GET'])
     def verificar_nome():

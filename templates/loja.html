@@ -1,6 +1,45 @@
 {% extends'layout.html' %}
 {% block content %}
 
-{% include 'navbar2.html' %}
-
+<body id="body">
+    <main class="home-stars">
+        <div class="animate__animated animate__fadeIn animate__delay-1_3s animate__faster">
+            <div id="stars"></div>
+            <div id="stars2"></div>
+            <div id="stars3"></div>
+            <div class="radial">
+                {% include 'navbar.html' %}
+                <section id="sec-index">    
+                    <section class="cards">
+                        <div>
+                            <button id="">Adicionar no Carrinho</button>
+                        </div>
+                        <div>
+                            <button id="">Adicionar no Carrinho</button>
+                        </div>
+                        <div>
+                            <button id="">Adicionar no Carrinho</button>
+                        </div>
+                        <div>
+                            <button id="">Adicionar no Carrinho</button>
+                        </div>
+                    </section>
+                    <section>
+                        <input type="text" value="0">
+                    </section>
+                </section>
+                {% for product_id, product_info in products.items() %}
+                <div class="product">
+                    <img src="{{ product_info['image_url'] }}" alt="{{ product_info['name'] }}">
+                    <h2>{{ product_info['name'] }}</h2>
+                    <p>{{ product_info['description'] }}</p>
+                    <p>Preço: R$ {{ product_info['price'] }}</p>
+                    <form method="POST" action="/add_to_cart/{{ product_id }}">
+                        <input type="submit" value="Adicionar ao Carrinho">
+                    </form>
+                </div>
+                {% endfor %}
+            </div>
+    </div>
+</body>
 {% endblock %}
