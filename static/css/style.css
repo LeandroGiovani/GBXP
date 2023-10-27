@@ -42,6 +42,7 @@ body{
     color: #fff;
     display: block;
     z-index: 10;
+    position: relative;
     margin: -6px 0 0 0;
 }
 
@@ -489,7 +490,7 @@ nav ul li a:active{
 }
 
 form{
-    width: 550px;
+    width: clamp(250px, 75%, 550px);
     height: auto;
     padding: 40px 30px;
     border-radius: 30px;
@@ -725,7 +726,7 @@ strong {
 }
 
 .sec-sobre{
-    padding: 7rem 5%;
+    padding: 6rem 5%;
     justify-content: center;
     display: flex;
     background-image: linear-gradient(180deg, rgba(0, 0, 0, .1) 0%, rgba(0, 0, 0, .8) 20%);
@@ -797,7 +798,11 @@ strong {
     color: #a6a6a6;
 }
 
-.banner2{
+.banner1, .banner2{
     width: 100%;
     position: relative;
+}
+
+.banner2{
+    display: none;
 }

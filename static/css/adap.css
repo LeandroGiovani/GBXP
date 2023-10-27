@@ -1,3 +1,5 @@
+/* Adap index.html */
+
 @media screen and (max-width: 920px){
     .menu{
         display: block;
@@ -45,16 +47,119 @@
         z-index: 4;
     }
 
-    /* #nav-item1, #nav-item2, #nav-item3, #nav-item4, #nav-item5{
-        opacity: 0;
-        transition: .2s all linear;
-    }
-
-    .li-nav.op1{
-        opacity: 1 !important;
-    } */
-
     .sec-navbar.active{
         background-color: rgba(8, 8, 8, .8);
+    }
+}
+
+@media screen and (max-width: 870px){
+    .grid-sobre{
+        grid-template-columns: repeat(1, 1fr);
+        height: auto;
+    }
+
+    .tx-sobre{
+        margin: 0 auto 50px;
+    }
+
+    .sec1, .sec2, .sec3{
+        width: 50%;
+        margin: 0 auto 32px;
+    }
+}
+
+@media screen and (max-width: 600px){
+    .banner1{
+        display: none;
+    }
+
+    .banner2{
+        display: block;
+    }
+}
+
+@media screen and (max-width: 580px){
+    .tx-titulo{
+        font-size: 3rem;
+    }
+}
+
+@media screen and (max-width: 370px){
+    .tx-titulo{
+        font-size: 2rem;
+    }
+
+    .btn-saiba, .btn-cadastro2{
+        padding: 0.5rem 1rem;
+        font-size: 13px;
+    }
+}
+
+@media screen and (max-width: 330px){
+    .tx-sobre h1{
+        font-size: 32px;
+    }
+
+    .tx-sobre p{
+        font-size: 14px;
+    }
+
+    .sec-titulo{
+        font-size: 26px;
+    }
+
+    .sec-tx{
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 300px){
+    .banner2{
+        display: none;
+    }
+}
+
+/* @media screen and (max-width: 270px){} */
+
+/* Adap form.html */
+
+@media screen and (max-width: 340px){
+    form{
+        width: clamp(150px, 60%, 350px);
+    }
+
+    .text-form h1{
+        font-size: 24px;
+    }
+}
+
+@media screen and (max-width: 225px){
+    form{
+        width: 60%;
+    }
+
+    .text-form h1{
+        font-size: 20px;
+    }
+
+    .text-form p{
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 198px){
+    form{
+        margin-top: 60px;
+    }
+}
+
+@media screen and (max-width: 175px){
+    form{
+        width: 50%;
+    }
+
+    .btn-submit strong{
+        font-size: 6px;
+        text-align: center;
     }
 }
