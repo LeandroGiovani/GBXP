@@ -11,6 +11,13 @@ const hamb = document.getElementById("check")
 const divinicio = document.getElementById("div-inicio")
 const secform = document.getElementById("sec-inscrever")
 const secindex = document.getElementById("sec-index")
+const cd01 = document.getElementById("img-01")
+const cd02 = document.getElementById("img-02")
+const cd03 = document.getElementById("img-03")
+const cd04 = document.getElementById("img-04") 
+const cd05 = document.getElementById("img-05")
+const cd06 = document.getElementById("img-06")
+const cd07 = document.getElementById("img-07")
 const cd1 = document.getElementById("img-1")
 const cd2 = document.getElementById("img-2")
 const cd3 = document.getElementById("img-3")
@@ -18,6 +25,13 @@ const cd4 = document.getElementById("img-4")
 const cd5 = document.getElementById("img-5")
 const cd6 = document.getElementById("img-6")
 const cd7 = document.getElementById("img-7")
+const cd08 = document.getElementById("img-08")
+const cd09 = document.getElementById("img-09")
+const cd010 = document.getElementById("img-010")
+const cd011 = document.getElementById("img-011")
+const cd012 = document.getElementById("img-012")
+const cd013 = document.getElementById("img-013")
+const cd014 = document.getElementById("img-014")
 const cd8 = document.getElementById("img-8")
 const cd9 = document.getElementById("img-9")
 const cd10 = document.getElementById("img-10")
@@ -25,8 +39,6 @@ const cd11 = document.getElementById("img-11")
 const cd12 = document.getElementById("img-12")
 const cd13 = document.getElementById("img-13")
 const cd14 = document.getElementById("img-14")
-const card1 = document.getElementById("cc1")
-const card2 = document.getElementById("cc2")
 
 menu.addEventListener('change', () => {
     navlist.classList.toggle("active");
@@ -107,126 +119,144 @@ nav5.addEventListener('click', () => {
     hamb.checked = false;
 })
 
-function mostrarc1(){
-}
-
-cd1.addEventListener('click', () => {
-    card1.classList.toggle("show")
+cd01.addEventListener('click', () => {
+    cd01.classList.toggle("show")
+    cd1.classList.toggle("show")
 })
 
-cd2.addEventListener('click', () => {
-    if (card2.classList.contains("show")){
-        card2.classList.remove("show")
-    }
-    else {
-        card2.classList.toggle("show")
-    }
+cd02.addEventListener('click', () => {
+    cd02.classList.toggle("show")
+    cd2.classList.toggle("show")
 })
 
-cd3.addEventListener('click', () => {
-    if (card3.classList.contains("show")){
-        card3.classList.remove("show")
-    }
-    else {
-        card3.classList.toggle("show")
-    }
+cd03.addEventListener('click', () => {
+    cd03.classList.toggle("show")
+    cd3.classList.toggle("show")
 })
 
-cd4.addEventListener('click', () => {
-    if (card4.classList.contains("show")){
-        card4.classList.remove("show")
-    }
-    else {
-        card4.classList.toggle("show")
-    }
+cd04.addEventListener('click', () => {
+    cd04.classList.toggle("show")
+    cd4.classList.toggle("show")
 })
 
-cd5.addEventListener('click', () => {
-    if (card5.classList.contains("show")){
-        card5.classList.remove("show")
-    }
-    else {
-        card5.classList.toggle("show")
-    }
+cd05.addEventListener('click', () => {
+    cd05.classList.toggle("show")
+    cd5.classList.toggle("show")
 })
 
-cd6.addEventListener('click', () => {
-    if (card6.classList.contains("show")){
-        card6.classList.remove("show")
-    }
-    else {
-        card6.classList.toggle("show")
-    }
+cd06.addEventListener('click', () => {
+    cd06.classList.toggle("show")
+    cd6.classList.toggle("show")
 })
 
-cd7.addEventListener('click', () => {
-    if (card7.classList.contains("show")){
-        card7.classList.remove("show")
-    }
-    else {
-        card7.classList.toggle("show")
-    }
+cd07.addEventListener('click', () => {
+    cd07.classList.toggle("show")
+    cd7.classList.toggle("show")
 })
 
 cd1.addEventListener('click', () => {
-    if (card1.classList.contains("show")){
-        card1.classList.remove("show")
-    }
-    else {
-        card1.classList.toggle("show")
-    }
+    cd1.classList.toggle("show")
+    cd01.classList.toggle("show")
 })
 
 cd2.addEventListener('click', () => {
-    card2.classList.toggle("show")
+    cd2.classList.toggle("show")
+    cd02.classList.toggle("show")
 })
 
 cd3.addEventListener('click', () => {
     cd3.classList.toggle("show")
+    cd03.classList.toggle("show")
 })
 
 cd4.addEventListener('click', () => {
     cd4.classList.toggle("show")
+    cd04.classList.toggle("show")
 })
 
 cd5.addEventListener('click', () => {
     cd5.classList.toggle("show")
+    cd05.classList.toggle("show")
 })
 
 cd6.addEventListener('click', () => {
     cd6.classList.toggle("show")
+    cd06.classList.toggle("show")
 })
 
 cd7.addEventListener('click', () => {
     cd7.classList.toggle("show")
+    cd07.classList.toggle("show")
+})
+
+cd08.addEventListener('click', () => {
+    cd08.classList.toggle("show")
+    cd8.classList.toggle("show")
+})
+
+cd09.addEventListener('click', () => {
+    cd09.classList.toggle("show")
+    cd9.classList.toggle("show")
+})
+
+cd010.addEventListener('click', () => {
+    cd010.classList.toggle("show")
+    cd10.classList.toggle("show")
+})
+
+cd011.addEventListener('click', () => {
+    cd011.classList.toggle("show")
+    cd11.classList.toggle("show")
+})
+
+cd012.addEventListener('click', () => {
+    cd012.classList.toggle("show")
+    cd12.classList.toggle("show")
+})
+
+cd013.addEventListener('click', () => {
+    cd013.classList.toggle("show")
+    cd13.classList.toggle("show")
+})
+
+cd014.addEventListener('click', () => {
+    cd014.classList.toggle("show")
+    cd14.classList.toggle("show")
 })
 
 cd8.addEventListener('click', () => {
     cd8.classList.toggle("show")
+    cd08.classList.toggle("show")
 })
 
 cd9.addEventListener('click', () => {
     cd9.classList.toggle("show")
+    cd09.classList.toggle("show")
 })
 
 cd10.addEventListener('click', () => {
     cd10.classList.toggle("show")
+    cd010.classList.toggle("show")
 })
 
 cd11.addEventListener('click', () => {
     cd11.classList.toggle("show")
+    cd011.classList.toggle("show")
 })
 
 cd12.addEventListener('click', () => {
     cd12.classList.toggle("show")
+    cd012.classList.toggle("show")
 })
 
 cd13.addEventListener('click', () => {
     cd13.classList.toggle("show")
+    cd013.classList.toggle("show")
 })
 
 cd14.addEventListener('click', () => {
     cd14.classList.toggle("show")
+    cd014.classList.toggle("show")
 })
 // Função para salvar cokkies 
 
