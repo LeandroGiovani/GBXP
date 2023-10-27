@@ -63,7 +63,7 @@
     }
 
     .sec1, .sec2, .sec3{
-        width: 50%;
+        width: 70%;
         margin: 0 auto 32px;
     }
 }
@@ -84,7 +84,7 @@
     }
 }
 
-@media screen and (max-width: 370px){
+@media screen and (max-width: 375px){
     .tx-titulo{
         font-size: 2rem;
     }
@@ -92,6 +92,10 @@
     .btn-saiba, .btn-cadastro2{
         padding: 0.5rem 1rem;
         font-size: 13px;
+    }
+
+    .sec-patro h1{
+        font-size: 28px;
     }
 }
 
@@ -116,6 +120,22 @@
 @media screen and (max-width: 300px){
     .banner2{
         display: none;
+    }
+
+    .sec-sobre{
+        padding: 6rem 5% 0;
+    }
+}
+
+@media screen and (max-width: 225px){
+    .sec-patro h1{
+        font-size: 24px;
+    }
+}
+
+@media screen and (max-width: 200px){
+    .sec-patro h1{
+        font-size: 20px;
     }
 }
 

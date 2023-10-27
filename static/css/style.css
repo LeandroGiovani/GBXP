@@ -316,16 +316,53 @@ nav ul li a:active{
 
 .slide1, .slide2{
     display: flex;
+    height: 100%;
+    align-items: center;
 }
+
 .logo-slide1{
     display: flex;
     z-index: 2;
     animation: slide1 45s infinite linear;
 }
+
 .logo-slide2{
     display: flex;
     z-index: 2;
     animation: slide2 45s infinite linear;
+}
+
+.patro-slide{
+    display: flex;
+    z-index: 2;
+    animation: slidePatr 35s infinite linear;
+}
+
+
+.sec-patro{
+    height: auto;
+    padding: 5rem 0;
+    text-align: center;
+}
+
+.fadeInSlide::after, .fadeOutSlide::before{
+    position: absolute;
+    width: 27.5%;
+    height: 60px;
+    z-index: 2;
+    content: "";
+    overflow: hidden;
+}
+
+.fadeInSlide::after{
+    left: 0;
+    background: linear-gradient(to left, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 1) 80%);
+}
+
+.fadeOutSlide::before{
+    right: 0;
+    z-index: 3;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 1) 80%);
 }
 
 .div-desc{
@@ -335,18 +372,26 @@ nav ul li a:active{
     transform: scaleX(1) scaleY(0);
 }
 
-@keyframes slide1 {
+@keyframes slide1{
     from{
         transform: translateX(0);
     } to{
         transform: translateX(-100%);
     }
 }
-@keyframes slide2 {
+@keyframes slide2{
     from{
         transform: translateX(-100%);
     } to{
         transform: translateX(0);
+    }
+}
+
+@keyframes slidePatr{
+    from{
+        transform: translateX(0);
+    } to{
+        transform: translateX(-100%);
     }
 }
 
@@ -357,6 +402,10 @@ nav ul li a:active{
     border-radius: 10px;
     transition: all .5s;
     filter: saturate(0);
+}
+
+.imgs-imgP{
+
 }
 
 .imgs-img:hover{
@@ -392,6 +441,19 @@ nav ul li a:active{
 
 .img-slide{
     height: 225px;
+}
+
+.img-slideP{
+    height: 60px;
+}
+
+.img-diminuir{
+    height: 50px !important;
+}
+
+.img-patro{
+    height: 60px;
+    margin: 0 40px;
 }
 
 .card {
@@ -729,7 +791,7 @@ strong {
     padding: 6rem 5%;
     justify-content: center;
     display: flex;
-    background-image: linear-gradient(180deg, rgba(0, 0, 0, .1) 0%, rgba(0, 0, 0, .8) 20%);
+    background-image: linear-gradient(180deg, rgba(0, 0, 0, .1) 0%, rgba(0, 0, 0, .7) 20%);
     position: relative;
 }
 
@@ -746,7 +808,7 @@ strong {
     max-width: 55rem;   
 }
 
-.tx-sobre h1{
+.tx-sobre h1, .sec-patro h1{
     font-size: 48px;
     margin-bottom: 24px;
     font-weight: 700;
@@ -754,6 +816,10 @@ strong {
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+}
+
+.sec-patro h1{
+    margin-bottom: 40px;
 }
 
 .tx-sobre p{
