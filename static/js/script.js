@@ -39,6 +39,11 @@ const cd11 = document.getElementById("img-11")
 const cd12 = document.getElementById("img-12")
 const cd13 = document.getElementById("img-13")
 const cd14 = document.getElementById("img-14")
+const header = document.querySelector(".header-index")
+
+window.addEventListener('scroll', function(){
+    header.classList.toggle("fixado", window.scrollY > 0)
+})
 
 menu.addEventListener('change', () => {
     navlist.classList.toggle("active");
@@ -68,7 +73,7 @@ function varnome() {
       });
 }
 
-const myObserver = new IntersectionObserver((entries) => {
+const myObserverUp = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
         if (entry.isIntersecting){
             entry.target.classList.add("animate__fadeInUp")
@@ -76,8 +81,18 @@ const myObserver = new IntersectionObserver((entries) => {
     })
 })
 
-const elements = document.querySelectorAll(".anim")
-elements.forEach((element) => myObserver.observe(element))
+const myObserverIn = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+        if (entry.isIntersecting){
+            entry.target.classList.add("animate__fadeIn")
+        } 
+    })
+})
+
+const elementsUp = document.querySelectorAll(".animUp")
+const elementsIn = document.querySelectorAll(".animIn")
+elementsUp.forEach((elementup) => myObserverUp.observe(elementup))
+elementsIn.forEach((elementin) => myObserverIn.observe(elementin))
 
 nav1.addEventListener('click', () => {
     navlist.classList.remove("active");
