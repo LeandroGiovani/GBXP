@@ -8,7 +8,7 @@
     .nav-list{
         position: absolute;
         right: 0;
-        top: 10vh;
+        top: calc(10vh + 60px);
         gap: 30px;
         height: 270px;
         width: 0;
@@ -20,10 +20,14 @@
         overflow: hidden;
     }
 
+    .header-index.fixado .sec-navbar nav .nav-list{
+        background-color: rgba(0, 0, 0, 1);
+    }
+
     .div-cadastro{
         position: absolute;
         right: 0;
-        top: calc(10vh + 270px);
+        top: calc(10vh + 270px + 60px);
         gap: 0;
         height: 10vh;
         width: 0;
@@ -36,15 +40,27 @@
         z-index: 5;
     }
 
+    .header-index.fixado .sec-navbar .div-cadastro{
+        background-color: rgba(0, 0, 0, 1);
+    }
+
     .div-cadastro.active{
         width: 100%;
         z-index: 4;
     }
 
+    .header-index.fixado .sec-navbar .div-cadastro{
+        top: calc(10vh + 270px);
+    }
+
     .nav-list.active{
-        top: 10vh;
+        top: calc(10vh + 60px);
         width: 100%;
         z-index: 4;
+    }
+
+    .header-index.fixado .sec-navbar nav .nav-list{
+        top: 10vh;
     }
 
     .sec-navbar.active{

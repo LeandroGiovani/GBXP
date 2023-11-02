@@ -123,8 +123,7 @@ body{
     align-items: center;
     justify-content: space-between;
     padding: 30px 5%;
-    transition: .3s all linear;
-    transition-delay: .075s;
+    transition: .3s all ease-in-out;
 }
 
 .header-index.fixado .sec-navbar{
