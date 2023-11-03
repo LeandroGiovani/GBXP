@@ -1,3 +1,4 @@
+// CONSTS
 const menu = document.getElementById("menu")
 const navsec = document.getElementById("nav")
 const navlist = document.getElementById("nav-list")
@@ -276,15 +277,12 @@ cd14.addEventListener('click', () => {
 
 // Arthur - Loja
 
-function AddCarrinho(produto, qtd, valor, posicao)
-	{
+function AddCarrinho(produto, qtd, valor, posicao){
 		localStorage.setItem("produto" + posicao, produto);
 		localStorage.setItem("qtd" + posicao, qtd);
 		valor = valor * qtd;
 		localStorage.setItem("valor" + posicao, valor);
-		alert("Produto adicionado ao carrinho!");
-	}
-    
+}
 // Função para salvar cokkies 
 
 // function setCookie(nome,valor,dias) {

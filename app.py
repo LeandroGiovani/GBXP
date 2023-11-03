@@ -67,7 +67,7 @@ def create_app():
             db.session.commit()
         return render_template('form.html', msg=msg, inc_msg=inc_msg)  # Passar msg para o template
 
-    @app.route('/shop')
+    @app.route('/loja')
     def loja():
         return render_template('loja.html')
     

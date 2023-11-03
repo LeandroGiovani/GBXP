@@ -1,59 +1,105 @@
 {% extends'layout.html' %}
 {% block content %}
-            </section>
-            <section class="all-prod">
-                <div class="box-prod" >
-                    <h2>Camiseta <strong>R$ 40,00</strong></h2>
-                    <div class="qtd"><h3>Quantidade: </h3><input type="number" value="1" min="1" max="10" id="qtd1"></div>
-                    <button type="button" id="adicionar1" id="produto1" onclick="AddCarrinho('Camiseta', document.getElementById('qtd1').value, '40.00', 1)"> Comprar </button>
-                </div>
-    
-                <div class="box-prod" >
-                    <h2>Capinha de Celular <strong>R$ 20,00</strong></h2>
-                    <div class="qtd"><h3>Quantidade: </h3><input type="number" value="1" min="1" max="10" id="qtd2"></div>
-                    <button type="button" id="adicionar1" id="produto1" onclick="AddCarrinho('Capinha de Celular', document.getElementById('qtd2').value, '20.00', 2)"> Comprar </button>
-                </div>
-                
-                <div class="box-prod" >
-                    <h2>Garrafa <strong>R$ 15,00</strong></h2>
-                    <div class="qtd"><h3>Quantidade: </h3><input type="number" value="1" min="1" max="10" id="qtd3"></div>
-                    <button type="button" id="adicionar1" id="produto1" onclick="AddCarrinho('Garrafa', document.getElementById('qtd3').value, '15.00', 3)"> Comprar </button>
+<body>
+    <div class="radial animate__animated animate__fadeIn animate__delay-1s animate__faster">
+        <div id="stars"></div>
+        <div id="stars2"></div>
+        <div id="stars3"></div>
+        {% include 'navbar3.html' %}
+        <div class="order-back">
+            <div class="card-Order"> 
+                <button class="dismiss" type="button" onclick="fecharPop()">×</button> 
+                <div class="header"> 
+                    <div class="image">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M20 7L9.00004 18L3.99994 13" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+                    </div> 
+                    <div class="content">
+                        <span class="title">Produto adicionado</span> 
+                        <p class="message">Seu produto foi adicionado ao carrinho. Para conferir basta acessa-lo pelo botão logo abaixo</p> 
+                    </div> 
+                    <div class="actions">
+                        <a href="/carrinho" class="carrinho-pop"><button class="history" type="button">Ver carrinho</button> </a>
+                        <a href="/" class="index-pop"><button class="track" type="button">Voltar para a página principal</button></a>
+                    </div> 
+                </div> 
+            </div> 
+        </div>
+        
+        <section class="sec-produtos">
+            <div class="grid-produtos">
+                <div class="card-produto animate__animated animate__fadeIn animate__delay-1_5s">
+                    <div class="img-produto">
+                        <img src="/static/img/produtos/gbxpP1.png">
+                    </div>
+                    <div class="info-produto">
+                        <h1>Camiseta GBXP</h1>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusantium, omnis quos numquam deleniti repellendus.</p>
+                        <span>R$ 40,00</span>
+                        <div class="qtd">
+                            <span class="menosP1">-</span>
+                            <span class="num"><input class="numP1" type="number" value="1" min="1" max="99" id="qtd1"></span>
+                            <span class="maisP1">+</span>
+                        </div>
+                    </div>
+                    <button class="btn-produto" type="button" id="adicionar1" id="produto1" onclick="AddCarrinho('Camiseta', document.getElementById('qtd1').value, '40.00', 1), popUp()">Adicionar ao carrinho</button>
                 </div>
 
-                <div class="box-prod" >
-                    <h2>Tênis <strong>R$ 100,00</strong></h2>
-                    <div class="qtd"><h3>Quantidade: </h3><input type="number" value="1" min="1" max="10" id="qtd4"></div>
-                    <button type="submit" id="adicionar1" id="produto1" onclick="AddCarrinho('Tênis', document.getElementById('qtd4').value, '100.00', 4)"> Comprar </button>
+                <div class="card-produto animate__animated animate__fadeIn animate__delay-1_3s">
+                    <div class="img-produto">
+                        <img src="/static/img/produtos/gbxpP2.png">
+                    </div>
+                    <div class="info-produto">
+                        <h1>Capinha GBXP</h1>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusantium, omnis quos numquam deleniti repellendus.</p>
+                        <span>R$ 20,00</span>
+                        <div class="qtd">
+                            <span class="menosP2">-</span>
+                            <span class="num"><input class="numP2" type="number" value="1" min="1" max="99" id="qtd2"></span>
+                            <span class="maisP2">+</span>
+                        </div>
+                    </div>
+                    <button class="btn-produto" type="button" id="adicionar1" id="produto1" onclick="AddCarrinho('Capinha de Celular', document.getElementById('qtd2').value, '20.00', 2), popUp()">Adicionar ao carrinho</button>
                 </div>
-                
-                <p>
-                    <a href="/carrinho"> Ver Carrinho de compras </a>
-                </p>
-                
-            </section>
-            <style>
-                .box-prod{
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    padding: 5px;
-                    border-color: whitesmoke;
-                    border: 2px solid;
-                    border-radius: 5px;
-                    margin: 15px;
-                    flex-direction: column;
-                }
 
-                .all-prod{
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    margin: 30px 40px;
-                }
+                <div class="card-produto animate__animated animate__fadeIn animate__delay-1_3s">
+                    <div class="img-produto">
+                        <img src="/static/img/produtos/gbxpP3.png">
+                    </div>
+                    <div class="info-produto">
+                        <h1>Garrafa GBXP</h1>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusantium, omnis quos numquam deleniti repellendus.</p>
+                        <span>R$ 15,00</span>
+                        <div class="qtd">
+                            <span class="menosP3">-</span>
+                            <span class="num"><input class="numP3" type="number" value="1" min="1" max="99" id="qtd3"></span>
+                            <span class="maisP3">+</span>
+                        </div>
+                    </div>
+                    <button class="btn-produto" type="button" id="adicionar1" id="produto1" onclick="AddCarrinho('Garrafa', document.getElementById('qtd3').value, '15.00', 3), popUp()">Adicionar ao carrinho</button>
+                </div>
 
-                .qtd{
-                    display: flex;
-                    flex-direction: column;
-                }
-            </style>
+                <div class="card-produto animate__animated animate__fadeIn animate__delay-1_5s">
+                    <div class="img-produto">
+                        <img src="/static/img/produtos/gbxpP4.png" style="scale: .75;">
+                    </div>
+                    <div class="info-produto">
+                        <h1>Tênis GBXP</h1>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusantium, omnis quos numquam deleniti repellendus.</p>
+                        <span>R$ 100,00</span>
+                        <div class="qtd">
+                            <span class="menosP4">-</span>
+                            <span class="num"><input class="numP4" type="number" value="1" min="1" max="99" id="qtd4"></span>
+                            <span class="maisP4">+</span>
+                        </div>
+                    </div>
+                    <button class="btn-produto" type="button" id="adicionar1" id="produto1" onclick="AddCarrinho('Tênis', document.getElementById('qtd4').value, '100.00', 4), popUp()">Adicionar ao carrinho</button>
+                </div>
+            </div>
+        </section>            
+    </div>
+    <!-- ATRASO DE LOADER -->
+    <iframe style="display: none;" width="560" height="315" src="https://www.youtube.com/embed/U5iUc8U3coI?si=D3Obg9jxU9_tlKFZ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    <!---------------------->
+    <script src="/static/js/loja.js"></script>
+</body>
 {% endblock %}
