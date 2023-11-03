@@ -273,6 +273,18 @@ cd14.addEventListener('click', () => {
     cd14.classList.toggle("show")
     cd014.classList.toggle("show")
 })
+
+// Arthur - Loja
+
+function AddCarrinho(produto, qtd, valor, posicao)
+	{
+		localStorage.setItem("produto" + posicao, produto);
+		localStorage.setItem("qtd" + posicao, qtd);
+		valor = valor * qtd;
+		localStorage.setItem("valor" + posicao, valor);
+		alert("Produto adicionado ao carrinho!");
+	}
+    
 // Função para salvar cokkies 
 
 // function setCookie(nome,valor,dias) {

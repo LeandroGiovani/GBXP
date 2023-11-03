@@ -67,38 +67,42 @@ def create_app():
             db.session.commit()
         return render_template('form.html', msg=msg, inc_msg=inc_msg)  # Passar msg para o template
 
-    @app.route('/loja')
-    def alojateste():
-        return render_template('loja.html')
-
     @app.route('/shop')
-    def teste():
-        produtos = {
-            1: {'name': 'Camiseta homem-aranha', 'price': 10.00, 'description': 'Descrição do Produto 1', 'image_url': 'static/img/produtos/camisa2.jpg'},
-            2: {'name': 'Short Bem 10', 'price': 1501.00, 'description': 'Descrição do Produto 2', 'image_url': 'camisa 1.webp'},
-            3: {'name': 'Boné power rangers', 'price': 15.00, 'description': 'Descrição do Produto 3', 'image_url': 'cqamisa3.webp'},
-            4: {'name': 'Foto com felipe neto', 'price': 122.00, 'description': 'Descrição do Produto 4', 'image_url': 'camisa2.jpg'},
-        }
-        return render_template('loja.html', produtos=produtos)
+    def loja():
+        return render_template('loja.html')
+    
+    @app.route('/carrinho')
+    def car():
+        return render_template('carrinho.html')
 
-    @app.route('/add_to_cart/<item_id>')
-    def add_to_cart(item_id):
-        if 'cart' not in session:
-            session['cart'] = []
-        session['cart'].append(item_id)
-        return redirect('/shop')
+    # @app.route('/shop')
+    # def teste():
+    #     produtos = [
+    #         {'id': 1, 'name': 'Camiseta homem-aranha', 'price': 10.00, 'description': 'Descrição do Produto 1', 'image_url': 'static/img/produtos/camisa2.jpg'},
+    #         {'id': 2, 'name': 'Short Bem 10', 'price': 1501.00, 'description': 'Descrição do Produto 2', 'image_url': 'camisa 1.webp'},
+    #         {'id': 3, 'name': 'Boné power rangers', 'price': 15.00, 'description': 'Descrição do Produto 3', 'image_url': 'cqamisa3.webp'},
+    #         {'id': 4, 'name': 'Foto com felipe neto', 'price': 122.00, 'description': 'Descrição do Produto 4', 'image_url': 'camisa2.jpg'},
+    #     ]
+    #     return render_template('loja.html', produtos=produtos)
 
-    @app.route('/view_cart')
-    def view_cart():
-        cart = session.get('cart', [])
-        produtos = {
-            1: {'name': 'Camiseta homem-aranha', 'price': 10.00, 'description': 'Descrição do Produto 1', 'image_url': 'static/img/produtos/camisa2.jpg'},
-            2: {'name': 'Short Bem 10', 'price': 1501.00, 'description': 'Descrição do Produto 2', 'image_url': 'camisa 1.webp'},
-            3: {'name': 'Boné power rangers', 'price': 15.00, 'description': 'Descrição do Produto 3', 'image_url': 'cqamisa3.webp'},
-            4: {'name': 'Foto com felipe neto', 'price': 122.00, 'description': 'Descrição do Produto 4', 'image_url': 'camisa2.jpg'},
-        }
-        # return redirect('/shop')
-        return render_template('loja.html',produtos=produtos, cart=cart)
+    # @app.route('/add_to_cart/<item_id>')
+    # def add_to_cart(item_id):
+    #     if 'cart' not in session:
+    #         session['cart'] = []
+    #     session['cart'].append(item_id)
+    #     return redirect('/shop')
+
+    # @app.route('/view_cart')
+    # def view_cart():
+    #     cart = session.get('cart', [])
+    #     produtos = [
+    #         {'id': 1, 'name': 'Camiseta homem-aranha', 'price': 10.00, 'description': 'Descrição do Produto 1', 'image_url': 'static/img/produtos/camisa2.jpg'},
+    #         {'id': 2, 'name': 'Short Bem 10', 'price': 1501.00, 'description': 'Descrição do Produto 2', 'image_url': 'camisa 1.webp'},
+    #         {'id': 3, 'name': 'Boné power rangers', 'price': 15.00, 'description': 'Descrição do Produto 3', 'image_url': 'cqamisa3.webp'},
+    #         {'id': 4, 'name': 'Foto com felipe neto', 'price': 122.00, 'description': 'Descrição do Produto 4', 'image_url': 'camisa2.jpg'},
+    #     ]
+    #     # return redirect('/shop')
+    #     return render_template('carrinho.html',produtos=produtos, cart=cart)
 
             
     # tentar privar isso depois
