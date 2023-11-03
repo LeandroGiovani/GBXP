@@ -1,25 +1,59 @@
 {% extends'layout.html' %}
 {% block content %}
             </section>
-            <div>
-                Sabão <strong>R$ 2,00</strong><br>
-                qtd: <input type="number" value="1" min="1" max="10" id="qtd1">
-                <button type="button" id="adicionar1" id="produto1" onclick="AddCarrinho('Sabão', document.getElementById('qtd1').value, '2.00', 1)"> Comprar </button>
-            </div>
+            <section class="all-prod">
+                <div class="box-prod" >
+                    <h2>Camiseta <strong>R$ 40,00</strong></h2>
+                    <div class="qtd"><h3>Quantidade: </h3><input type="number" value="1" min="1" max="10" id="qtd1"></div>
+                    <button type="button" id="adicionar1" id="produto1" onclick="AddCarrinho('Camiseta', document.getElementById('qtd1').value, '40.00', 1)"> Comprar </button>
+                </div>
+    
+                <div class="box-prod" >
+                    <h2>Capinha de Celular <strong>R$ 20,00</strong></h2>
+                    <div class="qtd"><h3>Quantidade: </h3><input type="number" value="1" min="1" max="10" id="qtd2"></div>
+                    <button type="button" id="adicionar1" id="produto1" onclick="AddCarrinho('Capinha de Celular', document.getElementById('qtd2').value, '20.00', 2)"> Comprar </button>
+                </div>
+                
+                <div class="box-prod" >
+                    <h2>Garrafa <strong>R$ 15,00</strong></h2>
+                    <div class="qtd"><h3>Quantidade: </h3><input type="number" value="1" min="1" max="10" id="qtd3"></div>
+                    <button type="button" id="adicionar1" id="produto1" onclick="AddCarrinho('Garrafa', document.getElementById('qtd3').value, '15.00', 3)"> Comprar </button>
+                </div>
 
-            <div>
-                <br>Macarrão <strong>R$ 3,90</strong><br>
-                qtd: <input type="number" value="1" min="1" max="10" id="qtd2">
-                <button type="button" id="adicionar1" id="produto1" onclick="AddCarrinho('Macarrão', document.getElementById('qtd2').value, '3.90', 2)"> Comprar </button>
-            </div>
-            
-            <div>
-                <br>Feijão <strong>R$ 11,90</strong><br>
-                qtd: <input type="number" value="1" min="1" max="10" id="qtd3">
-                <button type="button" id="adicionar1" id="produto1" onclick="AddCarrinho('Feijão', document.getElementById('qtd3').value, '11.90', 3)"> Comprar </button>
-            </div>
-            
-            <p>
-                <a href="/carrinho"> Ver Carrinho de compras </a>
-            </p>
+                <div class="box-prod" >
+                    <h2>Tênis <strong>R$ 100,00</strong></h2>
+                    <div class="qtd"><h3>Quantidade: </h3><input type="number" value="1" min="1" max="10" id="qtd4"></div>
+                    <button type="submit" id="adicionar1" id="produto1" onclick="AddCarrinho('Tênis', document.getElementById('qtd4').value, '100.00', 4)"> Comprar </button>
+                </div>
+                
+                <p>
+                    <a href="/carrinho"> Ver Carrinho de compras </a>
+                </p>
+                
+            </section>
+            <style>
+                .box-prod{
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    padding: 5px;
+                    border-color: whitesmoke;
+                    border: 2px solid;
+                    border-radius: 5px;
+                    margin: 15px;
+                    flex-direction: column;
+                }
+
+                .all-prod{
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin: 30px 40px;
+                }
+
+                .qtd{
+                    display: flex;
+                    flex-direction: column;
+                }
+            </style>
 {% endblock %}
