@@ -9,37 +9,31 @@
             <div id="stars3"></div>
             <div class="radial">
                 {% include 'navbar.html' %}
-                <section id="sec-index">    
-                    <section class="cards">
-                        <div>
-                            <button id="">Adicionar no Carrinho</button>
-                        </div>
-                        <div>
-                            <button id="">Adicionar no Carrinho</button>
-                        </div>
-                        <div>
-                            <button id="">Adicionar no Carrinho</button>
-                        </div>
-                        <div>
-                            <button id="">Adicionar no Carrinho</button>
-                        </div>
-                    </section>
-                    <section>
-                        <input type="text" value="0">
-                    </section>
-                </section>
-                {% for product_id, product_info in products.items() %}
-                <div class="product">
-                    <img src="{{ product_info['image_url'] }}" alt="{{ product_info['name'] }}">
-                    <h2>{{ product_info['name'] }}</h2>
-                    <p>{{ product_info['description'] }}</p>
-                    <p>Preço: R$ {{ product_info['price'] }}</p>
-                    <form method="POST" action="/add_to_cart/{{ product_id }}">
-                        <input type="submit" value="Adicionar ao Carrinho">
-                    </form>
-                </div>
-                {% endfor %}
-            </div>
+                <h1>Produtos</h1>
+                <ul>
+                    {% for item_id, produto in produtos.items() %}
+                    <style>img{max-height: 300px};</style>
+                        <li>
+                            <img src="{{ produto['image_url'] }}" alt="{{ produto['name'] }}">
+                            <h2>{{ produto['name'] }}</h2>
+                            <p>{{ produto['description'] }}</p>
+                            <p>Preço: R$ {{ produto['price'] }}</p>
+                            <form method="GET" action="/add_to_cart/{{ item_id }}">
+                                <input type="submit" value="Adicionar ao Carrinho">
+                            </form>
+                        </li>
+                    {% endfor %}
+                </ul>
+
+                <h1>Carrinho de Compras</h1>
+                <ul>
+                    {% for item_id in cart %}
+                        <li>Item {{ item_id }}</li>
+                    {% endfor %}
+                </ul>
+
+                <a href="/view_cart">Ver Carrinho de Compras</a>
+
     </div>
 </body>
 {% endblock %}
