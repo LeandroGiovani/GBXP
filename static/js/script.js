@@ -41,6 +41,8 @@ const cd12 = document.getElementById("img-12")
 const cd13 = document.getElementById("img-13")
 const cd14 = document.getElementById("img-14")
 const header = document.querySelector(".header-index")
+const label = document.querySelector(".footer-label")
+const email = document.querySelector(".footer-email")
 
 window.addEventListener('scroll', function(){
     header.classList.toggle("fixado", window.scrollY > 0)
@@ -283,6 +285,14 @@ function AddCarrinho(produto, qtd, valor, posicao){
 		valor = valor * qtd;
 		localStorage.setItem("valor" + posicao, valor);
 }
+
+email.addEventListener('change', () => {
+    if (email.value.length >= 1){
+        label.classList.add('Up')
+    } else {
+        label.classList.remove('Up')
+    }
+})
 // Função para salvar cokkies 
 
 // function setCookie(nome,valor,dias) {

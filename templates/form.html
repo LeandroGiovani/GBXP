@@ -7,7 +7,9 @@
         <div id="stars3"></div>
         {% include 'navbar2.html' %}
         <section class="form">
-            <form action="/form" method="POST" class="box">
+            <!-- <form action="/form" method="POST" class="box"> -->
+            <form action="{{url_for('send_message')}}" method="POST" class="box formC">
+
                 <div class="text-form animate__animated animate__fadeInUp animate__delay-1_2s">
                     <h1>Junte-se a nós!</h1>
                     <p>Cadastre-se agora e faça parte da experiência GBXP.</p>
@@ -24,8 +26,9 @@
                     <label class="tel" for="tel">Telefone</label>
                     <input required type="tel" class="input-form tel" id="input-form tel" name="telefone" maxlength="45" placeholder="Telefone" tabindex="3">
                 </div>
+                <!-- <textarea name="message" id="" cols="30" rows="10"></textarea> -->
                 <div class="div-btn-submit animate__animated animate__fadeInUp animate__delay-1_6s">
-                    <button action="" class="btn-submit btn-star" type="submit" tabindex="4">
+                    <button class="btn-submit btn-star" type="submit" tabindex="4">
                         <strong>ENVIAR</strong>
                         <div id="container-stars">
                             <div id="stars"></div>
@@ -35,7 +38,7 @@
                         </div>
                     </button>
                 </div>
-                <h1>{{ msg }}</h1>
+                <!-- <h1>{{ msg }}</h1> -->
             </form>
         </section>
     </div>

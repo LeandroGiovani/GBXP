@@ -555,6 +555,233 @@ nav ul li a:active{
     flex-direction: row;
 }
 
+.sec-contato{
+    display: flex;
+    padding: 5rem 5%;;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background-color: #111;
+    gap: 32px;
+}
+
+.tx-contato p{
+    margin: 0 0 12px 0;
+}
+
+.subtitulo-padrao{
+    margin: 0 0 12px 0;
+    font-size: 16px;
+}
+
+.login-box {
+    position: relative;
+    width: 400px;
+    padding: 20px 30px;
+    margin: 0px auto;
+    background: #111;
+    box-sizing: border-box;
+    box-shadow: 0 0px 5px 4px rgba(10, 10, 10, .6);
+    border-radius: 10px;
+  }
+  
+  .login-box p:first-child {
+    margin: 0 0 30px;
+    padding: 0;
+    color: #fff;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+  }
+  
+  .login-box .user-box {
+    position: relative;
+  }
+  
+  .login-box .user-box input, .login-box .user-box textarea{
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 1px solid #fff;
+    outline: none;
+    background: transparent;
+  }
+  
+  .login-box .user-box label{
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    pointer-events: none;
+    transition: .5s;
+  }
+  
+  .login-box .user-box input:focus ~ label,
+  .login-box .user-box input:valid ~ label,
+  .login-box .user-box input:not(:placeholder-shown){
+    top: -20px;
+    left: 0;
+    color: #fff;
+    font-size: 12px;
+  }
+
+  .footer-label.Up{
+    top: -20px !important;
+    left: 0 !important;
+    color: #fff !important;
+    font-size: 12px !important;
+  }
+  
+  .login-box form a {
+    position: relative;
+    display: inline-block;
+    padding: 10px 20px;
+    font-weight: bold;
+    color: #fff;
+    font-size: 16px;
+    text-decoration: none;
+    text-transform: uppercase;
+    overflow: hidden;
+    transition: .5s;
+    margin: 40px auto 0;
+    letter-spacing: 3px
+}
+
+.div-submit{
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.login-box form a input{
+    text-decoration: none;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: .5s;
+    background: none;
+    border: none;
+    letter-spacing: 3px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+}
+  
+.login-box a:hover {
+    background: #fff;
+    color: #272727;
+    border-radius: 5px;
+}
+
+.login-box a:hover input{
+    color: #272727;
+}
+  
+  .login-box a span {
+    position: absolute;
+    display: block;
+  }
+  
+  .login-box a span:nth-child(1) {
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #fff);
+    animation: btn-anim1 1.5s linear infinite;
+  }
+  
+  @keyframes btn-anim1 {
+    0% {
+      left: -100%;
+    }
+  
+    50%,100% {
+      left: 100%;
+    }
+  }
+  
+  .login-box a span:nth-child(2) {
+    top: -100%;
+    right: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(180deg, transparent, #fff);
+    animation: btn-anim2 1.5s linear infinite;
+    animation-delay: .375s
+  }
+  
+  @keyframes btn-anim2 {
+    0% {
+      top: -100%;
+    }
+  
+    50%,100% {
+      top: 100%;
+    }
+  }
+  
+  .login-box a span:nth-child(3) {
+    bottom: 0;
+    right: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(270deg, transparent, #fff);
+    animation: btn-anim3 1.5s linear infinite;
+    animation-delay: .75s
+  }
+  
+  @keyframes btn-anim3 {
+    0% {
+      right: -100%;
+    }
+  
+    50%,100% {
+      right: 100%;
+    }
+  }
+  
+  .login-box a span:nth-child(4) {
+    bottom: -100%;
+    left: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(360deg, transparent, #fff);
+    animation: btn-anim4 1.5s linear infinite;
+    animation-delay: 1.125s
+  }
+  
+  @keyframes btn-anim4 {
+    0% {
+      bottom: -100%;
+    }
+  
+    50%,100% {
+      bottom: 100%;
+    }
+  }
+  
+  .login-box p:last-child {
+    color: #aaa;
+    font-size: 14px;
+  }
+  
+  .login-box a.a2 {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .login-box a.a2:hover {
+    background: transparent;
+    color: #aaa;
+    border-radius: 5px;
+  }
+
 /* FORM */
 
 
@@ -566,7 +793,7 @@ nav ul li a:active{
     justify-content: center;
 }
 
-form{
+.formC{
     width: clamp(250px, 75%, 550px);
     height: auto;
     padding: 40px 30px;
@@ -823,7 +1050,7 @@ strong {
     max-width: 55rem;   
 }
 
-.tx-sobre h1, .sec-patro h1{
+.tx-sobre h1, .sec-patro h1, .tx-contato h1{
     font-size: 48px;
     margin-bottom: 24px;
     font-weight: 700;

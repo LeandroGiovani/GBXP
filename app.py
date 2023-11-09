@@ -4,10 +4,12 @@ import mysql.connector
 import os
 import smtplib
 from email.message import EmailMessage
-
+from flask_mail import Mail, Message
 
 
 def create_app():
+
+
 
     app = Flask(__name__) # instancia o Flask
     app.secret_key = "abax"
@@ -16,11 +18,11 @@ def create_app():
     # app.config['SQLALCHEMY_DATABASE_URI'] = 'mssql+pyodbc://root:5e5i_123@localhost/gbxp'
     db = SQLAlchemy(app)
 
-    # class flask_session.sessions.ServerSideSession(initial=None, sid=None, permanent=None)
-
     # VARIÁVEIS DO BANCO
     class Pessoa(db.Model):
+
         __tablename__ = "cadastro"
+        #  coloque o nome da tabela
 
         idcadastro = db.Column(db.Integer, primary_key=True)
         nome_completo = db.Column(db.String(100), nullable=False)
@@ -31,9 +33,16 @@ def create_app():
         #     return f'<Pessoa {self.nome_completo + self.telefone}>'
         # print(__repr__)]
 
-    EMAIL = "gamebarretosexperience@gmail.com"
-    senha = "gbxp2023"
-    send_email = False
+    # parte do email :)
+    app.config['MAIL_SERVER'] = 'smtp.gmail.com'  # Substitua pelo servidor SMTP correto
+    app.config['MAIL_PORT'] = 465  # Substitua pela porta correta
+    app.config['MAIL_USE_TLS'] = False
+    app.config['MAIL_USE_SSL'] = True
+    app.config['MAIL_USERNAME'] = 'gamebarretosexperience@gmail.com'
+    app.config['MAIL_PASSWORD'] = 'gbxp2023'
+
+    mail = Mail(app)
+
 
     # ROTAS
     @app.route('/')
@@ -72,57 +81,35 @@ def create_app():
                 msg = inc_msg   
 
             db.session.commit()
-
-            msg = EmailMessage()
-            msg['Subject'] = 'Você se cadastrou na GBXP'
-            msg['From'] = 'gamebarretosexperience@gmail.com'
-            msg['To'] = 'gamebarretosexperience@gmail.com'
             
-            msg.set_content('Nome é um novo participante do maior evento de jogos em barretos. Se você não se cadastrou ultimamente ou não conhece tal evento por favor report esse email.')
-            
-            with smtplib.SMTP('localhost', 1025) as smtp:
-                smtp.login(EMAIL,senha)
-                smtp.send_message(msg)
         return render_template('form.html', msg=msg, inc_msg=inc_msg)  # Passar msg para o template
 
-    @app.route('/loja')
+
+    @app.route('/send_message', methods=['GET','POST'])
+    def send_message():
+        if request.method == "POST":
+            semail = request.form['email']
+            subject = request.form['nome_completo']
+            mensagem = request.form['message']
+
+            message = Message(subject,sender="gamebarretosexperience@gmail.com",recipients=[semail])
+            message.body = mensagem
+            mail.send(message)
+
+            success = "Message sent"
+
+        return render_template("result.html", success=success)
+
+
+    @app.route('/loja',methods=['POST'])
     def loja():
+
         return render_template('loja.html')
     
     @app.route('/carrinho')
     def car():
         return render_template('carrinho.html')
-
-    # @app.route('/shop')
-    # def teste():
-    #     produtos = [
-    #         {'id': 1, 'name': 'Camiseta homem-aranha', 'price': 10.00, 'description': 'Descrição do Produto 1', 'image_url': 'static/img/produtos/camisa2.jpg'},
-    #         {'id': 2, 'name': 'Short Bem 10', 'price': 1501.00, 'description': 'Descrição do Produto 2', 'image_url': 'camisa 1.webp'},
-    #         {'id': 3, 'name': 'Boné power rangers', 'price': 15.00, 'description': 'Descrição do Produto 3', 'image_url': 'cqamisa3.webp'},
-    #         {'id': 4, 'name': 'Foto com felipe neto', 'price': 122.00, 'description': 'Descrição do Produto 4', 'image_url': 'camisa2.jpg'},
-    #     ]
-    #     return render_template('loja.html', produtos=produtos)
-
-    # @app.route('/add_to_cart/<item_id>')
-    # def add_to_cart(item_id):
-    #     if 'cart' not in session:
-    #         session['cart'] = []
-    #     session['cart'].append(item_id)
-    #     return redirect('/shop')
-
-    # @app.route('/view_cart')
-    # def view_cart():
-    #     cart = session.get('cart', [])
-    #     produtos = [
-    #         {'id': 1, 'name': 'Camiseta homem-aranha', 'price': 10.00, 'description': 'Descrição do Produto 1', 'image_url': 'static/img/produtos/camisa2.jpg'},
-    #         {'id': 2, 'name': 'Short Bem 10', 'price': 1501.00, 'description': 'Descrição do Produto 2', 'image_url': 'camisa 1.webp'},
-    #         {'id': 3, 'name': 'Boné power rangers', 'price': 15.00, 'description': 'Descrição do Produto 3', 'image_url': 'cqamisa3.webp'},
-    #         {'id': 4, 'name': 'Foto com felipe neto', 'price': 122.00, 'description': 'Descrição do Produto 4', 'image_url': 'camisa2.jpg'},
-    #     ]
-    #     # return redirect('/shop')
-    #     return render_template('carrinho.html',produtos=produtos, cart=cart)
-
-            
+      
     # tentar privar isso depois
     @app.route('/verificar_nome', methods=['GET'])
     def verificar_nome():
@@ -139,23 +126,6 @@ def create_app():
         else:
             # Se o nome não existir, retorne um objeto JSON vazio
             return {}
-
-    @app.route('/send_email')
-    def email():
-        msg = EmailMessage()
-        msg['Subject'] = 'Você se cadastrou na GBXP'
-        msg['From'] = 'gamebarretosexperience@gmail.com'
-        msg['To'] = 'gamebarretosexperience@gmail.com'
-        
-        msg.set_content('Nome é um novo participante do maior evento de jogos em barretos. Se você não se cadastrou ultimamente ou não conhece tal evento por favor report esse email.')
-        
-        with smtplib.SMTP_SSL('smtp.gmail.com', 465) as smtp:
-            smtp.login(email,senha)
-            smtp.send_message(msg)
-        
-        return
-
-
     return app
 
 if __name__ == '__main__':
