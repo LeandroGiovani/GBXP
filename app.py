@@ -1,6 +1,9 @@
 from flask import Flask, render_template, request, redirect, url_for, session
 from flask_sqlalchemy import SQLAlchemy
 import mysql.connector
+import os
+import smtplib
+from email.message import EmailMessage
 
 
 
@@ -27,6 +30,10 @@ def create_app():
         # def __repr__(self):
         #     return f'<Pessoa {self.nome_completo + self.telefone}>'
         # print(__repr__)]
+
+    EMAIL = "gamebarretosexperience@gmail.com"
+    senha = "gbxp2023"
+    send_email = False
 
     # ROTAS
     @app.route('/')
@@ -65,6 +72,17 @@ def create_app():
                 msg = inc_msg   
 
             db.session.commit()
+
+            msg = EmailMessage()
+            msg['Subject'] = 'Você se cadastrou na GBXP'
+            msg['From'] = 'gamebarretosexperience@gmail.com'
+            msg['To'] = 'gamebarretosexperience@gmail.com'
+            
+            msg.set_content('Nome é um novo participante do maior evento de jogos em barretos. Se você não se cadastrou ultimamente ou não conhece tal evento por favor report esse email.')
+            
+            with smtplib.SMTP('localhost', 1025) as smtp:
+                smtp.login(EMAIL,senha)
+                smtp.send_message(msg)
         return render_template('form.html', msg=msg, inc_msg=inc_msg)  # Passar msg para o template
 
     @app.route('/loja')
@@ -122,6 +140,20 @@ def create_app():
             # Se o nome não existir, retorne um objeto JSON vazio
             return {}
 
+    @app.route('/send_email')
+    def email():
+        msg = EmailMessage()
+        msg['Subject'] = 'Você se cadastrou na GBXP'
+        msg['From'] = 'gamebarretosexperience@gmail.com'
+        msg['To'] = 'gamebarretosexperience@gmail.com'
+        
+        msg.set_content('Nome é um novo participante do maior evento de jogos em barretos. Se você não se cadastrou ultimamente ou não conhece tal evento por favor report esse email.')
+        
+        with smtplib.SMTP_SSL('smtp.gmail.com', 465) as smtp:
+            smtp.login(email,senha)
+            smtp.send_message(msg)
+        
+        return
 
 
     return app
