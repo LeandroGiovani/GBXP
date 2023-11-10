@@ -161,7 +161,7 @@
 
 @media screen and (max-width: 340px){
     form{
-        width: clamp(150px, 60%, 350px);
+        width: clamp(150px, 60%, 350px) !important;
     }
 
     .text-form h1{
@@ -171,7 +171,7 @@
 
 @media screen and (max-width: 225px){
     form{
-        width: 60%;
+        width: 60% !important;
     }
 
     .text-form h1{
@@ -185,13 +185,14 @@
 
 @media screen and (max-width: 198px){
     form{
-        margin-top: 60px;
+        margin-top: 60px !important;
+        margin-bottom: 12vh;
     }
 }
 
 @media screen and (max-width: 175px){
     form{
-        width: 50%;
+        width: 50% !important;
     }
 
     .btn-submit strong{

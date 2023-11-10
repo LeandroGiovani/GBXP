@@ -366,7 +366,7 @@ nav ul li a:active{
 .patro-slide{
     display: flex;
     z-index: 2;
-    animation: slidePatr 35s infinite linear;
+    animation: slidePatr 45s infinite linear;
 }
 
 
@@ -562,7 +562,7 @@ nav ul li a:active{
     justify-content: center;
     align-items: center;
     position: relative;
-    background-color: #111;
+    background-color: rgba(17, 17, 17, .95);
     gap: 32px;
 }
 
@@ -631,7 +631,7 @@ nav ul li a:active{
   
   .login-box .user-box input, .login-box .user-box textarea{
     width: 100%;
-    padding: 10px 0;
+    padding: 12px 0;
     font-size: 16px;
     color: #fff;
     margin-bottom: 30px;
@@ -645,7 +645,7 @@ nav ul li a:active{
     position: absolute;
     top: 0;
     left: 0;
-    padding: 10px 0;
+    padding: 12px 0;
     font-size: 16px;
     color: #fff;
     pointer-events: none;
@@ -684,9 +684,9 @@ nav ul li a:active{
 }
 
 .div-submit{
-    width: 100%;
-    display: flex;
-    align-items: center;
+  width: 100%;
+  display: flex;
+  align-items: center;
 }
 
 .login-box form a input{
@@ -706,10 +706,12 @@ nav ul li a:active{
     background: #fff;
     color: #272727;
     border-radius: 5px;
+    cursor: pointer;
 }
 
 .login-box a:hover input{
     color: #272727;
+    cursor: pointer;
 }
   
   .login-box a span {
@@ -816,12 +818,18 @@ nav ul li a:active{
   display: flex;
   flex-wrap: wrap;
   padding: 1rem 5%;;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   position: relative;
-  background-color: #0c0c0c;
+  background-color: #0a0a0a;
   gap: 32px;
   border-top: 1px solid #1f2123;
+}
+
+.icon-group{
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
 }
 
 .sec-direitos p{
@@ -842,23 +850,43 @@ nav ul li a:active{
 
 .icon-footer{
   font-size: 16px;
-    height: 45px;
-    width: 45px;
-    display: inline-block;
-    text-align: center;
-    line-height: 43px;
-    border-radius: 5px;
-    border: 2px solid #222222;
-    margin: 30px 5px 0 0;
-    transition: all 0.3s ease;
+  height: 45px;
+  width: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-radius: 5px;
+  border: 2px solid #1f2123;
+  transition: all 0.4s ease;
+}
+
+.icon-footer svg{
+  transition:  all .4s ease;
+}
+
+.icon-footer svg .path-color{
+  transition: all .4s ease;
+}
+
+.icon-footer:hover{
+  border: 2px solid #fff;
+}
+
+.icon-footer:hover svg{
+  fill: #fff;
+}
+
+.icon-footer:hover svg path.path-color{
+  stroke: #fff !important;
 }
 
 /* FORM */
 
 
 .form{
-    height: 90vh;
-    margin-top: 10vh;
+    height: calc(90vh - 60px);
+    margin-top: calc(10vh + 60px);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -869,7 +897,6 @@ nav ul li a:active{
     height: auto;
     padding: 40px 30px;
     border-radius: 30px;
-    margin-bottom: 10vh;
 }
 
 .input-group{
@@ -1520,6 +1547,20 @@ svg{
   border: 1px solid rgb(213, 13, 13);
   border-radius: 0.25rem;
   backdrop-filter: blur(2px);
+  gap: 4px;
+  transition: .3s all;
+}
+
+.btn-limpar:hover{
+  background-color: rgb(213, 13, 13);
+}
+
+.btn-limpar:hover p{
+  color: #fff;
+}
+
+.btn-limpar:hover svg path{
+  fill: #fff;
 }
 
 .btn-limpar:hover{
@@ -1534,4 +1575,9 @@ svg{
   text-transform: uppercase;
   color: rgb(213, 13, 13);
   font-family: 'Open Sans';
+  transition: .3s all;
+}
+
+.btn-limpar svg path{
+  transition: .3s all;
 }

@@ -14,8 +14,8 @@
                         <div class="div-inicio" id="div-inicio">
                             <h1 class="tx-titulo animate__animated animate__fadeInDown animate__delay-1_5s">GAME BARRETOS EXPERIENCE</h1>
                             <div class="btns-inicio">
-                                <a href="/"><button class="btn-saiba animate__animated animate__fadeInUp animate__delay-1_5s">Saiba mais</button></a>
-                                <a href="/"><button class="btn-cadastro2 animate__animated animate__fadeInUp animate__delay-1_5s">Quero participar</button></a>
+                                <a href="/#sec-sobre"><button class="btn-saiba animate__animated animate__fadeInUp animate__delay-1_5s">Saiba mais</button></a>
+                                <a href="/form"><button class="btn-cadastro2 animate__animated animate__fadeInUp animate__delay-1_5s">Quero participar</button></a>
                             </div>
                         </div>
                     </section>
@@ -416,8 +416,8 @@
                 </div>
             </section>
             <footer>
-                <section class="sec-contato">
-                    <div class="tx-contato">
+                <section class="sec-contato" id="sec-contato">
+                    <div class="tx-contato animIn animate__animated animate__delay-05s">
                         <h1 class="titulo-footer">Entre em contato</h1>
                         <p>Caso queira tirar alguma dúvida a respeito do evento entre em contato ou preencha o formulário para que possamos responde-lo.</p>
                         <div class="informacoes-contato">
@@ -443,17 +443,17 @@
                             </p>
                         </div>
                     </div>
-                    <nav class="topicos">
+                    <nav class="topicos animIn animate__animated animate__delay-07s">
                         <h1 class="titulo-footer">Tópicos</h1>
                         <ul class="nav-list footerUl" id="nav-list">
                             <li class="li-nav" id="nav-item1"><a href="#">Início</a></li>
-                            <li class="li-nav" id="nav-item2"><a href="#sec-sobre">Sobre</a></li>
+                            <li class="li-nav" id="nav-item2"><a href="/#sec-sobre">Sobre</a></li>
                             <li class="li-nav" id="nav-item3"><a href="/">Jogos</a></li>
                             <li class="li-nav" id="nav-item4"><a href="/loja">Loja</a></li>
                             <li class="li-nav" id="nav-item5"><a href="/">Convite</a></li>
                         </ul>
                     </nav>
-                    <div class="div-form">
+                    <div class="div-form animIn animate__animated animate__delay-09s">
                         <div class="login-box">
                             <h1 class="titulo-footer"></h1>
                             <form action="#" method="post">
@@ -483,16 +483,28 @@
                     </div>
                 </section>
                 <section class="sec-direitos">
-                    <div>
+                    <div class="animIn animate__animated animate__delay-03s">
                         <p>
                             © Todos os direitos reservados
-                            <a href="">Termos de serviço</a>
-                            <a href="">Termos de política e privacidade</a>
+                            <a href="/static/public/termosUso.pdf" download>Termos de uso</a>
+                            <a href="/static/public/termosPrivacidade.pdf" download>Termos de política e privacidade</a>
                         </p>
                     </div>
-                    <a href="" class="icon-footer">
-                        
-                    </a>
+                    <div class="icon-group animIn animate__animated animate__delay-05s">
+                        <a href="" class="icon-footer">
+                            <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 48 48" width="20px" height="20px" fill="#a6a6a6">
+                                <path d="M 24 4 C 19.963209 4 16.192498 5.2011807 13.046875 7.2636719 A 1.50015 1.50015 0 1 0 14.691406 9.7714844 C 17.365783 8.0179755 20.556791 7 24 7 C 33.406292 7 41 14.593708 41 24 C 41 26.707746 40.36968 29.257322 39.248047 31.525391 A 1.5001887 1.5001887 0 0 0 41.9375 32.855469 C 43.257867 30.185538 44 27.174254 44 24 C 44 12.972292 35.027708 4 24 4 z M 15.800781 13.076172 C 14.472781 15.202172 15.273563 17.527813 15.726562 18.507812 C 14.637562 19.788813 14 21.334 14 23 C 14 26.78 17.280547 29.939391 21.685547 30.775391 C 20.376547 31.448391 19.399609 32.67225 19.099609 34.15625 L 17.783203 34.15625 C 16.486203 34.15625 15.98225 33.629234 15.28125 32.740234 C 14.58925 31.851234 13.845172 31.253859 12.951172 31.005859 C 12.469172 30.954859 12.144453 31.321484 12.564453 31.646484 C 13.983453 32.612484 14.081391 34.193516 14.650391 35.228516 C 15.168391 36.160516 16.229687 37 17.429688 37 L 19 37 L 19 40.251953 C 12.043156 38.12245 7 31.665102 7 24 C 7 21.314402 7.6195896 18.783427 8.7246094 16.529297 A 1.50015 1.50015 0 0 0 7.4492188 14.351562 A 1.50015 1.50015 0 0 0 6.03125 15.208984 C 4.7302698 17.862854 4 20.851598 4 24 C 4 35.027708 12.972292 44 24 44 C 28.472909 44 32.618147 42.525863 35.951172 40.039062 A 1.5009817 1.5009817 0 1 0 34.15625 37.632812 C 32.617628 38.780793 30.876119 39.662932 29 40.240234 L 29 35.136719 C 29 33.228719 27.902453 31.591391 26.314453 30.775391 C 30.719453 29.939391 34 26.78 34 23 C 34 21.426 33.423406 19.961609 32.441406 18.724609 C 32.883406 17.356609 33.371219 14.953172 32.199219 13.076172 C 29.948219 13.076172 28.469672 14.622797 27.763672 15.591797 C 26.601672 15.213797 25.333 15 24 15 C 22.667 15 21.398328 15.213797 20.236328 15.591797 C 19.530328 14.622797 18.052781 13.076172 15.800781 13.076172 z"/>
+                            </svg>
+                        </a>
+                        <a href="https://www.instagram.com/gamebarretosxperience/" class="icon-footer">
+                            <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 48 48" width="20px" height="20px" fill="#a6a6a6">
+                                <path fill="none" stroke="#a6a6a6" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="3" d="M41.5,21.1v-4.6c0-5.5-4.5-10-10-10h-15c-5.5,0-10,4.5-10,10v3" class="path-color"/>
+                                <path fill="none" stroke="#a6a6a6" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="3" d="M6.5,25.6v5.9c0,5.5,4.5,10,10,10h15c5.5,0,10-4.5,10-10v-4.6" class="path-color"/>
+                                <path fill="none" stroke="#a6a6a6" stroke-miterlimit="10" stroke-width="3" d="M24,15.5c-4.7,0-8.5,3.8-8.5,8.5s3.8,8.5,8.5,8.5s8.5-3.8,8.5-8.5S28.7,15.5,24,15.5z" class="path-color"/>
+                                <path d="M34,12c-1.1,0-2,0.9-2,2s0.9,2,2,2s2-0.9,2-2S35.1,12,34,12z" class="path-color"/>
+                            </svg>
+                        </a>
+                    </div>
                 </section>
             </footer>
         </div>
