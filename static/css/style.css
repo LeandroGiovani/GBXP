@@ -557,6 +557,7 @@ nav ul li a:active{
 
 .sec-contato{
     display: flex;
+    flex-wrap: wrap;
     padding: 5rem 5%;;
     justify-content: center;
     align-items: center;
@@ -565,8 +566,37 @@ nav ul li a:active{
     gap: 32px;
 }
 
+.titulo-footer{
+  font-size: 36px;
+  margin-bottom: 24px;
+  font-weight: 700;
+}
+
+.tx-contato{
+  width: 31%;
+}
+
+.topicos{
+  width: 31%;
+  text-align: center;
+}
+
+.nav-list.footerUl{
+  flex-direction: column;
+  text-align: center;
+}
+
+.topicos ul{
+  gap: 12px;
+}
+
+.div-form{
+  width: 31%;
+}
+
 .tx-contato p{
-    margin: 0 0 12px 0;
+  margin: 0 0 12px 0;
+  color: #a6a6a6;
 }
 
 .subtitulo-padrao{
@@ -781,6 +811,47 @@ nav ul li a:active{
     color: #aaa;
     border-radius: 5px;
   }
+
+.sec-direitos{
+  display: flex;
+  flex-wrap: wrap;
+  padding: 1rem 5%;;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  background-color: #0c0c0c;
+  gap: 32px;
+  border-top: 1px solid #1f2123;
+}
+
+.sec-direitos p{
+  color: #a6a6a6;
+  gap: 30px;
+  display: flex;
+}
+
+.sec-direitos p a{
+  list-style: none;
+  color: #a6a6a6;
+  transition: .3s all;
+}
+
+.sec-direitos p a:hover{
+  color: #f8f8f8;
+}
+
+.icon-footer{
+  font-size: 16px;
+    height: 45px;
+    width: 45px;
+    display: inline-block;
+    text-align: center;
+    line-height: 43px;
+    border-radius: 5px;
+    border: 2px solid #222222;
+    margin: 30px 5px 0 0;
+    transition: all 0.3s ease;
+}
 
 /* FORM */
 
@@ -1050,7 +1121,7 @@ strong {
     max-width: 55rem;   
 }
 
-.tx-sobre h1, .sec-patro h1, .tx-contato h1{
+.tx-sobre h1, .sec-patro h1{
     font-size: 48px;
     margin-bottom: 24px;
     font-weight: 700;
