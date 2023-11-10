@@ -101,7 +101,7 @@ def create_app():
         return render_template("result.html", success=success)
 
 
-    @app.route('/loja',methods=['POST'])
+    @app.route('/loja')
     def loja():
 
         return render_template('loja.html')

@@ -1,33 +1,56 @@
 {% extends'layout.html' %}
 {% block content %}
-
-<div id="itens"></div>
-<div>Total: <span id="total"></span> </div>
-
-<script>
-    var total = 0; // variável que retorna o total dos produtos que estão na LocalStorage.
-    var i = 0;     // variável que irá percorrer as posições
-    var valor = 0; // variável que irá receber o preço do produto convertido em Float.
-    
-    for(i=1; i<=99; i++) // verifica até 99 produtos registrados na localStorage
-    {
-        var prod = localStorage.getItem("produto" + i + ""); // verifica se há recheio nesta posição. 
-        if(prod != null) 
-        {	
-            // exibe os dados da lista dentro da div itens
-            document.getElementById("itens").innerHTML += localStorage.getItem("qtd" + i) + " x ";
-            document.getElementById("itens").innerHTML += localStorage.getItem("produto" + i);
-            document.getElementById("itens").innerHTML += " ";
-            document.getElementById("itens").innerHTML += "R$: " + localStorage.getItem("valor" + i) + "<hr>";
-            
-            // calcula o total dos recheios
-            valor = parseFloat(localStorage.getItem("valor" + i)); // valor convertido com o parseFloat()
-            total = (total + valor); // arredonda para 2 casas decimais com o .toFixed(2)
-        }
-    } 
-    // exibe o total dos recheios
-    document.getElementById("total").innerHTML = total.toFixed(2); 
-   </script>
-   
-   <button type="button" onclick=" localStorage.clear(); location.reload();"> Limpar carrinho </button>
+<body>
+    <div class="radial animate_animated animatefadeIn animatedelay-1s animate_faster">
+        <div id="stars"></div>
+        <div id="stars2"></div>
+        <div id="stars3"></div>
+        {% include 'navbar4.html' %}
+        <section class="sec-carrinho">
+            <div class="carrinho-content1">
+                <div class="texts-carrinho">
+                    <h1>Produtos</h1>
+                    <button type="button" onclick=" localStorage.clear(); location.reload();" class="btn-limpar">
+                        <svg width="10" height="10" viewBox="0 0 24 32" fill="none" xmlns="https://www.w3.org/2000/svg" class="icon-limpar">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M16.6154 4H22.1538C23.2615 4 24 4.8 24 6V8H0V6C0 4.8 0.923077 4 1.84615 4H7.38462C7.75385 1.8 9.78461 0 12 0C14.2154 0 16.2462 1.8 16.6154 4ZM9.23077 4H14.7692C14.4 2.8 13.1077 2 12 2C10.8923 2 9.6 2.8 9.23077 4ZM1.84615 10H22.1538L20.4923 30.2C20.4923 31.2 19.5692 32 18.6462 32H5.35385C4.43077 32 3.69231 31.2 3.50769 30.2L1.84615 10Z" fill="#D50D0Dff"></path>
+                        </svg>
+                        <p>Limpar carrinho</p>
+                    </button>
+                </div>
+                <div class="produtos">
+                    <div id="itens"></div>
+                </div>
+            </div>
+            <div class="carrinho-content2">
+                Total: 
+                <span id="total"></span> 
+            </div>
+        </section>
+        
+    </div>
+    <script>
+        var total = 0; // variável que retorna o total dos produtos que estão na LocalStorage.
+        var i = 0;     // variável que irá percorrer as posições
+        var valor = 0; // variável que irá receber o preço do produto convertido em Float.
+        
+        for(i=1; i<=99; i++) // verifica até 99 produtos registrados na localStorage
+        {
+            var prod = localStorage.getItem("produto" + i + ""); // verifica se há recheio nesta posição. 
+            if(prod != null) 
+            {	
+                // exibe os dados da lista dentro da div itens
+                document.getElementById("itens").innerHTML += localStorage.getItem("qtd" + i) + " x ";
+                document.getElementById("itens").innerHTML += localStorage.getItem("produto" + i);
+                document.getElementById("itens").innerHTML += " ";
+                document.getElementById("itens").innerHTML += "R$: " + localStorage.getItem("valor" + i) + "<hr>";
+                
+                // calcula o total dos recheios
+                valor = parseFloat(localStorage.getItem("valor" + i)); // valor convertido com o parseFloat()
+                total = (total + valor); // arredonda para 2 casas decimais com o .toFixed(2)
+            }
+        } 
+        // exibe o total dos recheios
+        document.getElementById("total").innerHTML = total.toFixed(2); 
+    </script>
+</body>
 {% endblock %}
