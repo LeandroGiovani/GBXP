@@ -277,15 +277,6 @@ cd14.addEventListener('click', () => {
     cd014.classList.toggle("show")
 })
 
-// Arthur - Loja
-
-function AddCarrinho(produto, qtd, valor, posicao){
-		localStorage.setItem("produto" + posicao, produto);
-		localStorage.setItem("qtd" + posicao, qtd);
-		valor = valor * qtd;
-		localStorage.setItem("valor" + posicao, valor);
-}
-
 email.addEventListener('change', () => {
     if (email.value.length >= 1){
         label.classList.add('Up')

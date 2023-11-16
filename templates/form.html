@@ -7,8 +7,7 @@
         <div id="stars3"></div>
         {% include 'navbar2.html' %}
         <section class="form">
-            <!-- <form action="/form" method="POST" class="box"> -->
-            <form action="{{url_for('send_message')}}" method="POST" class="box formC">
+            <form action="/form" method="POST" class="formC box">
 
                 <div class="text-form animate__animated animate__fadeInUp animate__delay-1_2s">
                     <h1>Junte-se a nós!</h1>
@@ -38,7 +37,7 @@
                         </div>
                     </button>
                 </div>
-                <!-- <h1>{{ msg }}</h1> -->
+                <h1>{{ msg }}</h1>
             </form>
         </section>
     </div>

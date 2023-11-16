@@ -1508,24 +1508,30 @@ svg{
 
 .sec-carrinho{
   margin-top: calc(10vh + 60px);
-  height: calc(90vh - 60px);
+  margin-bottom: calc(5vh + 30);
+  height: calc(85vh - 90px);
   padding: 0 5%;
   display: flex;
   justify-content: space-between;
 }
 
 .carrinho-content1{
-  width: 45%;
+  width: 65%;
+  backdrop-filter: blur(5px);
+  border-radius: 8px;
+  border: 2px solid #1f2123;
+  padding: 24px;
 }
 
 .carrinho-content2{
-  width: 45%;
+  width: 25%;
 }
 
 .texts-carrinho{
   display: flex;
   width: 100%;
   justify-content: space-between;
+  margin-bottom: 32px;
 }
 
 .texts-carrinho h1{
@@ -1542,7 +1548,7 @@ svg{
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0.25rem;
+  padding: 0.5rem;
   background: transparent;
   border: 1px solid rgb(213, 13, 13);
   border-radius: 0.25rem;
@@ -1551,8 +1557,26 @@ svg{
   transition: .3s all;
 }
 
+.delete-button{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  background: transparent;
+  color: rgb(213, 13, 13);
+  border: none;
+  border-radius: 0.25rem;
+  backdrop-filter: blur(2px);
+  gap: 4px;
+  transition: .3s all;
+}
+
 .btn-limpar:hover{
   background-color: rgb(213, 13, 13);
+}
+
+.delete-button:hover{
+  cursor: pointer;
 }
 
 .btn-limpar:hover p{
@@ -1580,4 +1604,27 @@ svg{
 
 .btn-limpar svg path{
   transition: .3s all;
+}
+
+.produtos li{
+  list-style: none;
+  border-top: 2px solid rgba(31, 33, 35, .75);
+  padding: 9px 10px;
+}
+
+.cart-item{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cart-item img{
+  height: 90px;
+  max-width: 85px;
+  margin-right: 12px;
+}
+
+.scale75{
+  scale: .75;
 }

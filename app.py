@@ -1,10 +1,8 @@
 from flask import Flask, render_template, request, redirect, url_for, session
 from flask_sqlalchemy import SQLAlchemy
 import mysql.connector
-import os
-import smtplib
-from email.message import EmailMessage
-from flask_mail import Mail, Message
+
+
 
 
 def create_app():
@@ -29,30 +27,15 @@ def create_app():
         email = db.Column(db.String(100),nullable=False)
         telefone = db.Column(db.String(45), nullable=False)
 
-        # def __repr__(self):
-        #     return f'<Pessoa {self.nome_completo + self.telefone}>'
-        # print(__repr__)]
-
-    # parte do email :)
-    app.config['MAIL_SERVER'] = 'smtp.gmail.com'  # Substitua pelo servidor SMTP correto
-    app.config['MAIL_PORT'] = 465  # Substitua pela porta correta
-    app.config['MAIL_USE_TLS'] = False
-    app.config['MAIL_USE_SSL'] = True
-    app.config['MAIL_USERNAME'] = 'gamebarretosexperience@gmail.com'
-    app.config['MAIL_PASSWORD'] = 'gbxp2023'
-
-    mail = Mail(app)
-
 
     # ROTAS
     @app.route('/')
     def index():
-        # q = request.args.get('q')
+        return render_template('index.html')
     
-        # if q:
-        #     pessoas = Pessoa.query.filter((Pessoa.nome_completo.like(f"%{q}%")) | (Pessoa.cpf.like(f"%{q}%"))).all()
-        # else:
-        #     pessoas = Pessoa.query.all()
+    @app.route('/msgindex', methods=['POST'])
+    def msgindex():
+        msgi = "Mensagem enviada com sucesso"
         return render_template('index.html')
     @app.route('/form', methods=['GET', 'POST'])
     def form():
@@ -68,7 +51,7 @@ def create_app():
                 # Se o nome já existe, preencha os outros campos do formulário
                 email = pessoa_existente.email
                 telefone = pessoa_existente.telefone
-                msg = "Nome já cadastrado, seus dados foram atualizados"
+                msg = "Nome já cadastrado, tá tudo errado"
             else:
                 email = request.form['email']
                 telefone = request.form['telefone']
@@ -78,27 +61,11 @@ def create_app():
                     telefone=telefone
                 )
                 db.session.add(pessoa)
-                msg = inc_msg   
+                msg = "Cadastro perfeitamente perfeito" 
 
             db.session.commit()
             
         return render_template('form.html', msg=msg, inc_msg=inc_msg)  # Passar msg para o template
-
-
-    @app.route('/send_message', methods=['GET','POST'])
-    def send_message():
-        if request.method == "POST":
-            semail = request.form['email']
-            subject = request.form['nome_completo']
-            mensagem = request.form['message']
-
-            message = Message(subject,sender="gamebarretosexperience@gmail.com",recipients=[semail])
-            message.body = mensagem
-            mail.send(message)
-
-            success = "Message sent"
-
-        return render_template("result.html", success=success)
 
 
     @app.route('/loja')

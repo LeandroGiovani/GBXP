@@ -88,3 +88,30 @@ function fecharback(){
         cardBack.classList.remove("mostrar")
     }, 400)
 }
+
+function addToCart(name, price, image) {
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    // Criar objeto do produto
+    let product = {
+        name: name,
+        image: image,
+        price: price,
+        quantity: 1 // Defina a quantidade inicial como 1 ou conforme necessário
+    };
+
+    // Adicionar o produto ao carrinho
+    cart.push(product);
+
+    // Atualizar o carrinho no localStorage
+    localStorage.setItem('cart', JSON.stringify(cart));
+}
+
+// function addToCart(productName, productPrice) {
+//     // Obter carrinho existente ou criar um novo array vazio
+//     let cart = JSON.parse(localStorage.getItem('cart')) || [];
+//     // Adicionar produto ao carrinho
+//     cart.push({ name: productName, price: productPrice });
+//     // Armazenar o carrinho de volta no localStorage
+//     localStorage.setItem('cart', JSON.stringify(cart));
+// }

@@ -10,46 +10,91 @@
             <div class="carrinho-content1">
                 <div class="texts-carrinho">
                     <h1>Produtos</h1>
-                    <button type="button" onclick=" localStorage.clear(); location.reload();" class="btn-limpar">
+                    <button type="button" onclick="localStorage.clear(); location.reload();" class="btn-limpar">
                         <svg width="10" height="10" viewBox="0 0 24 32" fill="none" xmlns="https://www.w3.org/2000/svg" class="icon-limpar">
                             <path fill-rule="evenodd" clip-rule="evenodd" d="M16.6154 4H22.1538C23.2615 4 24 4.8 24 6V8H0V6C0 4.8 0.923077 4 1.84615 4H7.38462C7.75385 1.8 9.78461 0 12 0C14.2154 0 16.2462 1.8 16.6154 4ZM9.23077 4H14.7692C14.4 2.8 13.1077 2 12 2C10.8923 2 9.6 2.8 9.23077 4ZM1.84615 10H22.1538L20.4923 30.2C20.4923 31.2 19.5692 32 18.6462 32H5.35385C4.43077 32 3.69231 31.2 3.50769 30.2L1.84615 10Z" fill="#D50D0Dff"></path>
                         </svg>
                         <p>Limpar carrinho</p>
                     </button>
                 </div>
-                <div class="produtos">
-                    <div id="itens"></div>
-                </div>
+                <ul class="produtos" id="cart-list"></ul>
             </div>
             <div class="carrinho-content2">
-                Total: 
-                <span id="total"></span> 
+                <p style="width: 45%;" id="total-price">Total: R$0,00</p> 
             </div>
         </section>
     </div>
     <script>
-        var total = 0; // variável que retorna o total dos produtos que estão na LocalStorage.
-        var i = 0;     // variável que irá percorrer as posições
-        var valor = 0; // variável que irá receber o preço do produto convertido em Float.
-        
-        for(i=1; i<=99; i++) // verifica até 99 produtos registrados na localStorage
-        {
-            var prod = localStorage.getItem("produto" + i + ""); // verifica se há recheio nesta posição. 
-            if(prod != null) 
-            {	
-                // exibe os dados da lista dentro da div itens
-                document.getElementById("itens").innerHTML += localStorage.getItem("qtd" + i) + " x ";
-                document.getElementById("itens").innerHTML += localStorage.getItem("produto" + i);
-                document.getElementById("itens").innerHTML += " ";
-                document.getElementById("itens").innerHTML += "R$: " + localStorage.getItem("valor" + i) + "<hr>";
+        document.addEventListener('DOMContentLoaded', function () {
+            displayCart();
+        });
+
+        function displayCart() {
+            // Obter carrinho do localStorage
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+            let cartList = document.getElementById('cart-list');
+            let totalPriceElement = document.getElementById('total-price');
+            let totalPrice = 0;
+
+            // Limpar lista do carrinho
+            cartList.innerHTML = "";
+
+            // Iterar sobre os produtos no carrinho
+            cart.forEach(function (product, index) {
+                // Criar um elemento <li> para cada produto
+                let listItem = document.createElement('li');
+                // listItem.textContent = `${product.name} - R$${product.price}`;
+                listItem.classList.add('cart-item'); // Adiciona a classe
+
+                // Criar a tag de imagem e definir o atributo src para a imagem do produto
+                let imageElement = document.createElement('img');
+                imageElement.src = product.image;
+                imageElement.alt = product.name;
+                imageElement.classList.add('product-image'); // Adicionar classe para estilização
+
+                let paragraphElement = document.createElement('p')
+                paragraphElement.textContent = `${product.name} - R$${product.price}`;
                 
-                // calcula o total dos recheios
-                valor = parseFloat(localStorage.getItem("valor" + i)); // valor convertido com o parseFloat()
-                total = (total + valor); // arredonda para 2 casas decimais com o .toFixed(2)
-            }
-        } 
-        // exibe o total dos recheios
-        document.getElementById("total").innerHTML = total.toFixed(2); 
+                // Adicionar a tag de imagem ao item do carrinho
+                listItem.appendChild(imageElement);
+                listItem.appendChild(paragraphElement);
+
+                // Adicionar botão de deletar
+                let deleteButton = document.createElement('button');
+                deleteButton.textContent = 'REMOVER';
+                deleteButton.classList.add('delete-button');
+                deleteButton.addEventListener('click', function () {
+                    removeFromCart(index);
+                });
+
+                // Adicionar o botão de deletar ao item do carrinho
+                listItem.appendChild(deleteButton);
+
+                // Adicionar o item à lista do carrinho
+                cartList.appendChild(listItem);
+
+                // Calcular o preço total
+                totalPrice += parseFloat(product.price);
+            });
+
+            // Exibir o preço total
+            totalPriceElement.textContent = `Total: R$${totalPrice.toFixed(2)}, também com o possivel parcelamento de 12 vezes${totalPrice/12}`;
+        }
+
+        function removeFromCart(index) {
+            // Obter carrinho do localStorage
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+            // Remover o produto do carrinho com base no índice
+            cart.splice(index, 1);
+
+            // Atualizar o carrinho no localStorage
+            localStorage.setItem('cart', JSON.stringify(cart));
+
+            // Atualizar a exibição do carrinho
+            displayCart();
+        }
     </script>
 </body>
 {% endblock %}
