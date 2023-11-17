@@ -1521,6 +1521,7 @@ svg{
   border-radius: 8px;
   border: 2px solid #1f2123;
   padding: 24px;
+  background-color: rgba(31, 33, 35, .85);
 }
 
 .carrinho-content2{
