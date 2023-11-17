@@ -20,7 +20,16 @@
                 <ul class="produtos" id="cart-list"></ul>
             </div>
             <div class="carrinho-content2">
-                <p id="total-price">Total: R$0,00</p> 
+                <h1>Resumo</h1>
+                <div class="div-preco">
+                    <p>Valor total: <span id="total-price"></span></p>
+                    <p>(Em até 10x de <span></span> sem juros)</p>
+                </div>  
+                <div class="div-precoPix">
+                    <p>Valor à vista no pix: <br><span></span></p>
+                </div>
+                <button class="btn-comprar">EFETUAR PAGAMENTO</button>
+                <a href="#"><button class="btn-voltarLoja">CONTINUAR COMPRANDO</button></a>
             </div>
         </section>
     </div>
@@ -104,7 +113,7 @@
             });
 
             // Exibir o preço total
-            totalPriceElement.textContent = `Total: R$${totalPrice.toFixed(2)}, também com o possivel parcelamento de 12 vezes${(totalPrice/12).toFixed(2)}`;
+            totalPriceElement.textContent = `R$${totalPrice.toFixed(2)}`;
         }
 
         function removeFromCart(index) {
