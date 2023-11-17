@@ -20,7 +20,7 @@
                 <ul class="produtos" id="cart-list"></ul>
             </div>
             <div class="carrinho-content2">
-                <p style="width: 45%;" id="total-price">Total: R$0,00</p> 
+                <p id="total-price">Total: R$0,00</p> 
             </div>
         </section>
     </div>
@@ -60,10 +60,35 @@
                 listItem.appendChild(imageElement);
                 listItem.appendChild(paragraphElement);
 
+                function svg(){
+                    
+                }
+
                 // Adicionar botão de deletar
                 let deleteButton = document.createElement('button');
-                deleteButton.textContent = 'REMOVER';
+
+                var spanTx = document.createElement('span')
+                spanTx.append("Delete")
+                spanTx.classList.add("text")
+
+                var spanSvg = document.createElement('span')
+                spanSvg.classList.add("icon")
+                spanSvg.append("X")
+                // var svgTag = document.createElement('svg')
+                // svgTag.setAttribute("xmlns", "http://www.w3.org/2000/svg")
+                // svgTag.setAttribute("width", "24")
+                // svgTag.setAttribute("height", "24")
+                // svgTag.setAttribute("viewBox", "0 0 24 24")
+                // var pathTag = document.createElement('path')
+                // pathTag.setAttribute("d", "M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z")
+
+                // svgTag.appendChild(pathTag)
+                // spanSvg.appendChild(svgTag)
+                
+                // deleteButton.textContent = 'REMOVER';
                 deleteButton.classList.add('delete-button');
+                deleteButton.appendChild(spanTx)
+                deleteButton.appendChild(spanSvg)
                 deleteButton.addEventListener('click', function () {
                     removeFromCart(index);
                 });
@@ -79,7 +104,7 @@
             });
 
             // Exibir o preço total
-            totalPriceElement.textContent = `Total: R$${totalPrice.toFixed(2)}, também com o possivel parcelamento de 12 vezes${totalPrice/12}`;
+            totalPriceElement.textContent = `Total: R$${totalPrice.toFixed(2)}, também com o possivel parcelamento de 12 vezes${(totalPrice/12).toFixed(2)}`;
         }
 
         function removeFromCart(index) {

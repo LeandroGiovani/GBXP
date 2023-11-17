@@ -1508,11 +1508,12 @@ svg{
 
 .sec-carrinho{
   margin-top: calc(10vh + 60px);
-  margin-bottom: calc(5vh + 30);
+  margin-bottom: calc(5vh + 30px);
   height: calc(85vh - 90px);
   padding: 0 5%;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .carrinho-content1{
@@ -1526,6 +1527,11 @@ svg{
 
 .carrinho-content2{
   width: 25%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(31, 33, 35, .85);
 }
 
 .texts-carrinho{
@@ -1558,7 +1564,7 @@ svg{
   transition: .3s all;
 }
 
-.delete-button{
+/* .delete-button{
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1570,15 +1576,16 @@ svg{
   backdrop-filter: blur(2px);
   gap: 4px;
   transition: .3s all;
-}
+} */
+
+/* .delete-button:hover{
+  cursor: pointer;
+} */
 
 .btn-limpar:hover{
   background-color: rgb(213, 13, 13);
 }
 
-.delete-button:hover{
-  cursor: pointer;
-}
 
 .btn-limpar:hover p{
   color: #fff;
@@ -1629,3 +1636,68 @@ svg{
 .scale75{
   scale: .75;
 }
+
+
+
+.delete-button {
+  width: 150px;
+  height: 50px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  background: red;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 1px 1px 3px rgba(0,0,0,0.15);
+  background: #e62222;
+ }
+ 
+ .delete-button, .delete-button span {
+  transition: 200ms;
+ }
+ 
+ .delete-button .text {
+  transform: translateX(35px);
+  color: white;
+  font-weight: bold;
+ }
+ 
+ .delete-button .icon {
+  position: absolute;
+  border-left: 1px solid #c41b1b;
+  transform: translateX(110px);
+  height: 40px;
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  color: #fff;
+ }
+ 
+ .delete-button svg {
+  width: 15px;
+  fill: #eee;
+ }
+ 
+ .delete-button:hover {
+  background: #ff3636;
+ }
+ 
+ .delete-button:hover .text {
+  color: transparent;
+ }
+ 
+ .delete-button:hover .icon {
+  width: 150px;
+  border-left: none;
+  transform: translateX(0);
+ }
+ 
+ .delete-button:focus {
+  outline: none;
+ }
+ 
+ .delete-button:active .icon {
+  transform: scale(0.8);
+ }

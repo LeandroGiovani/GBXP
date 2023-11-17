@@ -19,11 +19,11 @@ def create_app():
     # VARIÁVEIS DO BANCO
     class Pessoa(db.Model):
 
-        __tablename__ = "cadastro"
+        __tablename__ = "clientes"
         #  coloque o nome da tabela
 
-        idcadastro = db.Column(db.Integer, primary_key=True)
-        nome_completo = db.Column(db.String(100), nullable=False)
+        idclientes = db.Column(db.Integer, primary_key=True)
+        nome = db.Column(db.String(100), nullable=False)
         email = db.Column(db.String(100),nullable=False)
         telefone = db.Column(db.String(45), nullable=False)
 
@@ -42,21 +42,18 @@ def create_app():
         inc_msg = "" 
         msg = inc_msg
         if request.method == 'POST':
-            nome_completo = request.form['nome_completo']
+            nome = request.form['nome']
 
             # Verificar se o nome já existe no banco de dados
-            pessoa_existente = Pessoa.query.filter_by(nome_completo=nome_completo).first()
+            pessoa_existente = Pessoa.query.filter_by(nome=nome).first()
 
             if pessoa_existente:
-                # Se o nome já existe, preencha os outros campos do formulário
-                email = pessoa_existente.email
-                telefone = pessoa_existente.telefone
                 msg = "Nome já cadastrado, tá tudo errado"
             else:
                 email = request.form['email']
                 telefone = request.form['telefone']
                 pessoa = Pessoa(
-                    nome_completo=nome_completo,
+                    nome=nome,
                     email=email,
                     telefone=telefone
                 )
@@ -76,17 +73,22 @@ def create_app():
     @app.route('/carrinho')
     def car():
         return render_template('carrinho.html')
+    
+    @app.route('/salvamsg')
+    def salvamsg():
+        
+        return render_template('index.html')
       
     # tentar privar isso depois
     @app.route('/verificar_nome', methods=['GET'])
     def verificar_nome():
-        nome = request.args.get('nome')  # Obtenha o nome da consulta de URL
-        pessoa = Pessoa.query.filter_by(nome_completo=nome).first()
+        nomev = request.args.get('nome')  # Obtenha o nome da consulta de URL
+        pessoa = Pessoa.query.filter_by(nome=nomev).first()
 
         if pessoa:
             # Se o nome já existir, retorne seus detalhes em JSON
             return {
-                'nome_completo': pessoa.nome_completo,
+                'nome_completo': pessoa.nome,
                 'email': pessoa.email,
                 'telefone': pessoa.telefone
             }
