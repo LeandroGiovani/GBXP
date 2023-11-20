@@ -22,14 +22,14 @@
             <div class="carrinho-content2">
                 <h1>Resumo</h1>
                 <div class="div-preco">
-                    <p>Valor total: <span id="total-price"></span></p>
-                    <p>(Em até 10x de <span></span> sem juros)</p>
+                    <p class="valorT">Valor total à prazo: <span id="total-price"></span></p>
+                    <p class="valor10">(Em até 10x de <span id="total-price10"></span> sem juros)</p>
                 </div>  
                 <div class="div-precoPix">
-                    <p>Valor à vista no pix: <br><span></span></p>
+                    <p>Valor à vista no pix: <br><span id="total-priceAV"></span></p>
                 </div>
                 <button class="btn-comprar">EFETUAR PAGAMENTO</button>
-                <a href="#"><button class="btn-voltarLoja">CONTINUAR COMPRANDO</button></a>
+                <a href="/loja"><button class="btn-voltarLoja">CONTINUAR COMPRANDO</button></a>
             </div>
         </section>
     </div>
@@ -44,6 +44,8 @@
 
             let cartList = document.getElementById('cart-list');
             let totalPriceElement = document.getElementById('total-price');
+            let totalPrice10 = document.getElementById('total-price10')
+            let totalPriceAV = document.getElementById('total-priceAV')
             let totalPrice = 0;
 
             // Limpar lista do carrinho
@@ -68,10 +70,6 @@
                 // Adicionar a tag de imagem ao item do carrinho
                 listItem.appendChild(imageElement);
                 listItem.appendChild(paragraphElement);
-
-                function svg(){
-                    
-                }
 
                 // Adicionar botão de deletar
                 let deleteButton = document.createElement('button');
@@ -113,7 +111,10 @@
             });
 
             // Exibir o preço total
-            totalPriceElement.textContent = `R$${totalPrice.toFixed(2)}`;
+            totalPriceElement.textContent = `R$ ${totalPrice.toFixed(2)}`;
+            valor10 = ` R$ ${(totalPrice/10).toFixed(2)} `
+            totalPrice10.textContent = valor10
+            totalPriceAV.textContent = `R$ ${(totalPrice*0.9).toFixed(2)}`
         }
 
         function removeFromCart(index) {

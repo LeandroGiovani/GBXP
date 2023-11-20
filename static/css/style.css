@@ -1512,8 +1512,8 @@ svg{
   height: calc(85vh - 90px);
   padding: 0 5%;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: space-around;
+  align-items: flex-start;
 }
 
 .carrinho-content1{
@@ -1528,11 +1528,10 @@ svg{
 
 .carrinho-content2{
   width: 20%;
-  height: 95%;
+  max-width: 300px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   background-color: rgba(31, 33, 35, .85);
   border-radius: 8px;
   padding: 24px;
@@ -1551,9 +1550,83 @@ svg{
   width: 100%;
 }
 
-.div-preco p{
+.valorT{
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
+  padding: 8px;
+  border-bottom: 2px solid #1f2123;
+}
+
+.valorT span, .valor10 span{
+  font-weight: bold;
+}
+
+.valor10{
+  display: flex;
+  justify-content: center;
+  padding: 8px;
+}
+
+#total-price10{
+  margin: 0 1ch;
+}
+
+.div-precoPix{
+  text-align: center;
+  margin: 32px 0;
+  padding: 16px 0;
+  width: 100%;
+  background-color: rgba(255, 255, 255, .3);
+}
+
+.div-precoPix span{
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.btn-comprar{
+  height: 48px;
+  width: 100%;
+  border: 1px solid #fff;
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 16px;
+  border-radius: 4px;
+  transition: .2s all;
+}
+
+.btn-comprar:hover{
+  filter: brightness(80%);
+  cursor: pointer;
+}
+
+.btn-comprar:active{
+  scale: .95;
+}
+
+.btn-voltarLoja{
+  height: 48px;
+  width: 100%;
+  border: 1px solid #fff;
+  background-color: transparent;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 4px;
+  font-size: 18px;
+  transition: .2s all;
+}
+
+.carrinho-content2 a{
+  width: 100%;
+}
+
+.carrinho-content2 a:hover button{
+  filter: brightness(80%);
+  cursor: pointer;
+}
+
+.carrinho-content2 a:active button{
+  scale: .95;
 }
 
 .texts-carrinho h1{
@@ -1566,6 +1639,7 @@ svg{
   font-weight: 900;
   text-align: left;
   width: 100%;
+  margin-bottom: 32px;
 }
 
 .icon-limpar{
@@ -1639,7 +1713,7 @@ svg{
 .produtos li{
   list-style: none;
   border-top: 2px solid rgba(31, 33, 35, .75);
-  padding: 9px 10px;
+  height: 15vh;
 }
 
 .cart-item{
