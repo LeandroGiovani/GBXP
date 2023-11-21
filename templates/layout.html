@@ -24,11 +24,23 @@
         var loading = document.getElementById("loading")
         var loader = document.getElementById("loader")
         var body = document.getElementById("body")
+        var elementFadeUp = document.querySelectorAll('.animarUp')
+        var elementFadeUp2 = document.querySelectorAll('.animarUp2')
+        var elementFadeUp3 = document.querySelectorAll('.animarUp3')
+        var elementFadeDown = document.querySelectorAll('.animarDown')
+        var elementFadeDown2 = document.querySelectorAll('.animarDown2')
+        var elementFadeDown3 = document.querySelectorAll('.animarDown3')
         scr = true
         window.addEventListener("load", function(){
             loader.style.opacity = "0"
             vinheta()
             vinhetaOut()
+            setTimeout(animarUp, 365)
+            setTimeout(animarUp2, 415)
+            setTimeout(animarUp3, 465)
+            setTimeout(animarDown, 415)
+            setTimeout(animarDown2, 490)
+            setTimeout(animarDown3, 565)
         })
         
         function vinheta(){
@@ -41,6 +53,42 @@
             setTimeout(()=>{
                 loader.style.display = "none";
             }, 350)
+        }
+
+        function animarUp(){
+            elementFadeUp.forEach(element => {
+                element.classList.add('fadeAnimUp')
+            })
+        }
+
+        function animarUp2(){
+            elementFadeUp2.forEach(element2 => {
+                element2.classList.add('fadeAnimUp')
+            })
+        }
+
+        function animarUp3(){
+            elementFadeUp3.forEach(element3 => {
+                element3.classList.add('fadeAnimUp')
+            })
+        }
+
+        function animarDown(){
+            elementFadeDown.forEach(element => {
+                element.classList.add('fadeAnimDown')
+            })
+        }
+
+        function animarDown2(){
+            elementFadeDown2.forEach(element2 => {
+                element2.classList.add('fadeAnimDown')
+            })
+        }
+
+        function animarDown3(){
+            elementFadeDown3.forEach(element3 => {
+                element3.classList.add('fadeAnimDown')
+            })
         }
     </script>
     <script>

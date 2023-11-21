@@ -1,7 +1,7 @@
 {% extends'layout.html' %}
 {% block content %}
 <body>
-    <div class="radial animate__animated animate__fadeIn animate__delay-1s animate__faster">
+    <div class="radial">
         <div id="stars"></div>
         <div id="stars2"></div>
         <div id="stars3"></div>
@@ -27,7 +27,7 @@
         
         <section class="sec-produtos">
             <div class="grid-produtos">
-                <div class="card-produto animate__animated animate__fadeIn animate__delay-1_3s">
+                <div class="card-produto animarUp">
                     <div class="img-produto">
                         <img src="/static/img/produtos/gbxpP1.png">
                     </div>
@@ -46,7 +46,7 @@
                     </div>
                 </div>
 
-                <div class="card-produto animate__animated animate__fadeIn animate__delay-1_3s">
+                <div class="card-produto animarUp">
                     <div class="img-produto">
                         <img src="/static/img/produtos/gbxpP2.png">
                     </div>
@@ -65,7 +65,7 @@
                     </div>
                 </div>
 
-                <div class="card-produto animate__animated animate__fadeIn animate__delay-1_3s">
+                <div class="card-produto animarUp">
                     <div class="img-produto">
                         <img src="/static/img/produtos/gbxpP3.png">
                     </div>
@@ -84,7 +84,7 @@
                     </div>
                 </div>
 
-                <div class="card-produto animate__animated animate__fadeIn animate__delay-1_3s">
+                <div class="card-produto animarUp">
                     <div class="img-produto">
                         <img src="/static/img/produtos/gbxpP4.png" style="scale: .75; min-width: 300px;">
                     </div>
@@ -105,9 +105,6 @@
             </div>
         </section>            
     </div>
-    <!-- ATRASO DE LOADER -->
-    <iframe style="display: none;" width="560" height="315" src="https://www.youtube.com/embed/U5iUc8U3coI?si=D3Obg9jxU9_tlKFZ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-    <!---------------------->
     <script src="/static/js/loja.js"></script>
 </body>
 {% endblock %}

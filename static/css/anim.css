@@ -88,3 +88,33 @@
     -webkit-animation-delay: calc(var(--animate-delay) * 1.9);
     animation-delay: calc(var(--animate-delay) * 1.9);
 }
+
+.fadeAnimUp{
+    animation: fade-up .75s;
+}
+
+.fadeAnimDown{
+    animation: fade-down .75s;
+}
+
+@keyframes fade-down{
+    0%{
+        opacity: 0;
+        transform: translateY(-40px) scale(.85);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0px) scale(1);
+    }
+}
+
+@keyframes fade-up{
+    0%{
+        opacity: 0;
+        transform: translateY(40px) scale(.85);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0px) scale(1);
+    }
+}
