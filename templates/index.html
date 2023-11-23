@@ -462,7 +462,7 @@
                                     <label>Nome</label>
                                 </div>
                                 <div class="user-box">
-                                    <input required name="email" type="email" class="footer-email">
+                                    <input required name="memail" type="email" class="footer-email">
                                     <label class="footer-label">Email</label>
                                   </div>
                                 <div class="user-box">
@@ -470,25 +470,73 @@
                                     <label>Mensagem</label>
                                 </div>
                                 <div class="div-submit">
-                                    <a href="#">
+                                    <a>
                                         <span></span>
                                         <span></span>
                                         <span></span>
                                         <span></span>
-                                        <input type="submit" value="Enviar">
-                                      </a>
+                                        <input type="submit" value="Enviar" id="btn_permission" >
+                                    </a>
                                 </div>
                                 <h1>{{ msgi }}</h1>
                               </form>
                         </div>
                     </div>
                 </section>
+                <div class="noti-certo hidden" id="notificacao">
+                    <!-- Conteúdo da notificação -->
+                    Esta é a notificação que será exibida quando a variável for verdadeira.
+                  </div>
+                <style>
+                    .hidden {
+                      display: none;
+                    }
+                    .noti-certo {
+                        position: fixed;
+  top: 50px; /* Defina a posição desejada do topo */
+  left: 50%; /* Centralizar horizontalmente */
+  transform: translateX(-50%);
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  width: 80%;
+  max-width: 600px;
+  z-index: 10; 
+                    }
+                  </style>
+                <script>
+                    var variavelVerdadeira = "{{ noti }}";
+                    console.log(variavelVerdadeira)
+
+document.addEventListener('DOMContentLoaded', function() {
+  // Verifica se a variável é verdadeira e mostra a notificação
+  if (variavelVerdadeira == "True") {
+    // Obtém a referência da div noti-certo
+    var notificacaoDiv = document.getElementById('notificacao');
+    
+    // Remove a classe 'hidden' para exibir a div
+    notificacaoDiv.classList.remove('hidden');
+  }
+});
+                    document.addEventListener('DOMContentLoaded', function() {
+      if ('Notification' in window) {
+        Notification.requestPermission().then(function(permission) {
+        //   Não há necessidade de exibir uma notificação aqui
+        //   Se a permissão for 'granted', as notificações estão habilitadas
+        //   Se for 'denied' ou 'default', as notificações estão desabilitadas
+          console.log('Permissão de notificação:', permission);
+        });
+      } else {
+        console.log('Este navegador não suporta notificações.');
+      }
+    });
+                </script>
                 <section class="sec-direitos">
                     <div class="animarUp">
                         <p>
                             © Todos os direitos reservados
-                            <a href="/static/public/termosUso.pdf" download>Termos de uso</a>
-                            <a href="/static/public/termosPrivacidade.pdf" download>Termos de política e privacidade</a>
+                            <a href="/static/public/termosUso.pdf" target="_blank">Termos de uso</a>
+                            <a href="/static/public/termosPrivacidade.pdf" target="_blank">Termos de política e privacidade</a>
                         </p>
                     </div>
                     <div class="icon-group animarUp">

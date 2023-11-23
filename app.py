@@ -27,16 +27,40 @@ def create_app():
         email = db.Column(db.String(100),nullable=False)
         telefone = db.Column(db.String(45), nullable=False)
 
+    
+    class Mensagem(db.Model):
 
+        __tablename__ = "mensagem"
+
+        id = db.Column(db.Integer, primary_key=True)
+        name = db.Column(db.String(100))
+        memail = db.Column(db.String(100))
+        msg = db.Column(db.String(45))
+        # assunto = db.Column(db.String(45))
+
+    
+    
     # ROTAS
     @app.route('/')
     def index():
-        return render_template('index.html')
+        noti = False
+        return render_template('index.html', noti=noti)
     
     @app.route('/msgindex', methods=['POST'])
     def msgindex():
-        msgi = "Mensagem enviada com sucesso"
-        return render_template('index.html')
+
+        name = request.form['name']
+        memail = request.form['memail']
+        msg = request.form['msg']
+
+        mensagem = Mensagem(name=name, memail=memail, msg=msg)
+        db.session.add(mensagem)
+        db.session.commit()
+
+        noti = True
+
+        return render_template('index.html', noti=noti)
+    
     @app.route('/form', methods=['GET', 'POST'])
     def form():
         inc_msg = "" 
