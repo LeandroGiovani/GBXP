@@ -38,11 +38,11 @@
                             <span>R$ 40,00</span>
                             <div class="qtd">
                                 <span class="menosP1">-</span>
-                                <span class="num"><input class="numP1" type="number" value="1" min="1" max="99" id="qtd1"></span>
+                                <span class="num"><input class="numP1" id="camiseta" type="number" value="1" min="1" max="99" id="qtd1"></span>
                                 <span class="maisP1">+</span>
                             </div>
                         </div>
-                        <button class="btn-produto" type="button" onclick="addToCart('Camiseta GBXP', '40.00', '/static/img/produtos/gbxpP1.png'), popUp()">Adicionar ao carrinho</button>
+                        <button class="btn-produto" type="button" onclick="addToCart('Camiseta GBXP', '40.00', '/static/img/produtos/gbxpP1.png', document.getElementById('camiseta').value), popUp()">Adicionar ao carrinho</button>
                     </div>
                 </div>
 
@@ -57,11 +57,11 @@
                             <span>R$ 20,00</span>
                             <div class="qtd">
                                 <span class="menosP2">-</span>
-                                <span class="num"><input class="numP2" type="number" value="1" min="1" max="99" id="qtd2"></span>
+                                <span class="num"><input class="numP2" id="capinha" type="number" value="1" min="1" max="99" id="qtd2"></span>
                                 <span class="maisP2">+</span>
                             </div>
                         </div>
-                        <button class="btn-produto" type="button" onclick="addToCart('Capinha GBXP', '20.00', '/static/img/produtos/gbxpP2.png'), popUp()">Adicionar ao carrinho</button>
+                        <button class="btn-produto" type="button" onclick="addToCart('Capinha GBXP', '20.00', '/static/img/produtos/gbxpP2.png', document.getElementById('capinha').value), popUp()">Adicionar ao carrinho</button>
                     </div>
                 </div>
 
@@ -76,11 +76,11 @@
                             <span>R$ 15,00</span>
                             <div class="qtd">
                                 <span class="menosP3">-</span>
-                                <span class="num"><input class="numP3" type="number" value="1" min="1" max="99" id="qtd3"></span>
+                                <span class="num"><input class="numP3" id="garrafa" type="number" value="1" min="1" max="99" id="qtd3"></span>
                                 <span class="maisP3">+</span>
                             </div>
                         </div>
-                        <button class="btn-produto" type="button" onclick="addToCart('Garrafa GBXP', '15.00', '/static/img/produtos/gbxpP3.png'), popUp()">Adicionar ao carrinho</button>
+                        <button class="btn-produto" type="button" onclick="addToCart('Garrafa GBXP', '15.00', '/static/img/produtos/gbxpP3.png', document.getElementById('garrafa').value), popUp()">Adicionar ao carrinho</button>
                     </div>
                 </div>
 
@@ -95,11 +95,12 @@
                             <span>R$ 100,00</span>
                             <div class="qtd">
                                 <span class="menosP4">-</span>
-                                <span class="num"><input class="numP4" type="number" value="1" min="1" max="99" id="qtd4"></span>
+                                <!-- <span class="num"><input class="numP4" id="quantidadeInput" type="number" value="1" min="1" max="99" id="qtd4" oninput="updateQuantity()" ></span> -->
+                                <span class="num"><input class="numP4" id="tenis" type="number" value="1" min="1" max="99" id="qtd4"></span>
                                 <span class="maisP4">+</span>
                             </div>
                         </div>
-                        <button class="btn-produto" type="button" onclick="addToCart('Tênis GBXP', '100.00', '/static/img/produtos/gbxpP4.png'), popUp()">Adicionar ao carrinho</button>
+                        <button class="btn-produto" type="button" onclick="addToCart('Tênis GBXP', '100.00', '/static/img/produtos/gbxpP4.png', document.getElementById('tenis').value), popUp()">Adicionar ao carrinho</button>
                     </div>                   
                 </div>
             </div>

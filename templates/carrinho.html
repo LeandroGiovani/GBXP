@@ -66,10 +66,14 @@
 
                 let paragraphElement = document.createElement('p')
                 paragraphElement.textContent = `${product.name} - R$${product.price}`;
+
+                let quantidadeteste = document.createElement('h1')
+                quantidadeteste.textContent = `${product.quantity} - R$${product.quantity * product.price}`;
                 
                 // Adicionar a tag de imagem ao item do carrinho
                 listItem.appendChild(imageElement);
                 listItem.appendChild(paragraphElement);
+                listItem.appendChild(quantidadeteste);
 
                 // Adicionar botão de deletar
                 let deleteButton = document.createElement('button');

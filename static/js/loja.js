@@ -89,17 +89,28 @@ function fecharback(){
     }, 400)
 }
 
-function addToCart(name, price, image) {
+function addToCart(name, price, image, quantity) {
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
-    // Criar objeto do produto
     let product = {
         name: name,
         image: image,
         price: price,
-        quantity: 1 // Defina a quantidade inicial como 1 ou conforme necessário
+        quantity: quantity
+        // quantity: document.getElementById('quantidadeInput').value // Defina a quantidade inicial como 1 ou conforme necessário
     };
-
+    
+    function updateQuantity() {
+        let newQuantity = parseInt(document.getElementById('quantidadeInput').value);
+        if (!isNaN(newQuantity)) {
+            product.quantity = newQuantity;
+            console.log('Quantidade atualizada:', product.quantity);
+            // Faça o que desejar com a nova quantidade do produto
+        } else {
+            console.error('Digite um número válido para a quantidade.');
+        }
+    }
+    console.log(product)
     // Adicionar o produto ao carrinho
     cart.push(product);
 
