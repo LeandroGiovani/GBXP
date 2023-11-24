@@ -71,11 +71,16 @@
                 imageElement.alt = product.name;
                 imageElement.classList.add('product-image'); // Adicionar classe para estilização
 
+                console.log(product.quantity)
+
                 let paragraphElement = document.createElement('p')
                 paragraphElement.textContent = `${product.name} - R$${product.price}`;
 
                 let quantidadeteste = document.createElement('h1')
                 quantidadeteste.textContent = `${product.quantity} - R$${product.quantity * product.price}`;
+
+                preco = product.price * product.quantity
+                console.log(`Quantidade ${product.quantity}`)
                 
                 // Adicionar a tag de imagem ao item do carrinho
                 listItem.appendChild(imageElement);
@@ -118,15 +123,19 @@
                 cartList.appendChild(listItem);
 
                 // Calcular o preço total
-                totalPrice += parseFloat(product.price);
+                totalPrice += parseFloat(preco);
             });
+            console.log(preco)
+            console.log(totalPrice)
 
             // Exibir o preço total
             totalPriceElement.textContent = `R$ ${totalPrice.toFixed(2)}`;
             valor10 = ` R$ ${(totalPrice/10).toFixed(2)} `
             totalPrice10.textContent = valor10
             totalPriceAV.textContent = `R$ ${(totalPrice*0.9).toFixed(2)}`
+
         }
+        
 
         function removeFromCart(index) {
             // Obter carrinho do localStorage

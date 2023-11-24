@@ -105,7 +105,6 @@ function addToCart(name, price, image, quantity) {
         if (!isNaN(newQuantity)) {
             product.quantity = newQuantity;
             console.log('Quantidade atualizada:', product.quantity);
-            // Faça o que desejar com a nova quantidade do produto
         } else {
             console.error('Digite um número válido para a quantidade.');
         }

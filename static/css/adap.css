@@ -574,3 +574,10 @@
         height: auto;
     }
 }
+
+@media screen and (max-height: 870px) and (max-width: 1000px){
+    .carrinho-content1{
+        height: 85%;
+        overflow-y: scroll;
+    }
+}
