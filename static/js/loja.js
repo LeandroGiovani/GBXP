@@ -97,21 +97,18 @@ function addToCart(name, price, image, quantity) {
         image: image,
         price: price,
         quantity: quantity
-        // quantity: document.getElementById('quantidadeInput').value // Defina a quantidade inicial como 1 ou conforme necessário
     };
-    
-    function updateQuantity() {
-        let newQuantity = parseInt(document.getElementById('quantidadeInput').value);
-        if (!isNaN(newQuantity)) {
-            product.quantity = newQuantity;
-            console.log('Quantidade atualizada:', product.quantity);
-        } else {
-            console.error('Digite um número válido para a quantidade.');
-        }
+
+    // Verificar se o produto já existe no carrinho
+    let existingProduct = cart.find(item => item.name === name);
+
+    if (existingProduct) {
+        // Atualizar a quantidade do produto existente
+        existingProduct.quantity = parseInt(existingProduct.quantity) + parseInt(quantity);
+    } else {
+        // Adicionar o produto ao carrinho
+        cart.push(product);
     }
-    console.log(product)
-    // Adicionar o produto ao carrinho
-    cart.push(product);
 
     // Atualizar o carrinho no localStorage
     localStorage.setItem('cart', JSON.stringify(cart));
