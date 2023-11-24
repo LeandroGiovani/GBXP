@@ -1146,7 +1146,7 @@ strong {
 .tx-sobre{
     text-align: center;
     margin: 0 auto 90px;
-    width: 100%;
+    width: 90%;
     max-width: 55rem;   
 }
 
@@ -1683,24 +1683,6 @@ svg{
   gap: 4px;
   transition: .3s all;
 }
-
-/* .delete-button{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.5rem;
-  background: transparent;
-  color: rgb(213, 13, 13);
-  border: none;
-  border-radius: 0.25rem;
-  backdrop-filter: blur(2px);
-  gap: 4px;
-  transition: .3s all;
-} */
-
-/* .delete-button:hover{
-  cursor: pointer;
-} */
 
 .btn-limpar:hover{
   background-color: rgb(213, 13, 13);

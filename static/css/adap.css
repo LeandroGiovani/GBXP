@@ -1,5 +1,29 @@
 /* Adap index.html */
 
+@media screen and (max-width: 1400px){
+    .topicos{
+        display: none;
+    }
+
+    .sec-contato{
+        justify-content: space-evenly;
+    }
+
+    .tx-contato, .div-form{
+        width: 100%;
+    }
+
+    .tx-contato{
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 1055px){
+    .sec-contato{
+        flex-direction: column;
+    }
+}
+
 @media screen and (max-width: 920px){
     .menu{
         display: block;
@@ -67,6 +91,12 @@
     .sec-navbar.active{
         background-color: rgba(8, 8, 8, .8);
     }
+
+    .sec-direitos div p{
+        gap: 12px;
+        flex-direction: column;
+        text-align: center;
+    }
 }
 
 @media screen and (max-width: 870px){
@@ -98,6 +128,12 @@
 @media screen and (max-width: 580px){
     .tx-titulo{
         font-size: 3rem;
+    }
+}
+
+@media screen and (max-width: 480px){
+    .login-box{
+        width: clamp(150px, 90%, 350px) !important;
     }
 }
 
@@ -133,10 +169,12 @@
         font-size: 14px;
     }
 
-    
-
     .img-produto img{
         width: 95%;
+    }
+
+    .img-produto .tenis-img{
+        min-width: unset !important;
     }
 }
 
@@ -154,6 +192,14 @@
     .sec-patro h1{
         font-size: 24px;
     }
+
+    .login-box form a input{
+        font-size: 14px;
+    }
+
+    .login-box form a{
+        padding: 10px;
+    }
 }
 
 @media screen and (max-width: 200px){
@@ -167,7 +213,7 @@
 /* Adap form.html */
 
 @media screen and (max-width: 340px){
-    form{
+    .formC{
         width: clamp(150px, 60%, 350px) !important;
     }
 
@@ -177,7 +223,7 @@
 }
 
 @media screen and (max-width: 225px){
-    form{
+    .formC{
         width: 60% !important;
     }
 
@@ -191,14 +237,14 @@
 }
 
 @media screen and (max-width: 198px){
-    form{
+    .formC{
         margin-top: 60px !important;
         margin-bottom: 12vh;
     }
 }
 
 @media screen and (max-width: 175px){
-    form{
+    .formC{
         width: 50% !important;
     }
 
@@ -456,10 +502,75 @@
     .carrinho-content2.active{
         height: 470px;
     }
+
+    .delete-button .text{
+        display: none;
+    }
+
+    .delete-button .icon{
+        transform: unset;
+        border: 0;
+        width: 50px;
+        height: 50px;
+    }
+
+    .delete-button{
+        border-radius: 50%;
+        width: 50px;
+    }
+
+    .delete-button:hover .icon {
+        width: 50px;
+        transform: unset;
+    }
 }
 
 @media screen and (max-width: 440px){
     .valorT{
         justify-content: space-between;
+    }
+}
+
+@media screen and (max-width: 408px){
+    .valor10{
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .carrinho-content2.active {
+        height: 513px;
+    }
+}
+
+@media screen and (max-width: 345px){
+    .valorT{
+        flex-direction: column;
+    }
+
+    .div-precoPix{
+        margin: 6px auto 24px;
+    }
+
+    .btn-voltarLoja, .btn-comprar{
+        font-size: 16px;
+        width: 100%;
+        border-radius: 0;
+        margin: 0;
+    }
+
+    .carrinho-content2.active {
+        height: 454px;
+    }
+}
+
+@media screen and (max-width: 232px){
+    .carrinho-content2.active {
+        height: 472px;
+    }
+}
+
+@media screen and (max-width: 209px){
+    .carrinho-content2.active {
+        height: auto;
     }
 }
