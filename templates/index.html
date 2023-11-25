@@ -559,7 +559,7 @@ document.addEventListener('DOMContentLoaded', function() {
         </div>
     </main>
     <!-- TERMOS DE USO -->
-    <div class="modal">
+    <div id="modal" class="modal">
         <article class="modal-container">
             <header class="modal-container-header">
                 <span class="modal-container-title cb">
@@ -570,10 +570,12 @@ document.addEventListener('DOMContentLoaded', function() {
                     Política de privacidade
                 </span>
                 <button class="icon-button">
-                    <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M0 0h24v24H0z" fill="none"></path>
-                        <path d="M12 10.586l4.95-4.95 1.414 1.414-4.95 4.95 4.95 4.95-1.414 1.414-4.95-4.95-4.95 4.95-1.414-1.414 4.95-4.95-4.95-4.95L7.05 5.636z" fill="black"></path>
-                    </svg>                    
+                    <div onclick="fechar()">
+                        <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M0 0h24v24H0z" fill="none"></path>
+                            <path d="M12 10.586l4.95-4.95 1.414 1.414-4.95 4.95 4.95 4.95-1.414 1.414-4.95-4.95-4.95 4.95-1.414-1.414 4.95-4.95-4.95-4.95L7.05 5.636z" fill="black"></path>
+                        </svg>   
+                    </div>                 
                 </button>
             </header>
             <section class="modal-container-body rtf">
@@ -622,8 +624,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 
             </section>
             <footer class="modal-container-footer">
-                <button class="button is-ghost">Aceitar</button>
-                <button class="button is-primary">Fechar</button>
+                <button id="termos" class="button is-ghost" onclick="aceitar()" >Aceitar</button>
+                <button onclick="fechar()" class="button is-primary">Fechar</button>
             </footer>
         </article>
     </div>

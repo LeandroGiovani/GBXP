@@ -1812,7 +1812,8 @@ svg{
   position: fixed;
   bottom: 4%;
   margin: 0 15px;
-  z-index: 100;
+  z-index: 10;
+  display: block;
 }
 
 .button,

@@ -284,29 +284,24 @@ email.addEventListener('change', () => {
         label.classList.remove('Up')
     }
 })
-// Função para salvar cokkies 
 
-// function setCookie(nome,valor,dias) {
-//     var validade = "";
-//     if (days) {
-//         var date = new Date();
-//         date.setTime(date.getTime() + (days*24*60*60*1000));
-//         validade = "; expires=" + date.toUTCString();
-//     }
-//     document.cookie = nome + "=" + (valor || "")  + validade + "; path=/";
-// }
+// Turrá esteve aqui
 
-// function getCookie(nome) {
-//     var nomeCookie = nome + "=";
-//     var ca = document.cookie.split(';');
-//     for(var i=0;i < ca.length;i++) {
-//         var c = ca[i];
-//         while (c.charAt(0)==' ') c = c.substring(1,c.length);
-//         if (c.indexOf(nomeCookie) == 0) return c.substring(nomeCookie.length,c.length);
-//     }
-//     return null;
-// }
+function fechar() {
+    document.getElementById('modal').style.display = 'none';
+}
 
-// function eraseCookie(nome) {   
-//     document.cookie = nome +'=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
-// }
+function verificar() {
+    if (localStorage.getItem('aceitou') === 'true') {
+      document.getElementById('modal').style.display = 'none'; // Oculta a div se a variável for verdadeira
+    }
+  }
+
+  // Chama a função de verificação ao carregar a página
+  window.onload = verificar();
+
+  // Função para salvar um valor no localStorage e ocultar a div
+  function aceitar() {
+    localStorage.setItem('aceitou', 'true'); // Define a variável aceitou como verdadeira no localStorage
+    document.getElementById('modal').style.display = 'none'; // Oculta a div
+  }
