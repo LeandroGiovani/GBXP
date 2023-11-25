@@ -559,12 +559,73 @@ document.addEventListener('DOMContentLoaded', function() {
         </div>
     </main>
     <!-- TERMOS DE USO -->
-    <div class="msg-termos" id="msg-termos" style="display: none;">
-        <div class="div-termos">
-            <h1>Termos de Política e termos de uso </h1>
-            <p>Antes de continuar, pedimos que você leia e aceite nossos Termos de Uso e Política de Privacidade. Esses documentos são importantes para garantir que você compreenda nossas diretrizes e práticas em relação ao uso deste site.</p>
-        </div>
-        <button class="btn-termos">Aceitar todos os termos</button>
+    <div class="modal">
+        <article class="modal-container">
+            <header class="modal-container-header">
+                <span class="modal-container-title cb">
+                    <svg aria-hidden="true" height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M0 0h24v24H0z" fill="none"></path>
+                        <path d="M14 9V4H5v16h6.056c.328.417.724.785 1.18 1.085l1.39.915H3.993A.993.993 0 0 1 3 21.008V2.992C3 2.455 3.449 2 4.002 2h10.995L21 8v1h-7zm-2 2h9v5.949c0 .99-.501 1.916-1.336 2.465L16.5 21.498l-3.164-2.084A2.953 2.953 0 0 1 12 16.95V11zm2 5.949c0 .316.162.614.436.795l2.064 1.36 2.064-1.36a.954.954 0 0 0 .436-.795V13h-5v3.949z" fill="currentColor"></path>
+                    </svg>
+                    Política de privacidade
+                </span>
+                <button class="icon-button">
+                    <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M0 0h24v24H0z" fill="none"></path>
+                        <path d="M12 10.586l4.95-4.95 1.414 1.414-4.95 4.95 4.95 4.95-1.414 1.414-4.95-4.95-4.95 4.95-1.414-1.414 4.95-4.95-4.95-4.95L7.05 5.636z" fill="currentColor"></path>
+                    </svg>
+                </button>
+            </header>
+            <section class="modal-container-body rtf">
+                <span class="cb" >GBXP 2023</span>
+    
+                <p class="cb" >
+                    A Game Barretos Experience, pessoa jurídica de direito privado, com sede na Sesi-SP/Barretos,
+                    inscrita no CNPJ/MF sob o nº 213213123123 leva a sua privacidade a sério e zela pela
+                    segurança e proteção de dados de todos os seus clientes, parceiros, fornecedores e usuários
+                    do site “www.gbxp.com” e qualquer outro site, Loja, aplicativo operado pelo Lojista.
+                    </p>
+    
+                <span class="cb" >Esta Política de Privacidade (“Política de Privacidade”) destina-se a informá-lo sobre o modo
+                    como nós utilizamos e divulgamos informações coletadas em suas visitas à nossa Loja e em
+                    mensagens que trocamos com você (“Comunicações”).</span>
+    
+                <p class="cb" >AO ACESSAR A LOJA, ENVIAR COMUNICAÇÕES OU FORNECER QUALQUER TIPO DE DADO
+                    PESSOAL, VOCÊ DECLARA ESTAR CIENTE E DE ACORDO COM ESTA POLÍTICA DE PRIVACIDADE,
+                    A QUAL DESCREVE AS FINALIDADES E FORMAS DE TRATAMENTO DE SEUS DADOS PESSOAIS
+                    QUE VOCÊ DISPONIBILIZAR NA LOJA.
+                    </p>
+                <span class="cb" >Para que</span>
+                <ol>
+                    <li class="cb" >Viabilizar que você adquira produtos e/ou serviços na Loja;</li>
+                    <li class="cb" >Para confirmar ou corrigir as informações que temos sobre você;</li>
+                    <li class="cb" >Para personalizar sua experiência de uso da Loja;</li>
+                    <li class="cb" >Para enviar informações que acreditamos ser do seu interesse;</li>
+                </ol>
+    
+                <p class="cb" >Esta Política de Privacidade fornece uma visão geral de nossas práticas de privacidade e das
+                    escolhas que você pode fazer, bem como direitos que você pode exercer em relação aos Dados
+                    Pessoais tratados por nós. Se você tiver alguma dúvida sobre o uso de Dados Pessoais, entre
+                    em contato com leandrogiovani@outlook.com.</p>
+    
+                <span class="cb" >Claudii libidini, qui tum erat summo ne imperio, dederetur.</span>
+    
+                <p class="cb" >Além disso, a Política de Privacidade não se aplica a quaisquer aplicativos, produtos, serviços,
+                    site ou recursos de mídia social de terceiros que possam ser oferecidos ou acessados por meio
+                    da Loja. O acesso a esses links fará com que você deixe a Loja e possa resultar na coleta ou
+                    compartilhamento de informações sobre você por terceiros. Nós não controlamos,
+                    endossamos ou fazemos quaisquer representações sobre esses sites de terceiros ou suas
+                    práticas de privacidade, que podem ser diferentes das nossas. Recomendamos que você revise
+                    a política de privacidade de qualquer site com o qual você interaja antes de permitir a coleta e
+                    o uso de seus Dados Pessoais. <a class="vermais" href="/static/public/termosPrivacidade.pdf">Ver mais</a> </p>
+    
+                
+            </section>
+            <footer class="modal-container-footer">
+                <button class="button is-ghost">Decline</button>
+                <button class="button is-primary">Accept</button>
+            </footer>
+        </article>
     </div>
 </body>
 {% endblock %}
