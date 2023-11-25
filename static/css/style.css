@@ -1807,6 +1807,14 @@ svg{
  /* Turrá esteve Aqui */
 
 /* Pop-up container */
+
+.modal {
+  position: fixed;
+  bottom: 4%;
+  margin: 0 15px;
+  z-index: 100;
+}
+
 .button,
 .input,
 .select,
@@ -1827,8 +1835,8 @@ a {
 }
 
 .modal-container {
-  max-height: 400px;
-  max-width: 500px;
+  max-height: calc(100px + 25vh);
+  max-width: 100%;
   margin-left: auto;
   margin-right: auto;
   background-color: #fff;
@@ -1839,14 +1847,24 @@ a {
   box-shadow: 0 15px 30px 0 rgba(0, 0, 0, 0.25);
 }
 
+
 @media (max-width: 600px) {
   .modal-container {
-    width: 90%;
+    border-radius: 0;
+    max-height: calc(40px + 25vh);
+  }
+  .modal {
+    margin: 0;
+    bottom: 0;
+  }
+
+  .modal-container-body{
+    padding: 24px 16px 51px !important; 
   }
 }
 
 .modal-container-header {
-  padding: 16px 32px;
+  padding: 5px 32px;
   border-bottom: 1px solid #ddd;
   display: flex;
   align-items: center;
@@ -1865,11 +1883,11 @@ a {
 .modal-container-title svg {
   width: 32px;
   height: 32px;
-  color: #750550;
+  color: #000;
 }
 
 .modal-container-body {
-  padding: 24px 32px 51px;
+  padding: 24px 25px 31px;
   overflow-y: auto;
 }
 
@@ -1924,7 +1942,7 @@ a {
 }
 
 .modal-container-footer {
-  padding: 20px 32px;
+  padding: 5px 40px;
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -1961,7 +1979,7 @@ a {
 }
 
 .button.is-primary {
-  background-color: #750550;
+  background-color: #000;
   color: #fff;
 }
 
