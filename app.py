@@ -7,13 +7,9 @@ import mysql.connector
 
 def create_app():
 
-
-
-    app = Flask(__name__) # instancia o Flask
+    app = Flask(__name__)
     app.secret_key = "abax"
-    # CONEXÃO COM BANCO DE DADOS
     app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:5e5i_123@localhost/gbxp'
-    # app.config['SQLALCHEMY_DATABASE_URI'] = 'mssql+pyodbc://root:5e5i_123@localhost/gbxp'
     db = SQLAlchemy(app)
 
     # VARIÁVEIS DO BANCO
@@ -97,11 +93,6 @@ def create_app():
     @app.route('/carrinho')
     def car():
         return render_template('carrinho.html')
-    
-    @app.route('/salvamsg')
-    def salvamsg():
-        
-        return render_template('index.html')
       
     # tentar privar isso depois
     @app.route('/verificar_nome', methods=['GET'])
