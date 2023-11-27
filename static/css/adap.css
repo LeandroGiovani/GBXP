@@ -135,6 +135,10 @@
     .login-box{
         width: clamp(150px, 90%, 350px) !important;
     }
+
+    .sec-direitos{
+        flex-direction: column;
+    }
 }
 
 @media screen and (max-width: 375px){
@@ -207,8 +211,6 @@
         font-size: 20px;
     }
 }
-
-/* @media screen and (max-width: 270px){} */
 
 /* Adap form.html */
 
@@ -426,7 +428,7 @@
     }
 
     .icon.active{
-        transform: rotate(-90deg) translateX(4px);
+        transform: rotate(90deg) translateX(-4px);
     }
 
     .div-precoR{

@@ -979,7 +979,7 @@ nav ul li a:active{
   z-index: -1;
   width: 100%;
   height: 100%;
-  overflow: hidden;
+  overflow: hidden !important;
   transition: 0.5s;
   border-radius: 5rem;
 }
@@ -1558,7 +1558,7 @@ svg{
 
 .div-svg-resumo svg{
   padding: 5px 20px;
-  transform: rotate(90deg) translateX(-4px);
+  transform: rotate(-90deg) translateX(4px);
 }
 
 .texts-carrinho{
