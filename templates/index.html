@@ -502,6 +502,26 @@
   width: 80%;
   max-width: 600px;
   z-index: 10; 
+  opacity: 0;
+  animation: fadeInOut 6s forwards;
+                    }
+
+                    @keyframes fadeInOut {
+                        0%{
+                            opacity: 0;
+                        }
+                        25%{
+                            opacity: 0;
+                        }
+                        35%{
+                            opacity: 1;
+                        }
+                        65%{
+                            opacity: 1;
+                        }
+                        100%{
+                            opacity: 0;
+                        }
                     }
                   </style>
                 <script>
@@ -516,6 +536,16 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Remove a classe 'hidden' para exibir a div
     notificacaoDiv.classList.remove('hidden');
+
+    setTimeout(function() {
+        var notification = document.getElementById('notification');
+        notification.style.display = 'block';
+    }, 5000);
+
+    setTimeout(function() {
+        var notification = document.getElementById('notification');
+        notification.style.display = 'none';
+    }, 20000);
   }
 });
                     document.addEventListener('DOMContentLoaded', function() {
