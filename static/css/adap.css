@@ -214,6 +214,15 @@
 
 /* Adap form.html */
 
+@media screen and (max-width: 768px){
+    #starsBtn{
+        display: none;
+        height: 0;
+        width: 0;
+        overflow: hidden;
+    }
+}
+
 @media screen and (max-width: 340px){
     .formC{
         width: clamp(150px, 60%, 350px) !important;

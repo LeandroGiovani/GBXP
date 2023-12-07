@@ -458,15 +458,15 @@
                             <h1 class="titulo-footer"></h1>
                             <form action="/msgindex" method="post">
                                 <div class="user-box">
-                                    <input required name="name" type="text">
+                                    <input required name="name" type="text" autocomplete="off">
                                     <label>Nome</label>
                                 </div>
                                 <div class="user-box">
-                                    <input required name="memail" type="email" class="footer-email">
+                                    <input required name="memail" type="email" class="footer-email" autocomplete="off">
                                     <label class="footer-label">Email</label>
                                   </div>
                                 <div class="user-box">
-                                    <input required name="msg" cols="30" rows="10"></input>
+                                    <input required name="msg" cols="30" rows="10" autocomplete="off">
                                     <label>Mensagem</label>
                                 </div>
                                 <div class="div-submit">
@@ -498,7 +498,7 @@
   display: none;
 }
 .noti-certo {
-  position: block;
+  position: fixed;
   top: 50px; /* Defina a posição desejada do topo */
   left: 50%; /* Centralizar horizontalmente */
   transform: translateX(-50%);
@@ -514,7 +514,10 @@
   z-index: 9999; 
   opacity: 0;
   animation: fadeInOut 6s forwards;
-                    }
+  text-align: center;
+  border-radius: 16px;
+}
+
 .success {
    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
    width: 320px;
@@ -531,7 +534,7 @@
    box-shadow: 0px 0px 5px -3px #111;
    z-index: 9999; 
   opacity: 0;
-  animation: fadeInOut 8s forwards;
+  animation: fadeInOut 6s forwards;
  }
  .success__icon {
    width: 20px;
@@ -575,6 +578,7 @@
     }
     100%{
         opacity: 0;
+        display: none;
     }
 }
                   </style>

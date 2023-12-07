@@ -1,7 +1,7 @@
 {% extends 'layout.html' %}
 {% block content %}
-<body>
-    <div class="radial">
+<body style="height: 100vh;">
+    <div class="radial" style="height: 100vh;">
         <div id="stars"></div>
         <div id="stars2"></div>
         <div id="stars3"></div>
@@ -15,15 +15,15 @@
                 </div>
                 <div class="input-group animarUp">
                     <label for="nome">Nome</label>
-                    <input required type="text" class="input-form" id="nome_completo" name="nome" maxlength="45" minlength="2" placeholder="Nome" tabindex="1" autofocus>
+                    <input required type="text" class="input-form" id="nome_completo" name="nome" maxlength="45" minlength="2" placeholder="Nome" tabindex="1" autofocus autocomplete="off">
                 </div>
                 <div class="input-group animarUp2">
                     <label for="email">Email</label>
-                    <input required type="email" class="input-form" id="input-form" name="email" maxlength="100" placeholder="Email" tabindex="2">
+                    <input required type="email" class="input-form" id="input-form" name="email" maxlength="100" placeholder="Email" tabindex="2" autocomplete="off">
                 </div>
                 <div class="input-group animarUp3">
                     <label class="tel" for="tel">Telefone</label>
-                    <input required type="tel" class="input-form tel" id="input-form tel" name="telefone" maxlength="45" placeholder="Telefone" tabindex="3">
+                    <input required type="tel" class="input-form tel" id="input-form tel" name="telefone" maxlength="45" placeholder="Telefone" tabindex="3" autocomplete="off">
                 </div>
                 <div class="div-btn-submit animarUp">
                     <button class="btn-submit btn-star" type="submit" tabindex="4">
