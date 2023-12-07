@@ -384,6 +384,7 @@
 
     .carrinho-content1{
         width: 90%;
+        z-index: 3;
     }
 
     .carrinho-content2{
@@ -398,8 +399,10 @@
         backdrop-filter: unset;
         box-shadow: 0px -1px 15px 5px rgba(0, 0, 0, .2);
         border-radius: 0;
-        height: 61px;
+        /* height: 61px; */
+        height: 80px;
         transition: .3s all;
+        z-index: 4;
     }
 
     .carrinho-content2 a{
@@ -422,6 +425,14 @@
 
     .carrinho-content2.active{
         height: 375px;
+    }
+
+    .carrinho-content2 h1{
+        padding: 16px 0 0 0;
+    }
+
+    .carrinho-content2.active h1{
+        padding: 8px;
     }
 
     .div-svg-resumo{
@@ -502,6 +513,10 @@
         flex-direction: column;
     }
 
+    .divcart{
+        flex-direction: column;
+    }
+
     .valorT{
         justify-content: center;
     }
@@ -536,6 +551,33 @@
     }
 }
 
+@media screen and (max-width: 550px){
+    .cart-item{
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .produtos li{
+        height: 100%;
+        padding: 15px 0;
+    }
+
+    .delete-button{
+        width: 150px;
+        border-radius: 5px;
+        justify-content: center;
+    }
+
+    .delete-button .icon {
+        width: 150px;
+        border-left: none;
+        transform: translateX(0);
+        width: 40px;
+        height: 40px;
+    }
+    
+}
+
 @media screen and (max-width: 440px){
     .valorT{
         justify-content: space-between;
@@ -550,6 +592,22 @@
 
     .carrinho-content2.active {
         height: 513px;
+    }
+}
+
+@media screen and (max-width: 382px){
+    .texts-carrinho{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .texts-carrinho h1{
+        text-align: center;
+        margin-bottom: 8px;
+    }
+
+    .btn-limpar{
+        width: 60%;
     }
 }
 
@@ -572,6 +630,11 @@
     .carrinho-content2.active {
         height: 454px;
     }
+
+    .divcart{
+        width: 100%;
+        text-align: center;
+    }
 }
 
 @media screen and (max-width: 232px){
@@ -583,6 +646,20 @@
 @media screen and (max-width: 209px){
     .carrinho-content2.active {
         height: auto;
+    }
+
+    .delete-button{
+        border-radius: 50%;
+        width: 50px;
+    }
+
+    .delete-button:hover .icon {
+        width: 50px;
+        transform: unset;
+    }
+
+    .btn-limpar p{
+        font-size: 0.6rem;
     }
 }
 

@@ -1,6 +1,6 @@
 {% extends'layout.html' %}
 {% block content %}
-<body style="overflow: hidden;">
+<body style="overflow: hidden; height: 100vh;">
     <div class="radial animate_animated animatefadeIn animatedelay-1s animate_faster">
         <div id="stars"></div>
         <div id="stars2"></div>
@@ -81,11 +81,15 @@
 
                 preco = product.price * product.quantity
                 console.log(`Quantidade ${product.quantity}`)
+
+                let divcart = document.createElement('div')
+                divcart.classList.add('divcart')
+                divcart.appendChild(paragraphElement)
+                divcart.appendChild(quantidadeteste)
                 
                 // Adicionar a tag de imagem ao item do carrinho
                 listItem.appendChild(imageElement);
-                listItem.appendChild(paragraphElement);
-                listItem.appendChild(quantidadeteste);
+                listItem.appendChild(divcart);
 
                 // Adicionar botão de deletar
                 let deleteButton = document.createElement('button');
@@ -94,7 +98,7 @@
                 spanTx.append("Delete")
                 spanTx.classList.add("text")
 
-                var spanSvg = document.createElement('span')
+                var spanSvg = document.createElement('p')
                 spanSvg.classList.add("icon")
                 spanSvg.append("X")
                 // var svgTag = document.createElement('svg')

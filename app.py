@@ -39,7 +39,7 @@ def create_app():
     # ROTAS
     @app.route('/')
     def index():
-        noti = True
+        noti = False
         return render_template('index.html', noti=noti)
     
     @app.route('/msgindex', methods=['POST'])

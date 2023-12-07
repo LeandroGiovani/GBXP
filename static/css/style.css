@@ -1730,14 +1730,13 @@ svg{
 .cart-item img{
   height: 90px;
   max-width: 85px;
+  max-width: 85px;
   margin-right: 12px;
 }
 
 .scale75{
   scale: .75;
 }
-
-
 
 .delete-button {
   width: 150px;
@@ -1801,6 +1800,13 @@ svg{
  .delete-button:active .icon {
   transform: scale(0.8);
  }
+
+ .divcart{
+  display: flex;
+  align-items: center;
+  width: 300px;
+  justify-content: space-between;
+}
 
  /* Turrá esteve Aqui */
 
