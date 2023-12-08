@@ -382,6 +382,10 @@
         align-items: center;
     }
 
+    .delete-button .icon{
+        position: relative;
+    }
+
     .carrinho-content1{
         width: 90%;
         z-index: 3;
@@ -425,10 +429,6 @@
 
     .carrinho-content2.active{
         height: 375px;
-    }
-
-    .carrinho-content2 h1{
-        padding: 16px 0 0 0;
     }
 
     .carrinho-content2.active h1{
@@ -479,7 +479,8 @@
     .carrinho-content2 h1{
         text-align: center;
         margin-bottom: 12px;
-        padding: 8px;
+        padding: 16px 0 0 0;
+        transition: .3s all linear;
     }
 }
 

@@ -1549,13 +1549,13 @@ svg{
   border-radius: 50%;
   border: 0;
   outline: none;
-  top: -0.75rem;
+  top: -0.9rem;
   position: absolute;
   display: none;
 }
 
 .div-svg-resumo svg{
-  padding: 5px 20px;
+  padding: 2px 20px;
   transform: rotate(-90deg) translateX(4px);
 }
 
