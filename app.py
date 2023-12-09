@@ -9,7 +9,8 @@ def create_app():
 
     app = Flask(__name__)
     app.secret_key = "abax"
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:5e5i_123@localhost/gbxp'
+    # app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:5e5i_123@localhost/gbxp'
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:A532DD-DGgBD3EA4eCd5h6hDa-f6EBd4@viaduct.proxy.rlwy.net:30787/railway'
     db = SQLAlchemy(app)
 
     # VARIÁVEIS DO BANCO
@@ -31,7 +32,9 @@ def create_app():
         id = db.Column(db.Integer, primary_key=True)
         name = db.Column(db.String(100))
         memail = db.Column(db.String(100))
-        msg = db.Column(db.String(45))
+        # msg = db.Column(db.String(45)) - ultimo que deu certo
+        msg = db.Column(db.String(200))
+
         # assunto = db.Column(db.String(45))
 
     
