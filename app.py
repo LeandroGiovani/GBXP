@@ -71,7 +71,7 @@ def create_app():
             pessoa_existente = Pessoa.query.filter_by(nome=nome).first()
 
             if pessoa_existente:
-                msg = "Nome já cadastrado, tá tudo errado"
+                msg = "Esse email já foi cadastrado"
             else:
                 email = request.form['email']
                 telefone = request.form['telefone']
@@ -81,7 +81,7 @@ def create_app():
                     telefone=telefone
                 )
                 db.session.add(pessoa)
-                msg = "Cadastro perfeitamente perfeito" 
+                msg = "Cadastro feito com sucesso" 
 
             db.session.commit()
             
