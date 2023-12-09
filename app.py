@@ -62,18 +62,18 @@ def create_app():
     
     @app.route('/form', methods=['GET', 'POST'])
     def form():
-        inc_msg = "" 
-        msg = inc_msg
+        bbox = False
+        rbox = False
+    
         if request.method == 'POST':
-            nome = request.form['nome']
-
-            # Verificar se o nome já existe no banco de dados
-            pessoa_existente = Pessoa.query.filter_by(nome=nome).first()
-
+            email = request.form['email']
+            pessoa_existente = Pessoa.query.filter_by(email=email).first()
+    
             if pessoa_existente:
                 msg = "Esse email já foi cadastrado"
+                rbox = True
             else:
-                email = request.form['email']
+                nome = request.form['nome']
                 telefone = request.form['telefone']
                 pessoa = Pessoa(
                     nome=nome,
@@ -81,11 +81,17 @@ def create_app():
                     telefone=telefone
                 )
                 db.session.add(pessoa)
-                msg = "Cadastro feito com sucesso" 
+                db.session.commit()
+                msg = "Cadastro feito com sucesso"
+                bbox = True
+                
+        else:
+            msg = "" 
+            bbox = False
+            rbox = False 
+    
+        return render_template('form.html', msg=msg, bbox=bbox, rbox=rbox)
 
-            db.session.commit()
-            
-        return render_template('form.html', msg=msg, inc_msg=inc_msg)  # Passar msg para o template
 
 
     @app.route('/loja')
