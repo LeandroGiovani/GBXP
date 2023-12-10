@@ -1422,17 +1422,27 @@ svg{
   flex-shrink: 0;
   justify-content: center;
   align-items: center;
-  width: 3rem;
-  height: 3rem;
+  width: 4rem;
+  height: 4rem;
   border-radius: 9999px;
   animation: animate .6s linear alternate-reverse infinite;
   transition: .6s ease;
 }
 
+.image.carrinho{
+  width: 7rem;
+  height: 7rem;
+}
+
+.image.carrinho .success-animation .checkmark{
+  width: 5rem;
+  height: 5rem;
+}
+
 .image svg {
   color: #0afa2a;
-  width: 2rem;
-  height: 2rem;
+  width: 2.5rem;
+  height: 2.5rem;
 }
 
 .content {
@@ -1473,7 +1483,7 @@ svg{
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
 }
 
-.track {
+.track{
   display: inline-flex;
   margin-top: 0.75rem;
   padding: 0.5rem 1rem;
@@ -1486,6 +1496,22 @@ svg{
   border-radius: 0.375rem;
   border: 1px solid #D1D5DB;
   background-color: #fff;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.track.carrinho {
+  display: inline-flex;
+  margin-top: 0.75rem;
+  padding: 0.5rem 1rem;
+  color: #066e29;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-weight: 500;
+  justify-content: center;
+  width: 100%;
+  border-radius: 0.375rem;
+  border: 1px solid #1aa06d;
+  background-color: #e2feee;
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
 }
 
@@ -2028,6 +2054,7 @@ a {
   background: #EDFBD8;
   border-radius: 8px;
   box-shadow: 0px 0px 5px -3px #111;
+  margin: 0 auto 16px;
 }
 
 .success__icon {
@@ -2070,6 +2097,7 @@ a {
   border: 1px solid #F7C752;
   border-radius: 8px;
   box-shadow: 0px 0px 5px -3px #111;
+  margin: 0 auto 16px;
 }
 
 .warning__icon {
@@ -2098,6 +2126,60 @@ a {
 
 .warning__close path {
   fill: #755118;
+}
+
+.success-animation { margin:150px auto;}
+
+.checkmark {
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    display: block;
+    stroke-width: 2;
+    stroke: #4bb71b;
+    stroke-miterlimit: 10;
+    box-shadow: inset 0px 0px 0px #4bb71b;
+    animation: fill .4s ease-in-out .4s forwards, scale .3s ease-in-out .9s both;
+    position:relative;
+   margin: 0 auto;
+}
+.checkmark__circle {
+    stroke-dasharray: 166;
+    stroke-dashoffset: 166;
+    stroke-width: 2;
+    stroke-miterlimit: 10;
+    stroke: #4bb71b;
+    fill: #e2feee;
+    animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+}
+
+.checkmark__check {
+    transform-origin: 50% 50%;
+    stroke-dasharray: 48;
+    stroke-dashoffset: 48;
+    animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
+}
+
+@keyframes stroke {
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes scale {
+    0%, 100% {
+        transform: none;
+    }
+
+    50% {
+        transform: scale3d(1.1, 1.1, 1);
+    }
+}
+
+@keyframes fill {
+    100% {
+        box-shadow: inset 0px 0px 0px 30px #4bb71b;
+    }
 }
 
   /* Turrá esteve Aqui */

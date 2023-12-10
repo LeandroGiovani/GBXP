@@ -291,6 +291,10 @@ function fechar() {
     document.getElementById('modal').style.display = 'none';
 }
 
+function fecharAviso(){
+    document.getElementById('avisoW').style.display = 'none';
+}
+
 function verificar() {
     if (localStorage.getItem('aceitou') === 'true') {
       document.getElementById('modal').style.display = 'none'; // Oculta a div se a variável for verdadeira

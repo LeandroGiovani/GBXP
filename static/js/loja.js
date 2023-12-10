@@ -77,7 +77,6 @@ function mostrarPop(){
     }, 1)
 }
 
-
 function fecharPop(){
     cardPop.classList.remove("mostrar")
     fecharback()
