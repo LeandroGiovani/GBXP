@@ -2051,10 +2051,12 @@ a {
   flex-direction: row;
   align-items: center;
   justify-content: start;
-  background: #EDFBD8;
+  background: rgba(255, 255, 255, .2);
+  border: 1px solid #a6a6a6;
   border-radius: 8px;
   box-shadow: 0px 0px 5px -3px #111;
   margin: 0 auto 16px;
+  animation: fadeInOut 10s forwards;
 }
 
 .success__icon {
@@ -2065,13 +2067,13 @@ a {
 }
 
 .success__icon path {
-  fill: #84D65A;
+  fill: #f2f2f2;
 }
 
 .success__title {
   font-weight: 500;
   font-size: 14px;
-  color: #2B641E;
+  color: #fff;
 }
 
 .success__close {
@@ -2082,7 +2084,7 @@ a {
 }
 
 .success__close path {
-  fill: #2B641E;
+  fill: #a6a6a6;
 }
 
 .warning {
@@ -2093,11 +2095,12 @@ a {
   flex-direction: row;
   align-items: center;
   justify-content: start;
-  background: #FEF7D1;
-  border: 1px solid #F7C752;
+  background: rgba(255, 255, 255, .2);
+  border: 1px solid #a6a6a6;
   border-radius: 8px;
   box-shadow: 0px 0px 5px -3px #111;
   margin: 0 auto 16px;
+  animation: fadeInOut 10s forwards;
 }
 
 .warning__icon {
@@ -2108,13 +2111,13 @@ a {
 }
 
 .warning__icon path {
-  fill: #F7C752;
+  fill: #f2f2f2;
 }
 
 .warning__title {
   font-weight: 500;
   font-size: 14px;
-  color: #755118;
+  color: #fff;
 }
 
 .warning__close {
@@ -2125,7 +2128,7 @@ a {
 }
 
 .warning__close path {
-  fill: #755118;
+  fill: #a6a6a6;
 }
 
 .success-animation { margin:150px auto;}
@@ -2180,6 +2183,28 @@ a {
     100% {
         box-shadow: inset 0px 0px 0px 30px #4bb71b;
     }
+}
+
+@keyframes fadeInOut {
+  0%{
+      opacity: 0;
+  }
+  15%{
+      opacity: 0;
+  }
+  35%{
+      opacity: 1;
+  }
+  60%{
+      opacity: 1;
+  }
+  90%{
+      opacity: 0;
+  }
+  100%{
+      opacity: 0;
+      display: none;
+  }
 }
 
   /* Turrá esteve Aqui */
