@@ -1,6 +1,8 @@
 from flask import Flask, render_template, request, redirect, url_for, session
 from flask_sqlalchemy import SQLAlchemy
 import mysql.connector
+# import smtplib
+# from email.message import EmailMessage
 
 
 
@@ -10,7 +12,8 @@ def create_app():
     app = Flask(__name__)
     app.secret_key = "abax"
     # app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:5e5i_123@localhost/gbxp'
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:A532DD-DGgBD3EA4eCd5h6hDa-f6EBd4@viaduct.proxy.rlwy.net:30787/railway'
+    # app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:A532DD-DGgBD3EA4eCd5h6hDa-f6EBd4@viaduct.proxy.rlwy.net:30787/railway'
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:cdh3dcE2edd33A66f61a1fH6db31HdGc@monorail.proxy.rlwy.net:51466/railway'
     db = SQLAlchemy(app)
 
     # VARIÁVEIS DO BANCO
@@ -43,6 +46,20 @@ def create_app():
     @app.route('/')
     def index():
         noti = False
+
+        # EMAIL_ADDRESS = "gamebarretosexperience@gmail.com"
+        # EMAIL_PASSWORD = "gbxp2023"
+
+        # sendemail = EmailMessage()
+        # sendemail['Subject'] = 'GBXP está feliz com você!'
+        # sendemail['From'] = EMAIL_ADDRESS
+        # sendemail['To'] = 'arthurmielemalveste@gmail.com'
+        # sendemail.set_content('Olá você acabou de se cadastrar ao Game Barretos Experience, te esperamos lá!')
+
+        # with smtplib.SMTP_SSL('smtp.gmail.com',465) as smtp:
+        #     smtp.login(EMAIL_ADDRESS,EMAIL_PASSWORD)
+        #     smtp.send_message(sendemail)
+
         return render_template('index.html', noti=noti)
     
     @app.route('/msgindex', methods=['POST'])
@@ -64,7 +81,20 @@ def create_app():
     def form():
         bbox = False
         rbox = False
-    
+
+        # EMAIL_ADDRESS = "arth4asy@gmail.com"
+        # EMAIL_PASSWORD = "gbxp2023"
+
+        # sendemail = EmailMessage()
+        # sendemail['Subject'] = 'GBXP está feliz com você!'
+        # sendemail['From'] = EMAIL_ADDRESS
+        # sendemail['To'] = 'arthurmielemalveste@gmail.com'
+        # sendemail.set_content('Olá você acabou de se cadastrar ao Game Barretos Experience, te esperamos lá!')
+
+        # with smtplib.SMTP_SSL('smtp.gmail.com',465) as smtp:
+        #     smtp.login(EMAIL_ADDRESS,EMAIL_PASSWORD)
+        #     smtp.send_message(sendemail)
+
         if request.method == 'POST':
             email = request.form['email']
             pessoa_existente = Pessoa.query.filter_by(email=email).first()
