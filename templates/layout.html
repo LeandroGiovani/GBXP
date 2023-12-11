@@ -16,7 +16,6 @@
         <div class="loader" id="loader"></div>
     </div>
     {% block content %}{% endblock %}
-
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js"></script>
     <script src="static/js/script.js"></script>
@@ -93,8 +92,33 @@
     </script>
     <script>
         window.onload = function() {
-          document.documentElement.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
         }
+    </script>
+    <script>
+        var variavelVerdadeira = "{{ noti }}";
+        console.log(variavelVerdadeira)
+        document.addEventListener('DOMContentLoaded', function() {
+            // Verifica se a variável é verdadeira e mostra a notificação
+            if (variavelVerdadeira == "True") {
+                // Obtém a referência da div noti-certo
+                var notificacaoDiv = document.getElementById('notificacao');
+                // Remove a classe 'hidden' para exibir a div
+                notificacaoDiv.classList.remove('hidden');
+            }
+        });
+        document.addEventListener('DOMContentLoaded', function() {
+            if ('Notification' in window) {
+                Notification.requestPermission().then(function(permission) {
+                //   Não há necessidade de exibir uma notificação aqui
+                //   Se a permissão for 'granted', as notificações estão habilitadas
+                //   Se for 'denied' ou 'default', as notificações estão desabilitadas
+                console.log('Permissão de notificação:', permission);});
+            } 
+            else {
+                console.log('Este navegador não suporta notificações.');
+            }
+        });
     </script>
     {% block page_js %}{% endblock %}
 </body>

@@ -431,7 +431,7 @@
                                         </g>
                                     </svg>
                                 </span>
-                                (17) 3321-0450
+                                (17) 12345-6789
                             </p>
                             <p class="subtitulo-padrao">
                                 <span class="u-icon u-text-palette-1-base" style="margin-right: 5px;">
@@ -450,7 +450,7 @@
                             <li class="li-nav" id="nav-item2"><a href="/#sec-sobre">Sobre</a></li>
                             <li class="li-nav" id="nav-item3"><a href="/#sec-contato">Contato</a></li>
                             <li class="li-nav" id="nav-item4"><a href="/loja">Loja</a></li>
-                            <li class="li-nav" id="nav-item5"><a href="/">Convite</a></li>
+                            <li class="li-nav" id="nav-item5"><a href="/static/img/convitegbxp.jpeg" download="Convite GBXP">Convite</a></li>
                         </ul>
                     </nav>
                     <div class="div-form animarUp">
@@ -486,119 +486,6 @@
                 <div class="noti-certo hidden" id="notificacao">
                     Sua mensagem foi enviada com sucesso.
                 </div>
-                <!-- <div class="success">
-                    <div class="success__icon">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24" height="24" fill="none"><path fill-rule="evenodd" fill="#393a37" d="m12 1c-6.075 0-11 4.925-11 11s4.925 11 11 11 11-4.925 11-11-4.925-11-11-11zm4.768 9.14c.0878-.1004.1546-.21726.1966-.34383.0419-.12657.0581-.26026.0477-.39319-.0105-.13293-.0475-.26242-.1087-.38085-.0613-.11844-.1456-.22342-.2481-.30879-.1024-.08536-.2209-.14938-.3484-.18828s-.2616-.0519-.3942-.03823c-.1327.01366-.2612.05372-.3782.1178-.1169.06409-.2198.15091-.3027.25537l-4.3 5.159-2.225-2.226c-.1886-.1822-.4412-.283-.7034-.2807s-.51301.1075-.69842.2929-.29058.4362-.29285.6984c-.00228.2622.09851.5148.28067.7034l3 3c.0983.0982.2159.1748.3454.2251.1295.0502.2681.0729.4069.0665.1387-.0063.2747-.0414.3991-.1032.1244-.0617.2347-.1487.3236-.2554z" clip-rule="evenodd"></path></svg>
-                    </div>
-                    <div class="success__title">lorem ipsum dolor sit amet</div>
-                    <div class="success__close"><svg xmlns="http://www.w3.org/2000/svg" width="20" viewBox="0 0 20 20" height="20"><path fill="#393a37" d="m15.8333 5.34166-1.175-1.175-4.6583 4.65834-4.65833-4.65834-1.175 1.175 4.65833 4.65834-4.65833 4.6583 1.175 1.175 4.65833-4.6583 4.6583 4.6583 1.175-1.175-4.6583-4.6583z"></path></svg></div>
-                </div> -->
-<style>
-.hidden {
-  display: none;
-}
-.noti-certo {
-  position: fixed;
-  top: 50px; /* Defina a posição desejada do topo */
-  left: 50%; /* Centralizar horizontalmente */
-  transform: translateX(-50%);
-  background-color:#111;
-  border: #111 solid 2px;
-  /* border-radius: 100px; */
-  color: #fff;
-  padding: 13px;
-  width: 80%;
-  max-width: 600px;
-  justify-content: space-around;
-  align-items: center;
-  z-index: 9999; 
-  opacity: 0;
-  animation: fadeInOut 6s forwards;
-  text-align: center;
-  border-radius: 16px;
-}
-
-.success {
-   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-   width: 320px;
-   position: fixed;
-   top: 50px;
-   left: 39.58%;
-   padding: 12px;
-   display: flex;
-   flex-direction: row;
-   align-items: center;
-   justify-content: start;
-   background: #84D65A;
-   border-radius: 8px;
-   box-shadow: 0px 0px 5px -3px #111;
-   z-index: 9999; 
-  opacity: 0;
-  animation: fadeInOut 6s forwards;
- }
- .success__icon {
-   width: 20px;
-   height: 20px;
-   transform: translateY(-2px);
-   margin-right: 8px;
- }
- .success__icon path {
-   fill: #393A37;
- }
- .success__title {
-   font-weight: 500;
-   font-size: 14px;
-   color: #393A37;
- }
- .success__close {
-   width: 20px;
-   height: 20px;
-   cursor: pointer;
-   margin-left: auto;
- }
- .success__close path {
-   fill: #393A37;
- }
-
-
-                  </style>
-<script>
-    var variavelVerdadeira = "{{ noti }}";
-    console.log(variavelVerdadeira)
-
-    document.addEventListener('DOMContentLoaded', function() {
-      // Verifica se a variável é verdadeira e mostra a notificação
-      if (variavelVerdadeira == "True") {
-        // Obtém a referência da div noti-certo
-        var notificacaoDiv = document.getElementById('notificacao');
-
-        // Remove a classe 'hidden' para exibir a div
-        notificacaoDiv.classList.remove('hidden');
-
-        setTimeout(function() {
-            var notification = document.getElementById('notification');
-            notification.style.display = 'block';
-        }, 5000);
-
-        setTimeout(function() {
-            var notification = document.getElementById('notification');
-            notification.style.display = 'none';
-        }, 20000);
-      }
-    });
-                        document.addEventListener('DOMContentLoaded', function() {
-          if ('Notification' in window) {
-            Notification.requestPermission().then(function(permission) {
-            //   Não há necessidade de exibir uma notificação aqui
-            //   Se a permissão for 'granted', as notificações estão habilitadas
-            //   Se for 'denied' ou 'default', as notificações estão desabilitadas
-              console.log('Permissão de notificação:', permission);
-            });
-          } else {
-            console.log('Este navegador não suporta notificações.');
-          }
-        });
-</script>
                 <section class="sec-direitos">
                     <div class="animarUp">
                         <p>
@@ -608,12 +495,12 @@
                         </p>
                     </div>
                     <div class="icon-group animarUp">
-                        <a href="" class="icon-footer">
+                        <a href="https://github.com/LeandroGiovani/GBXP" target="_blank" class="icon-footer">
                             <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 48 48" width="20px" height="20px" fill="#a6a6a6">
                                 <path d="M 24 4 C 19.963209 4 16.192498 5.2011807 13.046875 7.2636719 A 1.50015 1.50015 0 1 0 14.691406 9.7714844 C 17.365783 8.0179755 20.556791 7 24 7 C 33.406292 7 41 14.593708 41 24 C 41 26.707746 40.36968 29.257322 39.248047 31.525391 A 1.5001887 1.5001887 0 0 0 41.9375 32.855469 C 43.257867 30.185538 44 27.174254 44 24 C 44 12.972292 35.027708 4 24 4 z M 15.800781 13.076172 C 14.472781 15.202172 15.273563 17.527813 15.726562 18.507812 C 14.637562 19.788813 14 21.334 14 23 C 14 26.78 17.280547 29.939391 21.685547 30.775391 C 20.376547 31.448391 19.399609 32.67225 19.099609 34.15625 L 17.783203 34.15625 C 16.486203 34.15625 15.98225 33.629234 15.28125 32.740234 C 14.58925 31.851234 13.845172 31.253859 12.951172 31.005859 C 12.469172 30.954859 12.144453 31.321484 12.564453 31.646484 C 13.983453 32.612484 14.081391 34.193516 14.650391 35.228516 C 15.168391 36.160516 16.229687 37 17.429688 37 L 19 37 L 19 40.251953 C 12.043156 38.12245 7 31.665102 7 24 C 7 21.314402 7.6195896 18.783427 8.7246094 16.529297 A 1.50015 1.50015 0 0 0 7.4492188 14.351562 A 1.50015 1.50015 0 0 0 6.03125 15.208984 C 4.7302698 17.862854 4 20.851598 4 24 C 4 35.027708 12.972292 44 24 44 C 28.472909 44 32.618147 42.525863 35.951172 40.039062 A 1.5009817 1.5009817 0 1 0 34.15625 37.632812 C 32.617628 38.780793 30.876119 39.662932 29 40.240234 L 29 35.136719 C 29 33.228719 27.902453 31.591391 26.314453 30.775391 C 30.719453 29.939391 34 26.78 34 23 C 34 21.426 33.423406 19.961609 32.441406 18.724609 C 32.883406 17.356609 33.371219 14.953172 32.199219 13.076172 C 29.948219 13.076172 28.469672 14.622797 27.763672 15.591797 C 26.601672 15.213797 25.333 15 24 15 C 22.667 15 21.398328 15.213797 20.236328 15.591797 C 19.530328 14.622797 18.052781 13.076172 15.800781 13.076172 z"/>
                             </svg>
                         </a>
-                        <a href="https://www.instagram.com/gamebarretosxperience/" class="icon-footer">
+                        <a href="https://www.instagram.com/gamebarretosxperience/" target="_blank" class="icon-footer">
                             <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 48 48" width="20px" height="20px" fill="#a6a6a6">
                                 <path fill="none" stroke="#a6a6a6" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="3" d="M41.5,21.1v-4.6c0-5.5-4.5-10-10-10h-15c-5.5,0-10,4.5-10,10v3" class="path-color"/>
                                 <path fill="none" stroke="#a6a6a6" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="3" d="M6.5,25.6v5.9c0,5.5,4.5,10,10,10h15c5.5,0,10-4.5,10-10v-4.6" class="path-color"/>
@@ -647,49 +534,51 @@
                 </button>
             </header>
             <section class="modal-container-body rtf">
-                <span class="cb" >GBXP 2023</span>
-    
-                <p class="cb" >
+                <span class="cb">GBXP 2023</span>
+                <p class="cb">
                     A Game Barretos Experience, pessoa jurídica de direito privado, com sede na Sesi-SP/Barretos,
                     inscrita no CNPJ/MF sob o nº 213213123123 leva a sua privacidade a sério e zela pela
                     segurança e proteção de dados de todos os seus clientes, parceiros, fornecedores e usuários
                     do site “www.gbxp.com” e qualquer outro site, Loja, aplicativo operado pelo Lojista.
-                    </p>
-    
-                <span class="cb" >Esta Política de Privacidade (“Política de Privacidade”) destina-se a informá-lo sobre o modo
+                </p>
+                <span class="cb">
+                    Esta Política de Privacidade (“Política de Privacidade”) destina-se a informá-lo sobre o modo
                     como nós utilizamos e divulgamos informações coletadas em suas visitas à nossa Loja e em
-                    mensagens que trocamos com você (“Comunicações”).</span>
-    
-                <p class="cb" >AO ACESSAR A LOJA, ENVIAR COMUNICAÇÕES OU FORNECER QUALQUER TIPO DE DADO
+                    mensagens que trocamos com você (“Comunicações”).
+                </span>
+                <p class="cb">
+                    AO ACESSAR A LOJA, ENVIAR COMUNICAÇÕES OU FORNECER QUALQUER TIPO DE DADO
                     PESSOAL, VOCÊ DECLARA ESTAR CIENTE E DE ACORDO COM ESTA POLÍTICA DE PRIVACIDADE,
                     A QUAL DESCREVE AS FINALIDADES E FORMAS DE TRATAMENTO DE SEUS DADOS PESSOAIS
                     QUE VOCÊ DISPONIBILIZAR NA LOJA.
-                    </p>
-                <span class="cb" >Para que</span>
+                </p>
+                <span class="cb">Para que</span>
                 <ol>
-                    <li class="cb" >Viabilizar que você adquira produtos e/ou serviços na Loja;</li>
-                    <li class="cb" >Para confirmar ou corrigir as informações que temos sobre você;</li>
-                    <li class="cb" >Para personalizar sua experiência de uso da Loja;</li>
-                    <li class="cb" >Para enviar informações que acreditamos ser do seu interesse;</li>
+                    <li class="cb">Viabilizar que você adquira produtos e/ou serviços na Loja;</li>
+                    <li class="cb">Para confirmar ou corrigir as informações que temos sobre você;</li>
+                    <li class="cb">Para personalizar sua experiência de uso da Loja;</li>
+                    <li class="cb">Para enviar informações que acreditamos ser do seu interesse;</li>
                 </ol>
-    
-                <p class="cb" >Esta Política de Privacidade fornece uma visão geral de nossas práticas de privacidade e das
+                <p class="cb">
+                    Esta Política de Privacidade fornece uma visão geral de nossas práticas de privacidade e das
                     escolhas que você pode fazer, bem como direitos que você pode exercer em relação aos Dados
                     Pessoais tratados por nós. Se você tiver alguma dúvida sobre o uso de Dados Pessoais, entre
-                    em contato com leandrogiovani@outlook.com.</p>
-    
-                <span class="cb" >Claudii libidini, qui tum erat summo ne imperio, dederetur.</span>
-    
-                <p class="cb" >Além disso, a Política de Privacidade não se aplica a quaisquer aplicativos, produtos, serviços,
+                    em contato com leandrogiovani@outlook.com.
+                </p>
+                <span class="cb">
+                    Claudii libidini, qui tum erat summo ne imperio, dederetur.
+                </span>
+                <p class="cb">
+                    Além disso, a Política de Privacidade não se aplica a quaisquer aplicativos, produtos, serviços,
                     site ou recursos de mídia social de terceiros que possam ser oferecidos ou acessados por meio
                     da Loja. O acesso a esses links fará com que você deixe a Loja e possa resultar na coleta ou
                     compartilhamento de informações sobre você por terceiros. Nós não controlamos,
                     endossamos ou fazemos quaisquer representações sobre esses sites de terceiros ou suas
                     práticas de privacidade, que podem ser diferentes das nossas. Recomendamos que você revise
                     a política de privacidade de qualquer site com o qual você interaja antes de permitir a coleta e
-                    o uso de seus Dados Pessoais. <a class="vermais" href="/static/public/termosPrivacidade.pdf">Ver mais</a> </p>
-    
-                
+                    o uso de seus Dados Pessoais. 
+                    <a class="vermais" href="/static/public/termosPrivacidade.pdf">Ver mais</a>
+                </p>
             </section>
             <footer class="modal-container-footer">
                 <button id="termos" class="button is-ghost" onclick="aceitar()" >Aceitar</button>

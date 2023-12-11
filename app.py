@@ -1,11 +1,9 @@
 from flask import Flask, render_template, request, redirect, url_for, session
 from flask_sqlalchemy import SQLAlchemy
 import mysql.connector
-# import smtplib
-# from email.message import EmailMessage
-
-
-
+import os
+from sendgrid import SendGridAPIClient
+from sendgrid.helpers.mail import Mail
 
 def create_app():
 
@@ -39,26 +37,11 @@ def create_app():
         msg = db.Column(db.String(200))
 
         # assunto = db.Column(db.String(45))
-
-    
     
     # ROTAS
     @app.route('/')
     def index():
         noti = False
-
-        # EMAIL_ADDRESS = "gamebarretosexperience@gmail.com"
-        # EMAIL_PASSWORD = "gbxp2023"
-
-        # sendemail = EmailMessage()
-        # sendemail['Subject'] = 'GBXP está feliz com você!'
-        # sendemail['From'] = EMAIL_ADDRESS
-        # sendemail['To'] = 'arthurmielemalveste@gmail.com'
-        # sendemail.set_content('Olá você acabou de se cadastrar ao Game Barretos Experience, te esperamos lá!')
-
-        # with smtplib.SMTP_SSL('smtp.gmail.com',465) as smtp:
-        #     smtp.login(EMAIL_ADDRESS,EMAIL_PASSWORD)
-        #     smtp.send_message(sendemail)
 
         return render_template('index.html', noti=noti)
     
@@ -132,7 +115,32 @@ def create_app():
     @app.route('/carrinho')
     def car():
         return render_template('carrinho.html')
-      
+
+    @app.route('/teste')
+    def teste():
+        SENDGRID_API_KEY = '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'  # Substitua pelo seu próprio SendGrid API Key
+
+        # Configure as informações do e-mail
+        sender_email = "gamebarretosexperience@gmail.com"
+        recipient_email = "arth4asy@gmail.com"
+        email_subject = "GBXP está feliz com você!"
+        email_content = "Olá, você acabou de se cadastrar no Game Barretos Experience. Te esperamos lá!"
+        message = Mail(
+            from_email=sender_email,
+            to_emails=recipient_email,
+            subject=email_subject,
+            plain_text_content=email_content
+            )
+        
+        try:
+            sg = SendGridAPIClient(api_key=SENDGRID_API_KEY)
+            response = sg.send(message)
+            print("E-mail enviado com sucesso!")
+            print(f"Código de status: {response.status_code}")
+        except Exception as e:
+            print(f"Erro ao enviar e-mail: {str(e)}")
+        return render_template('index.html')
+
     # tentar privar isso depois
     @app.route('/verificar_nome', methods=['GET'])
     def verificar_nome():
