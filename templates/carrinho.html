@@ -8,7 +8,7 @@
         {% include 'navbar4.html' %}
         <div class="order-back compra">
             <div class="card-Order compra"> 
-                <button class="dismiss" type="button" onclick="fecharPopCompra(); location.reload()">×</button> 
+                <button class="dismiss" type="button" onclick="fecharPopCompra(), localStorage.removeItem('comprou'); location.reload()">×</button> 
                 <div class="header"> 
                     <div class="image carrinho">
                         <div class="success-animation">
@@ -20,7 +20,7 @@
                         <p class="message">Obrigado por apoiar a GBXP.</p> 
                     </div> 
                     <div class="actions">
-                        <a href="/" class="index-pop compra"><button class="track carrinho" type="button">Voltar para a página principal</button></a>
+                        <a href="/" class="index-pop compra"><button onclick="localStorage.removeItem('comprou')" class="track carrinho" type="button">Voltar para a página principal</button></a>
                     </div> 
                 </div> 
             </div> 
@@ -30,7 +30,7 @@
             <div class="carrinho-content1 animarUp">
                 <div class="texts-carrinho">
                     <h1>Produtos</h1>
-                    <button type="button" onclick="localStorage.removeItem('cart'); location.reload();" class="btn-limpar">
+                    <button type="button" onclick="localStorage.removeItem('cart'), localStorage.removeItem('comprou'); location.reload();" class="btn-limpar">
                         <svg width="10" height="10" viewBox="0 0 24 32" fill="none" xmlns="https://www.w3.org/2000/svg" class="icon-limpar">
                             <path fill-rule="evenodd" clip-rule="evenodd" d="M16.6154 4H22.1538C23.2615 4 24 4.8 24 6V8H0V6C0 4.8 0.923077 4 1.84615 4H7.38462C7.75385 1.8 9.78461 0 12 0C14.2154 0 16.2462 1.8 16.6154 4ZM9.23077 4H14.7692C14.4 2.8 13.1077 2 12 2C10.8923 2 9.6 2.8 9.23077 4ZM1.84615 10H22.1538L20.4923 30.2C20.4923 31.2 19.5692 32 18.6462 32H5.35385C4.43077 32 3.69231 31.2 3.50769 30.2L1.84615 10Z" fill="#D50D0Dff"></path>
                         </svg>
