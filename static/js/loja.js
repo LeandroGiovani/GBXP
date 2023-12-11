@@ -12,6 +12,13 @@ const menosP4 = document.querySelector(".menosP4")
 const numP4 = document.querySelector(".numP4")
 const cardPop = document.querySelector(".card-Order")
 const cardBack = document.querySelector(".order-back")
+// let lscomprou = localStorage.setItem('comprou', 'false');
+
+function lscomprou(){
+    localStorage.setItem('comprou', 'false');
+}
+
+lscomprou()
 
 let p1 = 1
 let p2 = 1
@@ -121,3 +128,15 @@ function addToCart(name, price, image, quantity) {
 //     // Armazenar o carrinho de volta no localStorage
 //     localStorage.setItem('cart', JSON.stringify(cart));
 // }
+
+// Turra esteve aqui 
+
+
+function comprou(){
+    localStorage.setItem('comprou', 'true');
+}
+
+if (lscart.length < 1){
+    console.log("ativou")
+    localStorage.removeItem('comprou')
+}
