@@ -44,14 +44,26 @@ def create_app():
 
         # assunto = db.Column(db.String(45))
 
-    app.config['MAIL_SERVER'] = 'smtp.gmail.com'
-    app.config['MAIL_PORT'] = 587
-    app.config['MAIL_USE_TLS'] = True
-    app.config['MAIL_USERNAME'] = 'gamebarretosexperience@gmail.com'
-    app.config['MAIL_PASSWORD'] = 'gbxp2023'        
+    # app.config['MAIL_SERVER'] = 'smtp.gmail.com'
+    # app.config['MAIL_PORT'] = 587
+    # app.config['MAIL_USERNAME'] = 'gbxp2023@gmail.com'
+    # app.config['MAIL_PASSWORD'] = 'GameBarretosExperience2023##'
+    # app.config['MAIL_USE_TLS'] = True
+    # app.config['MAIL_USE_SSL'] = False
 
+    # teste1 
+    # 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 
+        
+
+    app.config['MAIL_SERVER'] = 'smtp.sendgrid.net'  # Altere para o servidor SMTP correto do SendGrid
+    app.config['MAIL_PORT'] = 587
+    app.config['MAIL_USERNAME'] = 'arthur'  # Seu usuário de API
+    app.config['MAIL_PASSWORD'] = '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'  # Sua chave de API do SendGrid
+    app.config['MAIL_USE_TLS'] = True
+    app.config['MAIL_USE_SSL'] = False
+# 
     mail = Mail(app)
-    
+
     # ROTAS
     @app.route('/')
     def index():
@@ -82,7 +94,7 @@ def create_app():
         if request.method == 'POST':
             email = request.form['email']
             pessoa_existente = Pessoa.query.filter_by(email=email).first()
-    
+
             if pessoa_existente:
                 msg = "Esse email já foi cadastrado"
                 rbox = True
@@ -96,21 +108,16 @@ def create_app():
                 )
                 db.session.add(pessoa)
                 db.session.commit()
-                mens = "Cadastro feito com sucesso"
+                msg = "Cadastro feito com sucesso"
                 bbox = True
 
-                mens = Message(sender='gamebarretosexperience@gmail.com', recipients=['arth4asy@gmail.com'])
-                mens.body = f"Nome: {nome}\nE-mail: {email}"
-
-                mail.send(mens)
-                
         else:
             msg = "" 
             bbox = False
             rbox = False 
-    
-        return render_template('form.html', msg=msg, bbox=bbox, rbox=rbox, sucesso=True)
 
+        return render_template('form.html', msg=msg, bbox=bbox, rbox=rbox)
+    
 
 
     @app.route('/loja')
@@ -132,9 +139,9 @@ def create_app():
 
             mensagemteste1 = email.message.Message()
             mensagemteste1['Subject'] = "Assunto"
-            mensagemteste1['From'] = 'gamebarretosexperience@gmail.com'
+            mensagemteste1['From'] = 'gbxp2023@gmail.com'
             mensagemteste1['To'] = 'arth4asy@gmail.com'
-            password = 'gbxp2023' 
+            password = 'GameBarretosExperience2023##' 
             mensagemteste1.add_header('oi', 'ola')
             mensagemteste1.set_payload(corpo_email )   
 
@@ -155,69 +162,28 @@ def create_app():
 
     @app.route('/teste1')
     def teste1():
-        SENDGRID_API_KEY = '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'  # Substitua pelo seu próprio SendGrid API Key
-
-        # Configure as informações do e-mail
-        sender_email = "gamebarretosexperience@gmail.com"
+        sender_email = "gbxp2023@gmail.com"
         recipient_email = "arth4asy@gmail.com"
         email_subject = "GBXP está feliz com você!"
         email_content = "Olá, você acabou de se cadastrar no Game Barretos Experience. Te esperamos lá!"
 
-        message = Mail(
-            from_email=sender_email,
-            to_emails=recipient_email,
-            subject=email_subject,
-            plain_text_content=email_content
-        )
+        msg = Message(subject=email_subject, sender=sender_email, recipients=[recipient_email])
+        msg.body = email_content
 
         try:
-            sg = SendGridAPIClient(api_key=SENDGRID_API_KEY)
-            response = sg.send(message)
+            mail.send(msg)
             print("E-mail enviado com sucesso!")
-            print(f"Código de status: {response.status_code}")
+            return render_template('index.html')  # Renderiza o template após enviar o e-mail
         except Exception as e:
             print(f"Erro ao enviar e-mail: {str(e)}")
-
-        return render_template('index.html')
+            return str(e), 500  # Retorna o erro como resposta HTTP 500 Internal Server Error
 
     @app.route('/teste2')
-    def teste2():
-        def enviar_email(destinatario, assunto, corpo):
-            # Configurações do servidor SMTP do Gmail
-            email_origem = 'gamebarretosexperience@gmail.com'
-            senha = 'gbxp2023'
-            smtp_server = 'smtp.gmail.com'
-            smtp_porta = 587  # Porta para TLS
-
-            # Criando a mensagem
-            mensagem = MIMEMultipart()
-            mensagem['From'] = email_origem
-            mensagem['To'] = destinatario
-            mensagem['Subject'] = assunto
-
-            # Adicionando o corpo do e-mail
-            mensagem.attach(MIMEText(corpo, 'plain'))
-
-            # Criando uma conexão segura com o servidor SMTP
-            try:
-                server = smtplib.SMTP(smtp_server, smtp_porta)
-                server.starttls()
-                server.login(email_origem, senha)
-                server.sendmail(email_origem, destinatario, mensagem.as_string())
-                print('E-mail enviado com sucesso!')
-            except Exception as e:
-                print(f'Erro ao enviar e-mail: {e}')
-            finally:
-                server.quit()  # Fechar a conexão com o servidor SMTP
-
-            # Exemplo de uso
-            destinatario = 'arth4asy@gmail.com'
-            assunto = 'Assunto do e-mail'
-            corpo = 'Olá, este é um exemplo de e-mail enviado via Python.'
-
-            enviar_email(destinatario, assunto, corpo)
-
-        return render_template('index.html')
+    def send_mail():
+        mansagem = Message('Assunto do E-mail', sender='gbxp2023@gmail.com', recipients=['arth4asy@gmail.com'])
+        mansagem.body = 'Conteúdo do E-mail'
+        mail.send(mansagem)
+        return 'E-mail enviado com sucesso!'
 
 
     # tentar privar isso depois
