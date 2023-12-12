@@ -57,8 +57,8 @@ def create_app():
 
     app.config['MAIL_SERVER'] = 'smtp.sendgrid.net'  # Altere para o servidor SMTP correto do SendGrid
     app.config['MAIL_PORT'] = 587
-    app.config['MAIL_USERNAME'] = 'arthur'  # Seu usuário de API
-    app.config['MAIL_PASSWORD'] = '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'  # Sua chave de API do SendGrid
+    app.config['MAIL_USERNAME'] = 'teste2'  # Seu usuário de API
+    app.config['MAIL_PASSWORD'] = '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'  # Sua chave de API do SendGrid
     app.config['MAIL_USE_TLS'] = True
     app.config['MAIL_USE_SSL'] = False
 # 
