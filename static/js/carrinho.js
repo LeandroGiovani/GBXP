@@ -3,7 +3,8 @@ const carrinho2 = document.querySelector(".carrinho-content2")
 const seta = document.querySelector(".icon")
 const cardPop = document.querySelector(".card-Order.compra")
 const cardBack = document.querySelector(".order-back.compra")
-let lscart = localStorage.getItem('cart');
+const cardPopR = document.querySelector(".card-OrderR")
+const cardBackR = document.querySelector(".order-backR")
 
 
 btnResumo.addEventListener('click', () => {
@@ -11,37 +12,16 @@ btnResumo.addEventListener('click', () => {
     seta.classList.toggle("active")
 })
 
-
-if (localStorage.getItem('comprou') == 'true' && lscart.length > 4) {
- 
-    function popUpCompra(){
-        cardBack.classList.add("mostrar")
-        mostrarPopCompra()
-    }
-    
-    function mostrarPopCompra(){
-        setTimeout(() => {
-        cardPop.classList.add("mostrar")
-        }, 1)
-    }
-    
-    function fecharPopCompra(){
-        cardPop.classList.remove("mostrar")
-        fecharbackCompra()
-    }
-    
-    function fecharbackCompra(){
-        setTimeout(() => {
-            cardBack.classList.remove("mostrar")
-        }, 400)
-    }
-
-    // localStorage.removeItem('comprou')
+function fecharPopCompra(){
+    cardPop.classList.remove("mostrar")
+    cardPopR.classList.remove("mostrar")
+    fecharbackCompra()
 }
 
-
-// if (lscart.length < 3){
-//     console.log("ativou")
-//     
-// }
+function fecharbackCompra(){
+    setTimeout(() => {
+        cardBack.classList.remove("mostrar")
+        cardBackR.classList.remove("mostrar")
+    }, 400)
+}
 
