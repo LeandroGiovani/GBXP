@@ -1,14 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for, session
 from flask_sqlalchemy import SQLAlchemy
 import mysql.connector
-import smtplib
-import email.message
-import os
-from sendgrid import SendGridAPIClient
-from sendgrid.helpers.mail import Mail
-from flask_mail import Mail, Message
-from email.mime.multipart import MIMEMultipart
-from email.mime.text import MIMEText
 
 def create_app():
 
@@ -43,26 +35,6 @@ def create_app():
         msg = db.Column(db.String(200))
 
         # assunto = db.Column(db.String(45))
-
-    # app.config['MAIL_SERVER'] = 'smtp.gmail.com'
-    # app.config['MAIL_PORT'] = 587
-    # app.config['MAIL_USERNAME'] = 'gbxp2023@gmail.com'
-    # app.config['MAIL_PASSWORD'] = 'GameBarretosExperience2023##'
-    # app.config['MAIL_USE_TLS'] = True
-    # app.config['MAIL_USE_SSL'] = False
-
-    # teste1 
-    # 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 
-        
-
-    app.config['MAIL_SERVER'] = 'smtp.sendgrid.net'  # Altere para o servidor SMTP correto do SendGrid
-    app.config['MAIL_PORT'] = 587
-    app.config['MAIL_USERNAME'] = 'teste2'  # Seu usuário de API
-    app.config['MAIL_PASSWORD'] = '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'  # Sua chave de API do SendGrid
-    app.config['MAIL_USE_TLS'] = True
-    app.config['MAIL_USE_SSL'] = False
-# 
-    mail = Mail(app)
 
     # ROTAS
     @app.route('/')
@@ -128,63 +100,6 @@ def create_app():
     @app.route('/carrinho')
     def car():
         return render_template('carrinho.html')
-
-    @app.route('/teste')
-    def teste():
-        def enviar_email():  
-            corpo_email = """
-            <p>Parágrafo1</p>
-            <p>Parágrafo2</p>
-            """ 
-
-            mensagemteste1 = email.message.Message()
-            mensagemteste1['Subject'] = "Assunto"
-            mensagemteste1['From'] = 'gbxp2023@gmail.com'
-            mensagemteste1['To'] = 'arth4asy@gmail.com'
-            password = 'GameBarretosExperience2023##' 
-            mensagemteste1.add_header('oi', 'ola')
-            mensagemteste1.set_payload(corpo_email )   
-
-            s = smtplib.SMTP('smtp.gmail.com: 587')
-            s.starttls()
-            # Login Credentials for sending the mail
-            s.login(mensagemteste1['From'], password)
-            s.sendmail(mensagemteste1['From'], [mensagemteste1['To']], mensagemteste1.as_string().encode('utf-8'))
-            print('Email enviado')  
-
-
-             # In[ ]:    
-
-
-            enviar_email()
-
-        return render_template('index.html')
-
-    @app.route('/teste1')
-    def teste1():
-        sender_email = "gbxp2023@gmail.com"
-        recipient_email = "arth4asy@gmail.com"
-        email_subject = "GBXP está feliz com você!"
-        email_content = "Olá, você acabou de se cadastrar no Game Barretos Experience. Te esperamos lá!"
-
-        msg = Message(subject=email_subject, sender=sender_email, recipients=[recipient_email])
-        msg.body = email_content
-
-        try:
-            mail.send(msg)
-            print("E-mail enviado com sucesso!")
-            return render_template('index.html')  # Renderiza o template após enviar o e-mail
-        except Exception as e:
-            print(f"Erro ao enviar e-mail: {str(e)}")
-            return str(e), 500  # Retorna o erro como resposta HTTP 500 Internal Server Error
-
-    @app.route('/teste2')
-    def send_mail():
-        mansagem = Message('Assunto do E-mail', sender='gbxp2023@gmail.com', recipients=['arth4asy@gmail.com'])
-        mansagem.body = 'Conteúdo do E-mail'
-        mail.send(mansagem)
-        return 'E-mail enviado com sucesso!'
-
 
     # tentar privar isso depois
     @app.route('/verificar_nome', methods=['GET'])
