@@ -1,6 +1,8 @@
 from flask import Flask, render_template, request, redirect, url_for, session
 from flask_sqlalchemy import SQLAlchemy
 import mysql.connector
+import smtplib
+from email.message import EmailMessage
 
 def create_app():
 
@@ -10,6 +12,12 @@ def create_app():
     # app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:A532DD-DGgBD3EA4eCd5h6hDa-f6EBd4@viaduct.proxy.rlwy.net:30787/railway'
     app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:cdh3dcE2edd33A66f61a1fH6db31HdGc@monorail.proxy.rlwy.net:51466/railway'
     db = SQLAlchemy(app)
+
+    # Conexão com o email:
+    EMAIL_ADDRESS = 'gamebarretosexperience@gmail.com'
+    # Use a senha de aplicativo gerada no lugar da sua senha normal
+    EMAIL_PASSWORD = 'mpho hcrl ermm ixxo'
+
 
     # VARIÁVEIS DO BANCO
     class Pessoa(db.Model):
@@ -35,6 +43,9 @@ def create_app():
         msg = db.Column(db.String(200))
 
         # assunto = db.Column(db.String(45))
+
+    
+
 
     # ROTAS
     @app.route('/')
@@ -78,6 +89,31 @@ def create_app():
                     email=email,
                     telefone=telefone
                 )
+
+                message = EmailMessage()
+                message['Subject'] = 'Bem-vindo à Game Barretos Experience!'
+                message['From'] = 'gamebarretosexperience@gmail.com'
+                message['To'] = email
+                message.set_content(f"""
+Olá {nome}.
+Se você está recebendo este e-mail, é porque acabou de se cadastrar na Game Barretos Experience! 
+Nós da equipe GBXP estamos muito animados por ter você conosco. A GBXP é um evento anual que celebra o mundo dos jogos, trazendo experiências únicas, competições emocionantes e uma atmosfera vibrante para todos os apaixonados por games. Estamos ansiosos para recebê-lo(a) no evento e proporcionar momentos inesquecíveis.
+                                    
+Se por acaso você não se cadastrou ou não reconhece este registro, por favor, nos avise imediatamente para que possamos investigar qualquer atividade não autorizada.
+
+Fique ligado(a) para mais informações sobre a GBXP, incluindo horários, programação de atividades e detalhes sobre o local do evento. Seja muito bem-vindo(a) à Game Barretos Experience! Mal podemos esperar para viver essa experiência incrível juntos.
+                                    
+Atenciosamente, Equipe GBXP.""")
+
+                try:
+                    with smtplib.SMTP_SSL('smtp.gmail.com', 465) as smtp:
+                        smtp.login(EMAIL_ADDRESS, EMAIL_PASSWORD)
+                        smtp.send_message(message)
+                        print("E-mail enviado com sucesso!")
+                except Exception as e:
+                    print(f"Erro ao enviar e-mail: {str(e)}")
+
+
                 db.session.add(pessoa)
                 db.session.commit()
                 msg = "Cadastro feito com sucesso"
