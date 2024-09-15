@@ -1,6 +1,8 @@
 # GBXP
-## Em desenvolvimento 
-### Equipe: Arthur - Leandro - Isabela - Loise  - Kauan
+## Finalizado
+### Equipe: Arthur - Leandro
 
 ##### @LeandroGiovani
 ##### @arthurMalveste
+
+[Acesse a GBXP:](https://game-barretos-experience1.onrender.com/)
